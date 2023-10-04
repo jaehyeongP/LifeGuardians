@@ -1,6 +1,6 @@
 package lg.req;
 
-import handler.Handler;
+import lg.handler.Handler;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
