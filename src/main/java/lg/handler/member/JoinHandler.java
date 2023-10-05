@@ -1,0 +1,31 @@
+package lg.handler.member;
+
+import lg.handler.Handler;
+import lg.member.Member;
+import lg.member.MemberService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class JoinHandler implements Handler {
+    @Override
+    public String process(HttpServletRequest request, HttpServletResponse response) {
+
+        String view = "/index.jsp";
+        if(request.getMethod().equals("GET")){
+            request.setAttribute("view", "/member/join.jsp");
+        } else{
+            String loginid = request.getParameter("loginid");
+            String password = request.getParameter("password");
+            String idNumber = request.getParameter("idNumber");
+            String sex = request.getParameter("sex");
+            String tel = request.getParameter("tel");
+
+            MemberService service = new MemberService();
+            service.addMember(new Member(loginid, password, idNumber, sex, tel, null, null));
+            view = "redirect:/index.jsp";
+        }
+        return view;
+    }
+
+}
