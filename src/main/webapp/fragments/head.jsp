@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Medilab Bootstrap Template - Index</title>
+<title>Life Guardians</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -28,9 +28,5 @@
 <!-- Template Main CSS File -->
 <link href="/resource/assets/css/style.css" rel="stylesheet">
 
-<!-- =======================================================
-* Template Name: Medilab - v4.3.0
-* Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-======================================================== -->
+<%-- Import Jquery--%>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
