@@ -3,16 +3,16 @@
 
 <html lang="utf-8">
 <head>
-    <jsp:include page="fragments/common/header.jsp"/>
+    <jsp:include page="fragments/head.jsp"/>
 </head>
 
-<section id="" class="d-flex align-items-center">
-    <div class="container">
-        <!--      <h1>Welcome to Medilab</h1>-->
-        <!--      <h2>We are team of talented designers making websites with Bootstrap</h2>-->
-        <!--      <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
-    </div>
-</section>
+<div id="topbar" class="d-flex align-items-center fixed-top">
+    <jsp:include page="fragments/common/topbar.jsp"/>
+</div>
+
+<header id="header" class="fixed-top">
+    <jsp:include page="fragments/common/header.jsp"/>
+</header>
 
 <main id="main">
     <section id="services" class="services">
@@ -56,162 +56,153 @@
 
 
     <!-- ======= Board Section ======= -->
-    <!--    <section id="board" class="about">-->
-    <!--        <div class="container-fluid col-md-9">-->
+        <section id="board" class="about">
+            <div class="container-fluid col-md-9">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+                        <h3>게시판?</h3>
+                        <p>게시판을 넣을 자리</p>
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-fingerprint"></i></div>
+                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                                excepturi sint occaecati cupiditate non provident</p>
+                        </div>
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-gift"></i></div>
+                            <h4 class="title"><a href="">Nemo Enim</a></h4>
+                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                praesentium voluptatum deleniti atque</p>
+                        </div>
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-atom"></i></div>
+                            <h4 class="title"><a href="">Dine Pad</a></h4>
+                            <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis
+                                odit. Sunt aut deserunt minus aut eligendi omnis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+     ======= Departments Section =======
+        <section id="departments" class="departments">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Departments</h2>
+                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                        fugiat sit in iste officiis commodi quidem hic quas.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-9 mt-4 mt-lg-0">
+                        <div class="tab-content">
+                            <div class="tab-pane active show" id="tab-1">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Cardiology</h3>
+                                        <p class="fst-italic">
+                                            Qui laudantium consequatur laborum sit qui ad sapiente dila
+                                            parde sonata raqer a videna mareta paulona marka</p>
+                                        <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum
+                                            eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat
+                                            minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui
+                                            similique accusamus nostrum rem vero</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="/resource/assets/img/departments-1.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-2">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Et blanditiis nemo veritatis excepturi</h3>
+                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila
+                                            parde sonata raqer a videna mareta paulona marka</p>
+                                        <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et
+                                            reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit
+                                            ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna
+                                            desera vafle de nideran pal</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="/resource/assets/img/departments-2.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-3">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                                        <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim
+                                            fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis
+                                            aut</p>
+                                        <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis
+                                            quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae
+                                            sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et
+                                            harum voluptatem optio quae</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="/resource/assets/img/departments-3.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-4">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
+                                        <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas
+                                            iure porro quis delectus</p>
+                                        <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
+                                            necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in
+                                            consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a
+                                            laborum inventore</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="/resource/assets/img/departments-4.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-5">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
+                                        <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
+                                            quia.</p>
+                                        <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae
+                                            ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet
+                                            Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                                    </div>
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="/resource/assets/img/departments-5.jpg" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!--            <div class="row">-->
-
-    <!--                <div class="col-xl-12 col-lg-12 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">-->
-    <!--                    <h3>게시판?</h3>-->
-    <!--                    <p>게시판을 넣을 자리</p>-->
-
-    <!--                    <div class="icon-box">-->
-    <!--                        <div class="icon"><i class="bx bx-fingerprint"></i></div>-->
-    <!--                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>-->
-    <!--                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias-->
-    <!--                            excepturi sint occaecati cupiditate non provident</p>-->
-    <!--                    </div>-->
-
-    <!--                    <div class="icon-box">-->
-    <!--                        <div class="icon"><i class="bx bx-gift"></i></div>-->
-    <!--                        <h4 class="title"><a href="">Nemo Enim</a></h4>-->
-    <!--                        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis-->
-    <!--                            praesentium voluptatum deleniti atque</p>-->
-    <!--                    </div>-->
-
-    <!--                    <div class="icon-box">-->
-    <!--                        <div class="icon"><i class="bx bx-atom"></i></div>-->
-    <!--                        <h4 class="title"><a href="">Dine Pad</a></h4>-->
-    <!--                        <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis-->
-    <!--                            odit. Sunt aut deserunt minus aut eligendi omnis</p>-->
-    <!--                    </div>-->
-
-    <!--                </div>-->
-    <!--            </div>-->
-
-    <!--        </div>-->
-    <!--    </section>-->
-
-    <!-- ======= Departments Section ======= -->
-    <!--    <section id="departments" class="departments">-->
-    <!--        <div class="container">-->
-
-    <!--            <div class="section-title">-->
-    <!--                <h2>Departments</h2>-->
-    <!--                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint-->
-    <!--                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia-->
-    <!--                    fugiat sit in iste officiis commodi quidem hic quas.</p>-->
-    <!--            </div>-->
-
-    <!--            <div class="row">-->
-    <!--                <div class="col-lg-3">-->
-    <!--                    <ul class="nav nav-tabs flex-column">-->
-    <!--                        <li class="nav-item">-->
-    <!--                            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Cardiology</a>-->
-    <!--                        </li>-->
-    <!--                        <li class="nav-item">-->
-    <!--                            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Neurology</a>-->
-    <!--                        </li>-->
-    <!--                        <li class="nav-item">-->
-    <!--                            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Hepatology</a>-->
-    <!--                        </li>-->
-    <!--                        <li class="nav-item">-->
-    <!--                            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pediatrics</a>-->
-    <!--                        </li>-->
-    <!--                        <li class="nav-item">-->
-    <!--                            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Eye Care</a>-->
-    <!--                        </li>-->
-    <!--                    </ul>-->
-    <!--                </div>-->
-    <!--                <div class="col-lg-9 mt-4 mt-lg-0">-->
-    <!--                    <div class="tab-content">-->
-    <!--                        <div class="tab-pane active show" id="tab-1">-->
-    <!--                            <div class="row">-->
-    <!--                                <div class="col-lg-8 details order-2 order-lg-1">-->
-    <!--                                    <h3>Cardiology</h3>-->
-    <!--                                    <p class="fst-italic">-->
-    <!--                                        Qui laudantium consequatur laborum sit qui ad sapiente dila-->
-    <!--                                        parde sonata raqer a videna mareta paulona marka</p>-->
-    <!--                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum-->
-    <!--                                        eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat-->
-    <!--                                        minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui-->
-    <!--                                        similique accusamus nostrum rem vero</p>-->
-    <!--                                </div>-->
-    <!--                                <div class="col-lg-4 text-center order-1 order-lg-2">-->
-    <!--                                    <img src="/resource/assets/img/departments-1.jpg" alt="" class="img-fluid">-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="tab-pane" id="tab-2">-->
-    <!--                            <div class="row">-->
-    <!--                                <div class="col-lg-8 details order-2 order-lg-1">-->
-    <!--                                    <h3>Et blanditiis nemo veritatis excepturi</h3>-->
-    <!--                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila-->
-    <!--                                        parde sonata raqer a videna mareta paulona marka</p>-->
-    <!--                                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et-->
-    <!--                                        reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit-->
-    <!--                                        ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna-->
-    <!--                                        desera vafle de nideran pal</p>-->
-    <!--                                </div>-->
-    <!--                                <div class="col-lg-4 text-center order-1 order-lg-2">-->
-    <!--                                    <img src="/resource/assets/img/departments-2.jpg" alt="" class="img-fluid">-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="tab-pane" id="tab-3">-->
-    <!--                            <div class="row">-->
-    <!--                                <div class="col-lg-8 details order-2 order-lg-1">-->
-    <!--                                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>-->
-    <!--                                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim-->
-    <!--                                        fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis-->
-    <!--                                        aut</p>-->
-    <!--                                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis-->
-    <!--                                        quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae-->
-    <!--                                        sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et-->
-    <!--                                        harum voluptatem optio quae</p>-->
-    <!--                                </div>-->
-    <!--                                <div class="col-lg-4 text-center order-1 order-lg-2">-->
-    <!--                                    <img src="/resource/assets/img/departments-3.jpg" alt="" class="img-fluid">-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="tab-pane" id="tab-4">-->
-    <!--                            <div class="row">-->
-    <!--                                <div class="col-lg-8 details order-2 order-lg-1">-->
-    <!--                                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>-->
-    <!--                                    <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas-->
-    <!--                                        iure porro quis delectus</p>-->
-    <!--                                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam-->
-    <!--                                        necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in-->
-    <!--                                        consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a-->
-    <!--                                        laborum inventore</p>-->
-    <!--                                </div>-->
-    <!--                                <div class="col-lg-4 text-center order-1 order-lg-2">-->
-    <!--                                    <img src="/resource/assets/img/departments-4.jpg" alt="" class="img-fluid">-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <div class="tab-pane" id="tab-5">-->
-    <!--                            <div class="row">-->
-    <!--                                <div class="col-lg-8 details order-2 order-lg-1">-->
-    <!--                                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>-->
-    <!--                                    <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro-->
-    <!--                                        quia.</p>-->
-    <!--                                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae-->
-    <!--                                        ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet.-->
-    <!--                                        Occaecati sed est sint aut vitae molestiae voluptate vel</p>-->
-    <!--                                </div>-->
-    <!--                                <div class="col-lg-4 text-center order-1 order-lg-2">-->
-    <!--                                    <img src="/resource/assets/img/departments-5.jpg" alt="" class="img-fluid">-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-
-    <!--        </div>-->
-    <!--    </section>&lt;!&ndash; End Departments Section &ndash;&gt;-->
+            </div>
+        </section>
+<%--    &lt;!&ndash; End Departments Section &ndash;&gt;--%>
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq section-bg">
@@ -288,9 +279,9 @@
     </section><!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    <%-- TODO: 공백이 생기는 이유를 확인해보기 (현재 height값을 수정하여 처리하였음.)   --%>
+    <section id="testimonials" class="testimonials h-50">
         <div class="container">
-
             <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
 
@@ -300,7 +291,7 @@
                                 <img src="/resource/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
                                      alt="">
                                 <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
+                                <h4>팀장 &amp; 역할</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                     각자 프로젝트 후기를 남길까요?
@@ -316,12 +307,10 @@
                                 <img src="/resource/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
                                      alt="">
                                 <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
+                                <h4>팀원 역할</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                    cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                    legam anim culpa.
+                                    안녕하세요
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -334,12 +323,10 @@
                                 <img src="/resource/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
                                      alt="">
                                 <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
+                                <h4>팀원, 역할</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                    cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                    legam anim culpa.
+                                    반갑습니다.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -352,22 +339,18 @@
                                 <img src="/resource/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
                                      alt="">
                                 <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
+                                <h4>팀원, 역할1</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                    cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                    legam anim culpa.
+                                    잘부탁드립니다.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
                         </div>
                     </div><!-- End testimonial item -->
-
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-
         </div>
     </section><!-- End Testimonials Section -->
 
@@ -394,20 +377,16 @@
 
 </main><!-- End #main -->
 
-<jsp:include page="fragments/common/footer.jsp"/>
+<footer id="footer">
+    <jsp:include page="fragments/common/footer.jsp"/>
+</footer>
 
 
-
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+<%-- 위로가기 버튼--%>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/resource/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/resource/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="/resource/assets/vendor/php-email-form/validate.js"></script>
-<script src="/resource/assets/vendor/purecounter/purecounter.js"></script>
-<script src="/resource/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<jsp:include page="fragments/vendor.jsp"/>
 
 <!-- Template Main JS File -->
 <script src="/resource/assets/js/main.js"></script>
