@@ -6,6 +6,8 @@
     <jsp:include page="fragments/head.jsp"/>
 </head>
 
+<body>
+
 <div id="topbar" class="d-flex align-items-center fixed-top">
     <jsp:include page="fragments/common/topbar.jsp"/>
 </div>
@@ -25,25 +27,25 @@
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 align-items-stretch">
-                    <div class="icon-box">
+                    <div class="icon-box card">
                         <div class="icon"><i class="fas fa-hospital-user"></i></div>
-                        <h4><a href="">병원</a></h4>
+                        <h4><a href="/hospital/list.do" class="stretched-link">병원</a></h4>
                         <p>병원 검색 및 예약</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0">
-                    <div class="icon-box">
+                    <div class="icon-box card">
                         <div class="icon"><i class="fas fa-pills"></i></div>
-                        <h4><a href="">약</a></h4>
+                        <h4><a href="/medicine/list.do" class="stretched-link">약</a></h4>
                         <p>약 검색 및 관리</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0">
-                    <div class="icon-box">
+                    <div class="icon-box card">
                         <div class="icon"><i class="fas fa-notes-medical"></i></div>
-                        <h4><a href="">게시판</a></h4>
+                        <h4><a href="/board/list.do" class="stretched-link">게시판</a></h4>
                         <p>자유 게시판 및 질문 게시판</p>
                     </div>
                 </div>
@@ -54,18 +56,18 @@
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq section-bg">
         <div class="container">
-
             <div class="section-title">
                 <h2>Q&A</h2>
-                <p>자주 묻는 질문?</p>
+                <p>자주 묻는 질문</p>
             </div>
 
             <div class="faq-list">
                 <ul>
                     <li data-aos="fade-up" data-aos-delay="100">
                         <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-1" class="collapsed">타이레놀을 음료수와 먹어도 되나요?<i class="bx bx-chevron-down icon-show"></i><i
-                            class="bx bx-chevron-up icon-close"></i></a>
+                                                                       data-bs-target="#faq-list-1" class="collapsed">타이레놀을
+                        음료수와 먹어도 되나요?<i class="bx bx-chevron-down icon-show"></i><i
+                                class="bx bx-chevron-up icon-close"></i></a>
                         <div id="faq-list-1" class="collapse" data-bs-parent=".faq-list">
                             <p>
                                 안됩니다.
@@ -99,8 +101,9 @@
 
                     <li data-aos="fade-up" data-aos-delay="300">
                         <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-4" class="collapsed">자주 묻는 질문4<i
-                            class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                                                                       data-bs-target="#faq-list-4" class="collapsed">자주
+                        묻는 질문4<i
+                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                         <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                             <p>
                                 답변4
@@ -121,17 +124,14 @@
                     </li>
                 </ul>
             </div>
-
         </div>
     </section><!-- End Frequently Asked Questions Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <%-- TODO: 공백이 생기는 이유를 확인해보기 (현재 height값을 수정하여 처리하였음.)   --%>
     <section id="testimonials" class="testimonials h-50">
         <div class="container">
             <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-
                     <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
@@ -147,7 +147,6 @@
                             </div>
                         </div>
                     </div><!-- End testimonial item -->
-
                     <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
@@ -163,7 +162,6 @@
                             </div>
                         </div>
                     </div><!-- End testimonial item -->
-
                     <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
@@ -179,7 +177,6 @@
                             </div>
                         </div>
                     </div><!-- End testimonial item -->
-
                     <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
@@ -196,22 +193,25 @@
                         </div>
                     </div><!-- End testimonial item -->
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination">
+
+                </div>
             </div>
         </div>
     </section><!-- End Testimonials Section -->
 
 </main><!-- End #main -->
 
-<footer id="footer">
-    <jsp:include page="fragments/common/footer.jsp"/>
+<footer id="footer" class="fixed-bottom">
+    <jsp:include page="/fragments/common/footer.jsp"/>
 </footer>
 
 <%-- 위로가기 버튼--%>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<jsp:include page="fragments/vendor.jsp"/>
+<jsp:include page="/fragments/vendor.jsp"/>
 
 <!-- Template Main JS File -->
 <script src="/resource/assets/js/main.js"></script>
