@@ -2,17 +2,17 @@
 
 <!-- ======= Header ======= -->
   <div class="container d-flex align-items-center">
-
-    <!--        <h1 class="logo me-auto"><a href="index.html">LG</a></h1>-->
-
-    <h1 class="logo me-auto"><a href="/"><img src="/resource/assets/img/logo/lg.jpeg"></a></h1>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    <div class="logo me-auto">
+        <%-- TODO: Change Text to Image --%>
+        <a href="/" class="d-flex"><img src="/resource/assets/img/logo/lg.jpeg">
+            <h2>Life Guardians</h2>
+        </a>
+    </div>
 
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li><a class="nav-link" href="/hp/list.do">병원</a></li>
-        <li><a class="nav-link" href="/md/list.do">약</a></li>
+        <li><a class="nav-link" href="/hospital/list.do">병원</a></li>
+        <li><a class="nav-link" href="/medicine/list.do">약</a></li>
         <li><a class="nav-link" href="/board/list.do">게시판</a></li>
 
         <!--                <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>-->
@@ -37,7 +37,7 @@
     </nav><!-- .navbar -->
 
     <c:if test="${sessionScope.loginId == null }">
-      <a href="/member/login.jsp" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>로그인</a>
+      <a href="/login.do" class="appointment-btn scrollto"><span class="d-none d-md-inline"></span>로그인</a>
     </c:if>
 
 <%--    <c:if test="${sessionScope.loginId != null }">--%>
