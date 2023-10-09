@@ -6,13 +6,11 @@
         <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">조이름?, 아이콘 변경하기</a>
         <i class="bi bi-phone"></i> Kosta
     </div>
-    <div class="d-none d-lg-flex social-links align-items-center">
-        <a href="#" class="twitter">Kosta Logo 넣기</a>
-        <a href="#" class="twitter">Git hub 로고 및 링크 넣기</a>
-        <a href="#" class="twitter">Notion 로고 및 링크 넣기</a>
-<%--        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>--%>
-<%--        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>--%>
-<%--        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>--%>
-<%--        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>--%>
+
+    <div class="d-flex social-links align-items-center">
+        <a href="https://edu.kosta.or.kr" target="_blank"><div class="kosta-icon"></div></a>
+        <a href="https://www.notion.so/8743349320224985957abdbf9007beec?v=df86c217eed04f83b38f9adf0014e4a9" target="_blank"><div class="notion-icon"></div></a>
+        <a href="https://github.com/sehoh/LifeGuardians" target="_blank"><div class="github-icon"></div></a>
+
     </div>
 </div>

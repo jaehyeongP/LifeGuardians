@@ -1732,3 +1732,28 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+.github-icon {
+  width: 20px; /* 원하는 너비 설정 */
+  height: 20px; /* 원하는 높이 설정 */
+  background-image: url('/resource/assets/img/logo/github.svg'); /* PNG 아이콘 이미지 경로 설정 */
+  background-size: cover; /* 배경 이미지 크기를 요소에 맞게 설정 */
+  /* 추가적인 스타일링을 원하는 대로 설정 */
+}
+
+
+.kosta-icon {
+  width: 20px; /* 원하는 너비 설정 */
+  height: 20px; /* 원하는 높이 설정 */
+  background-image: url('/resource/assets/img/logo/kosta.svg'); /* PNG 아이콘 이미지 경로 설정 */
+  background-size: cover; /* 배경 이미지 크기를 요소에 맞게 설정 */
+  /* 추가적인 스타일링을 원하는 대로 설정 */
+}
+
+.notion-icon {
+  width: 20px; /* 원하는 너비 설정 */
+  height: 20px; /* 원하는 높이 설정 */
+  background-image: url('/resource/assets/img/logo/notion.png'); /* PNG 아이콘 이미지 경로 설정 */
+  background-size: cover; /* 배경 이미지 크기를 요소에 맞게 설정 */
+  /* 추가적인 스타일링을 원하는 대로 설정 */
+}
