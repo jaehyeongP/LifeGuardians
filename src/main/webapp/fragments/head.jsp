@@ -18,7 +18,9 @@
 <!-- Vendor CSS Files -->
 <link href="/resource/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
 <link href="/resource/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resource/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<%--<link href="/resource/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">--%>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 <link href="/resource/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 <link href="/resource/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link href="/resource/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
