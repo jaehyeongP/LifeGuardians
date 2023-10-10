@@ -9,19 +9,19 @@ import java.util.List;
 @Mapper
 public interface MemberDao {
 
-    @Insert("insert into member values (#{loginid}, #{password}, #{idNumber}, #{sex}, #{tel}, sysdate)")
+    @Insert("insert into members values (seq_members.nextval, #{username}, #{password}, #{idNumber}, #{sex}, #{email}, #{tel}, sysdate, sysdate)")
     void insert(Member member);
 
-    @Select("select * from member")
+    @Select("select * from members")
     List<Member> selectAll();
 
-    @Select("select * from member where loginid=#{loginid}")
-    Member select(@Param("loginid") String loginid);
+    @Select("select * from members where username=#{username}")
+    Member select(@Param("username") String username);
 
-    @Update("update member set password=#{password} where loginid=#{loginid}")
+    @Update("update members set password=#{password} where username=#{username}")
     void update(Member member);
 
-    @Delete("delete from member where loginid=#{loginid}")
-    void delete(@Param("loginid") String loginid);
+    @Delete("delete from members where username=#{username}")
+    void delete(@Param("username") String username);
 
 }

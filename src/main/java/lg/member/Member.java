@@ -12,12 +12,12 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
-    private String loginid;
+    private String username;
     private String password;
     private String idNumber;
     private String sex;
+    private String email;
     private String tel;
     private Date genDate;
     private Date editDate;
-
 }

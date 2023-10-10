@@ -15,14 +15,15 @@ public class JoinHandler implements Handler {
         if(request.getMethod().equals("GET")){
             request.setAttribute("view", "/member/join.jsp");
         } else{
-            String loginid = request.getParameter("loginid");
+            String username = request.getParameter("username");
             String password = request.getParameter("password");
             String idNumber = request.getParameter("idNumber");
             String sex = request.getParameter("sex");
+            String eamil = request.getParameter("email");
             String tel = request.getParameter("tel");
 
             MemberService service = new MemberService();
-            service.addMember(new Member(loginid, password, idNumber, sex, tel, null, null));
+            service.addMember(new Member(username, password, idNumber, sex, eamil, tel, null, null));
             view = "redirect:/index.jsp";
         }
         return view;

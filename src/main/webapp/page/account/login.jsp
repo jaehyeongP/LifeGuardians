@@ -21,9 +21,9 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">로그인</h5>
 
-                        <form class="" method="post" action="login">
+                        <form class="" method="post" action="/login.do">
                             <div class="form-label-group">
-                                <input type="text" id="loginId" class="form-control" name="loginId" placeholder="아이디" required autofocus>
+                                <input type="text" id="username" class="form-control" name="username" placeholder="아이디" required autofocus>
                             </div><br>
 
                             <div class="form-label-group">
@@ -36,7 +36,7 @@
 <%--                                <button class="btn btn-lg btn-block" type="submit" style="background: #1977cc; color: white;">로그인</button>--%>
 
                                 <button class="btn appointment-btn appointment-btn-lg btn-lg btn-secondary btn-block" onclick="location='/signup'" style="background: #6c757d">회원가입</button>
-                                <button class="btn appointment-btn btn-lg btn-block" type="submit" style="background: #1977cc; color: white;">로그인</button>
+                                <input class="btn appointment-btn btn-lg btn-block" type="submit" value="로그인" style="background: #1977cc; color: white;">
                             </div>
                             <hr class="my-4">
                             <div class="text-center">
