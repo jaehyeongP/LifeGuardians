@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html lang="utf-8">
 <head>
     <jsp:include page="/fragments/head.jsp"/>
 </head>
@@ -16,7 +15,20 @@
 
 <main id="main">
 
- <jsp:include page="/fragments/contents/hospital/detail_content.jsp"/>
+    <div class="d-flex m-1" style="height: 1400px; background-color: #1977cc; border-radius: 10px;">
+        <section id="detail" class=" detail_section_bg" style="width:700px">
+            <jsp:include page="/fragments/contents/hospital/detail_content.jsp" />
+        </section>
+
+
+        <section id="review" class="review_section_bg" style="width:700px ; border-color:black;">
+            <jsp:include page="/fragments/contents/hospital/review_content.jsp" />
+        </section>
+
+    </div>
+
+
+
 </main>
 
 <footer id="footer">
