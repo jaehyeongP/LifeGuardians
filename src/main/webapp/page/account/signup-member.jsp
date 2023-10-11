@@ -5,6 +5,26 @@
   <jsp:include page="/fragments/head.jsp"/>
 </head>
 <script src="/resource/assets/js/idcheck.js"></script>
+<script type="text/javascript">
+  function isSame(){
+    var pw = document.getElementById("pw").value;
+    if(pw.length < 6 || pw.length > 16){
+      window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
+      document.getElementById('pw').value=document.getElementById('pwCheck').value='';
+      document.getElementById('same').innerHTML='';
+    }
+    if(document.getElementById('pw').value!='' && document.getElementById('pwCheck').value!=''){
+      if(document.getElementById('pw').value== document.getElementById('pwCheck').value){
+        document.getElementById('same').innerHTML= '비밀번호가 일치합니다.';
+        document.getElementById('same').style.color = 'blue';
+      } else {
+        document.getElementById('same').innerHTML = '비밀번호가 일치하지 않습니다.';
+        document.getElementById('same').style.color = 'red' ;
+      }
+
+    }
+  }
+</script>
 
 <body>
 <main id="main" class="bg-secondary">
@@ -38,11 +58,12 @@
 
                     <!--비밀번호-->
                     <div class="input-group mb-1">
-                      <input type="text" class="form-control" placeholder="비밀번호">
+                      <input id="pw" onchange="isSame()" type="text" class="form-control" placeholder="비밀번호">
                     </div>
 
                     <div class="input-group mb-1">
-                      <input type="text" class="form-control" placeholder="비밀번호 확인">
+                      <input id="pwCheck" onchange="isSame()" type="text" class="form-control" placeholder="비밀번호 확인">
+                      <span id="same"></span>
                     </div>
 
                     <div class="input-group mb-1">
