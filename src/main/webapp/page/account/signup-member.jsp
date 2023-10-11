@@ -4,6 +4,7 @@
 <head>
   <jsp:include page="/fragments/head.jsp"/>
 </head>
+<script src="/resource/assets/js/idcheck.js"></script>
 
 <body>
 <main id="main" class="bg-secondary">
@@ -30,8 +31,9 @@
                   <div class="mb-3">
                     <!--아이디-->
                     <div class="input-group mb-1">
-                      <input type="text" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2">
-                      <button class="btn btn-outline-secondary" type="button" id="button-addon2">중복확인</button>
+                      <input  id="username" class="form-control" type="text"  placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2">
+                      <button id="button-addon2" class="btn btn-outline-secondary" type="button"  onclick="a()">중복확인</button>
+                      <span id="res"></span>
                     </div>
 
                     <!--비밀번호-->

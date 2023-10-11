@@ -12,8 +12,10 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member {
+    private String member_id;
     private String username;
     private String password;
+    private String name;
     private String idNumber;
     private String sex;
     private String email;
