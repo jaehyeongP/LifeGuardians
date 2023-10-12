@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -22,31 +20,42 @@ public class ListHandler implements Handler {
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
         String page = "";
+        String service_key = "%2FSUYfwzsdwBIFFtVsIomdyk8cXWUZ7CYhDti4oMnbPwiD2bOnlot%2Fysx8v2SmilVyyUY4BNmSyR3r0d9viGo5w%3D%3D";
+
         if(req.getMethod().equals("GET")) {
             page = "/page/medicine/list.jsp";
 
             try{
-                String service_key = "%2FSUYfwzsdwBIFFtVsIomdyk8cXWUZ7CYhDti4oMnbPwiD2bOnlot%2Fysx8v2SmilVyyUY4BNmSyR3r0d9viGo5w%3D%3D";
                 String pageNo = "1";
-//            if(!req.getParameter("pageNo").equals("1"))
-//                pageNo = req.getParameter("pageNo");
-                String search_type = req.getParameter("search_type");
-                String search_keyword = req.getParameter("search_keyword");
+                if(req.getParameter("pageNo") != null)
+                    pageNo = req.getParameter("pageNo");
 
                 String urlstr = "https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?pageNo=" + pageNo + "&numOfRows=12&serviceKey=" + service_key + "&type=json";
 
+                String search_type = req.getParameter("search_type");
+                String search_keyword = req.getParameter("search_keyword");
+
+                if(search_type != null && search_keyword != null){
+                    search_keyword = URLEncoder.encode(search_keyword, "UTF-8");
+                    if(search_type.equals("medicine_name"))
+                        urlstr = "https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?pageNo=" + pageNo + "&numOfRows=12&serviceKey=" + service_key + "&itemName=" + search_keyword +"&type=json";
+                    else if(search_type.equals("symptom"))
+                        urlstr = "https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?pageNo=" + pageNo + "&numOfRows=12&serviceKey=" + service_key + "&efcyQesitm=" + search_keyword +"&type=json";
+                }
+
                 URL url = new URL(urlstr);
+                System.out.println(url);
 
                 URLConnection conn = url.openConnection();
                 InputStream in = conn.getInputStream();
                 JSONParser parser = new JSONParser();
                 JSONObject obj = (JSONObject) parser.parse(new InputStreamReader(in));
                 JSONObject body = (JSONObject) obj.get("body");
+
                 JSONArray items = (JSONArray) body.get("items");
                 ArrayList<Medicine> list = new ArrayList<>();
                 for (int i = 0; i < items.size(); i++) {
                     JSONObject item = (JSONObject) items.get(i);
-                    String itemSeq = (String) item.get("itemSeq");
                     String entpName = (String) item.get("entpName");
                     String itemName = (String) item.get("itemName");
                     String efcyQesitm = (String) item.get("efcyQesitm");
@@ -58,9 +67,10 @@ public class ListHandler implements Handler {
                     String depositMethodQesitm = (String) item.get("depositMethodQesitm");
                     String itemImage = (String) item.get("itemImage");
 
-                    list.add(new Medicine(itemSeq, entpName, itemName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
+                    list.add(new Medicine(entpName, itemName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
                 }
                 req.setAttribute("list", list);
+                req.setAttribute("pageNo", pageNo);
             } catch (MalformedURLException e){
                 e.printStackTrace();
             } catch (IOException e) {
@@ -70,7 +80,6 @@ public class ListHandler implements Handler {
             }
 
         } else {
-
 
         }
 
