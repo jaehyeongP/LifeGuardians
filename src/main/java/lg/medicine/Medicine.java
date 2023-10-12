@@ -13,7 +13,6 @@ public class Medicine {
     private int medicine_id;
     private int member_id;
     private Date take_time;
-    private String itemSeq;
     private String entpName;
     private String itemName;
     private String efcyQesitm;
@@ -43,8 +42,7 @@ public class Medicine {
         this.itemImage = itemImage;
     }
 
-    public Medicine(String itemSeq, String entpName, String itemName, String efcyQesitm, String useMethodQesitm, String atpnWarnQesitm, String atpnQesitm, String intrcQesitm, String seQesitm, String depositMethodQesitm, String itemImage) {
-        this.itemSeq = itemSeq;
+    public Medicine(String entpName, String itemName, String efcyQesitm, String useMethodQesitm, String atpnWarnQesitm, String atpnQesitm, String intrcQesitm, String seQesitm, String depositMethodQesitm, String itemImage) {
         this.entpName = entpName;
         this.itemName = itemName;
         this.efcyQesitm = efcyQesitm;
