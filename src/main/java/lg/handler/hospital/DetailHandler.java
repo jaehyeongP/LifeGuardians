@@ -14,6 +14,7 @@ public class DetailHandler implements Handler {
             page = "/page/hospital/detail.jsp";
         } else {
 
+
         }
         return page;
     }

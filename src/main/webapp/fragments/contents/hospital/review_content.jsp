@@ -2,7 +2,7 @@
 
 <div class=" review_elements  p-2 m-2 h-100"
      style='background-color:white ;   border: 2px solid black; border-radius: 10px; height:1000px'>
-  <div class=" p-2 w-100 h-100" style='background-color:white;  border-color:black'>
+  <!--<div class=" p-2 w-100 h-100" style='background-color:white;  border-color:black'>
     <div class="review_top"
          style="border-width: 1px;  border-radius:10px; height:10px">
       리뷰
@@ -94,6 +94,33 @@
     </nav>
 
   </div>
+-->
 
+  <div id="map" style="width:100%;height:400px;"></div>
+  <script>
+
+    function test (x, y){
+      var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 16
+      };
+
+      var map = new naver.maps.Map('map', mapOptions);
+
+      var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.3595704, 127.105399),
+        map: map
+      });
+    }
+
+  </script>
+
+
+  <div>
+    <progress value="20" max="100"></progress>
+  </div>
+  <div>
+    <progress value="20" max="200"></progress>
+  </div>
 
 </div>
