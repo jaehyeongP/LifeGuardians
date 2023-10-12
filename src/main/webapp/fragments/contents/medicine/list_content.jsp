@@ -13,13 +13,13 @@
 
     <div class="row mb-5 text-center">
 
-      <form id="search_form" class="php-email-form px-5" method="get">
+      <form id="search_form" class="px-5" method="get">
         <div class="input-group">                   
-          <select class="form-select" id="search_type" name="search_type">
+          <select id="search_type" class="form-select" name="search_type">
             <option value="medicine_name">약이름</option>
             <option value="symptom">증상</option>
           </select>
-          <input type="text" id="search_medicine" class="form-control" placeholder="약 검색" style="width: 50%;">
+          <input type="text" id="search_keyword" class="form-control" name="search_keyword" placeholder="약 검색" style="width: 50%;">
           <input type="submit" id="search_btn" class="btn btn-primary" value="검색">
         </div>
       </form>
@@ -40,7 +40,7 @@
             <h5 class="card-title">${l.itemName}</h5>
             <p class="card-text">${l.efcyQesitm}</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <a class="btn btn-outline-primary" href="/medicine/detail.do?itemSeq=${l.itemSeq}">상세보기</a>
+              <a class="btn btn-outline-primary" href="/medicine/detail.do?itemName=${l.itemName}">상세보기</a>
             </div>
           </div>
         </div>
@@ -49,5 +49,4 @@
     </div>
 
   </div>
-
 </section>

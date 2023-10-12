@@ -28,27 +28,33 @@ public class MemberService {
         session.close();
         return list;
     }
-
-    public Member getMember(String id){
+    public List<Member> getMemberByName(String name){
         SqlSession session = sqlSessionFactory.openSession();
         MemberDao dao = (MemberDao) session.getMapper(MemberDao.class);
-        Member member = dao.select(id);
+        List<Member> list = dao.selectByName(name);
+        session.close();
+        return list;
+    }
+    public Member getMember(String username){
+        SqlSession session = sqlSessionFactory.openSession();
+        MemberDao dao = (MemberDao) session.getMapper(MemberDao.class);
+        Member member = dao.selectByUsername(username);
         session.close();
         return member;
     }
 
-    public void editMember(Member m){
+    public void editMember(Member member){
         SqlSession session = sqlSessionFactory.openSession();
         MemberDao mapper = (MemberDao) session.getMapper(MemberDao.class);
-        mapper.update(m);
+        mapper.update(member);
         session.commit();
         session.close();
     }
 
-    public void delMember(String loginid){
+    public void delMember(String username){
         SqlSession session = sqlSessionFactory.openSession();
         MemberDao mapper = (MemberDao) session.getMapper(MemberDao.class);
-        mapper.delete(loginid);
+        mapper.delete(username);
         session.commit();
         session.close();
     }

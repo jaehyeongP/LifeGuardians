@@ -28,12 +28,10 @@ public class DetailHandler implements Handler {
 
             try{
                 String service_key = "%2FSUYfwzsdwBIFFtVsIomdyk8cXWUZ7CYhDti4oMnbPwiD2bOnlot%2Fysx8v2SmilVyyUY4BNmSyR3r0d9viGo5w%3D%3D";
-                String item_seq = req.getParameter("itemSeq");
-                System.out.println(item_seq);
+                String item_name = URLEncoder.encode(req.getParameter("itemName"), "UTF-8");
 
-                String urlstr = "https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?&serviceKey=" + service_key + "&itemSeq=" + item_seq + "&type=json";
+                String urlstr = "https://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?&serviceKey=" + service_key + "&itemName=" + item_name + "&type=json";
                 URL url = new URL(urlstr);
-                System.out.println(url);
 
                 URLConnection conn = url.openConnection();
                 InputStream in = conn.getInputStream();
@@ -57,7 +55,7 @@ public class DetailHandler implements Handler {
                 String depositMethodQesitm = (String) item.get("depositMethodQesitm");
                 String itemImage = (String) item.get("itemImage");
 
-                Medicine medicine = new Medicine("0", entpName, itemName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage);
+                Medicine medicine = new Medicine(entpName, itemName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage);
 
                 req.setAttribute("medicine", medicine);
             } catch (MalformedURLException e){
