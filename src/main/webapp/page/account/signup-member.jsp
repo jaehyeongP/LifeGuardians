@@ -61,9 +61,23 @@
                       <input class="form-control" name="name" type="text"  placeholder="이름">
                     </div>
 
-                    <div class="input-group mb-1">
-                      <input class="form-control" name="sex" type="text"  placeholder="성별">
-                    </div>
+                    <%--성별--%>
+<%--                    <div class="input-group mb-1">--%>
+<%--                      <input class="form-control" name="sex" type="text"  placeholder="성별">--%>
+<%--                    </div>--%>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sex" id="flexRadioDefault1" value="male">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                              남성
+                          </label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sex" id="flexRadioDefault2" value="female">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                              여성
+                          </label>
+                      </div>
+
 
                     <div class="col-4 input-group mb-1">
                       <input type="text" class="form-control col-4" placeholder="주민등록번호 앞자리">

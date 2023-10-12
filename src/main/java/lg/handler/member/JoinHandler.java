@@ -24,7 +24,7 @@ public class JoinHandler implements Handler {
             String tel = request.getParameter("tel");
 
             MemberService service = new MemberService();
-            service.addMember(new Member(null, username, password, name, idNumber, sex, eamil, tel, null, null));
+            service.addMember(new Member(0, username, password, name, idNumber, sex, eamil, tel, null, null));
             view = "redirect:/index.jsp";
         }
         return view;
