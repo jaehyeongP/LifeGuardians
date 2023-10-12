@@ -1,6 +1,7 @@
 package lg.hospital;
 
 import lombok.AllArgsConstructor;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Builder
+
 public class Hospital {
     private String hpid;
     private String username;
@@ -25,5 +27,4 @@ public class Hospital {
     private String endTime;
     private Date genDate;
     private Date editDate;
-
 }

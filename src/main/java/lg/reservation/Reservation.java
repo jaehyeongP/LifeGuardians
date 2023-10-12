@@ -1,4 +1,4 @@
-package lg.member;
+package lg.reservation;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,15 +11,14 @@ import java.sql.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+public class Reservation {
+    private int reserve_id;
     private int member_id;
-    private String username;
-    private String password;
-    private String name;
-    private String idNumber;
-    private String sex;
-    private String email;
-    private String tel;
+    private String hpid;
+    private Date reserveTime;
+    private String symptoms;
+    private String status;
     private Date genDate;
     private Date editDate;
+
 }
