@@ -1,9 +1,7 @@
 package lg.member;
 
-import lombok.Setter;
 import org.apache.ibatis.annotations.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Mapper
