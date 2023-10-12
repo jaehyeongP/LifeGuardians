@@ -13,12 +13,14 @@ public class HospitalService {
         sqlSessionFactory = Factory.getSqlSessionFactory();
     }
 
+
     public void addHospital(Hospital hospital){
         SqlSession session = sqlSessionFactory.openSession();
         HospitalDao dao = (HospitalDao) session.getMapper(HospitalDao.class);
         dao.insert(hospital);
         session.commit();
         session.close();
+
     }
 
     public List<Hospital> getAll(){

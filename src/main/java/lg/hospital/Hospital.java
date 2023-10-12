@@ -1,15 +1,17 @@
 package lg.hospital;
 
 import lombok.AllArgsConstructor;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.sql.Date;
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter @Builder
+
 public class Hospital {
     private String hpid;
     private String username;

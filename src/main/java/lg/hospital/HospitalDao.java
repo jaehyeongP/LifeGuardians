@@ -1,5 +1,6 @@
 package lg.hospital;
 
+
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -19,4 +20,5 @@ public interface HospitalDao {
     void update(Hospital hospital);
     @Delete("delete from Hospital where hpid=#{hpid}")
     void delete(@Param("hpid") String hpid);
+
 }
