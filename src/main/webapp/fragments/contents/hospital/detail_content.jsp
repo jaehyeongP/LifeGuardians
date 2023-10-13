@@ -25,18 +25,6 @@
             </div>
         </div>
 
-        <%--   진료시간--%>
-        <div class="">
-
-
-        </div>
-
-        <%-- 병원 소개 --%>
-        <div class="">
-
-
-
-        </div>
 
         <%--   진료과목     --%>
         <div class="">
@@ -47,15 +35,7 @@
 
 
         <div id="detail-content" class="" style="" >
-<%--            <h1>Test</h1>--%>
-<%--            <h3>${h.dutyName} 병원 상세정보</h3>--%>
-<%--            기관 ID : ${h.hpid} <br/>--%>
-<%--            병원분류명 : ${h.dutyDivName} <br/>--%>
-<%--            대표전화1 : ${h.dutyTel1} <br/>--%>
-<%--            시작시간 : ${h.startTime} <br/>--%>
-<%--            종료시간 : ${h.endTime} <br/>--%>
-<%--            병원위도 : ${h.latitude} <br/>--%>
-<%--            병원경도 : ${h.longitude} <br/>--%>
+
         </div>
         hello
     </div>
