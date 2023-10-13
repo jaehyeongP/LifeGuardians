@@ -14,12 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HospitalDetailApiController implements Handler {
     @Override
@@ -36,18 +39,55 @@ public class HospitalDetailApiController implements Handler {
             String dutyTel1 = item.getElementsByTagName("dutyTel1").item(0).getTextContent();
             String dgidIdName = item.getElementsByTagName("dgidIdName").item(0).getTextContent();
 
-            hospitalDetailVO vo = hospitalDetailVO.builder().hpid(hpid1).dutyName(dutyName).dutyAddr(dutyAddr).dutyTel1(dutyTel1).dgidIdName(dgidIdName).build();
+            // 진료시간
+            String dutyTime1s = item.getElementsByTagName("dutyTime1s").item(0).getTextContent();
+            String dutyTime1c = item.getElementsByTagName("dutyTime1c").item(0).getTextContent();
+            String dutyTime2s = item.getElementsByTagName("dutyTime2s").item(0).getTextContent();
+            String dutyTime2c = item.getElementsByTagName("dutyTime2c").item(0).getTextContent();
+            String dutyTime3s = item.getElementsByTagName("dutyTime3s").item(0).getTextContent();
+            String dutyTime3c = item.getElementsByTagName("dutyTime3c").item(0).getTextContent();
+            String dutyTime4s = item.getElementsByTagName("dutyTime4s").item(0).getTextContent();
+            String dutyTime4c = item.getElementsByTagName("dutyTime4c").item(0).getTextContent();
+            String dutyTime5s = item.getElementsByTagName("dutyTime5s").item(0).getTextContent();
+            String dutyTime5c = item.getElementsByTagName("dutyTime5c").item(0).getTextContent();
+            String dutyTime6s = item.getElementsByTagName("dutyTime6s").item(0).getTextContent();
+            String dutyTime6c = item.getElementsByTagName("dutyTime6c").item(0).getTextContent();
+
+            // 시작시간 하드코딩
+            List<String> startDutyTimes = new ArrayList<>();
+            startDutyTimes.add(dutyTime1s);
+            startDutyTimes.add(dutyTime2s);
+            startDutyTimes.add(dutyTime3s);
+            startDutyTimes.add(dutyTime4s);
+            startDutyTimes.add(dutyTime5s);
+            startDutyTimes.add(dutyTime6s);
+
+            // 끝나는 시간 하드코딩
+            List<String> endDutyTimes = new ArrayList<>();
+            endDutyTimes.add(dutyTime1c);
+            endDutyTimes.add(dutyTime2c);
+            endDutyTimes.add(dutyTime3c);
+            endDutyTimes.add(dutyTime4c);
+            endDutyTimes.add(dutyTime5c);
+            endDutyTimes.add(dutyTime6c);
+
+            // vo에 담기
+            hospitalDetailVO vo = hospitalDetailVO.builder().hpid(hpid1).dutyName(dutyName).dutyAddr(dutyAddr).dutyTel1(dutyTel1).dgidIdName(dgidIdName).startTime(startDutyTimes).endTime(endDutyTimes).build();
 
 
             /** print vo */
 
             System.out.println(vo.getHpid()+ " | " + vo.getDutyName() + " | " + vo.getDgidIdName());
+            for(String s : vo.getStartTime()){
+                System.out.println(s);
+                System.out.println(s.toString());
+            }
 
-
-            //Jackson을 사용하여 List를 Json 문자열로 변환
+            // 담은 vo를 json으로 변환
             String jsonResponse = objectToJson(vo);
 
             try {
+                // response 객체에 지정
                 response.getWriter().write(jsonResponse);
             } catch (IOException e) {
                 throw new RuntimeException(e);

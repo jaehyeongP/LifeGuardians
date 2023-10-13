@@ -17,29 +17,16 @@ function getHospitalDetailByJson(){
         // contentType: "application/json",
         dataType : 'json',
 
-        // success: function (res){
-        //     let txt = "";
-        //     for(let b of res){
-        //         txt += "<div class='c1' id='div_" + b.num + "'>";
-        //         txt += "num: "+b.num+"<br/>";
-        //         txt += "writer: "+b.writer+"<br/>";
-        //         txt += "w_date: "+b.w_date+"<br/>";
-        //         txt += "title: "+b.title+"<br/>";
-        //         txt += "content: "+b.content+"<br/>";
-        //         if('${sessionScope.loginId}' == b.writer){
-        //             txt += "<input type='button' value='수정' class='editf'>";
-        //             txt += "<input type='button' value='삭제' class='del'>";
-        //         }
-        //         txt += "</div>";
-        //     }
-        //     $("#list").html(txt);
-
         success: function(jsonData){
             console.log(jsonData);
 
             var hpid = jsonData.hpid;
             var dutyName = jsonData.dutyName;
             var dgidIdName = jsonData.dgidIdName;
+            var arrStart = jsonData.startTime;
+            var arrEnd = jsonData.endTime;
+
+
 
             console.log("hpid: " + hpid);
             console.log("dutyName: " + dutyName);
@@ -50,7 +37,17 @@ function getHospitalDetailByJson(){
             txt += "병원이름 : "+ jsonData.dutyName+"<br/>";
             txt += "진료과목 : "+ jsonData.dgidIdName+"<br/>";
 
+
+            txt += "진료시간" + "<br/>";
+            txt += "<div style='border:1px solid blue'>";
+            txt += "월요일 : " + arrStart[0] +"~"+ arrEnd[0]+"<br/>";
+            txt += "화요일 : " + arrStart[1] +"~"+ arrEnd[1]+"<br/>";
+            txt += "수요일 : " + arrStart[2] +"~"+ arrEnd[2]+"<br/>";
+            txt += "목요일 : " + arrStart[3] +"~"+ arrEnd[3]+"<br/>";
+            txt += "금요일 : " + arrStart[4] +"~"+ arrEnd[4]+"<br/>";
+            txt += "토요일 : " + arrStart[5] +"~"+ arrEnd[5]+"<br/>";
             txt += "</div>";
+
 
             $("#detail-content").html(txt);
         },
