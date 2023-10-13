@@ -20,7 +20,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MedicineApiDataController implements Handler {
     @Override
@@ -55,6 +57,8 @@ public class MedicineApiDataController implements Handler {
                 JSONObject obj = (JSONObject) parser.parse(new InputStreamReader(in));
                 JSONObject body = (JSONObject) obj.get("body");
 
+                String totalCount = String.valueOf(body.get("totalCount"));
+
                 JSONArray items = (JSONArray) body.get("items");
                 ArrayList<Medicine> list = new ArrayList<>();
                 for (int i = 0; i < items.size(); i++) {
@@ -72,11 +76,14 @@ public class MedicineApiDataController implements Handler {
 
                     list.add(new Medicine(entpName, itemName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
                 }
+                Map<String, Object> map = new HashMap<>();
+                map.put("list", list);
+                map.put("totalCount", totalCount);
 
-                String jsonList = objectToJson(list);
+                String jsonMap = objectToJson(map);
 
                 try{
-                    response.getWriter().write(jsonList);
+                    response.getWriter().write(jsonMap);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
@@ -95,7 +102,8 @@ public class MedicineApiDataController implements Handler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            return objectMapper.writeValueAsString((List) object);
+
+            return objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
