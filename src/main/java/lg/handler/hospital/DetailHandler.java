@@ -12,10 +12,12 @@ public class DetailHandler implements Handler {
         String page = "";
         if(request.getMethod().equals("GET")) {
             page = "/page/hospital/detail.jsp";
+
+
         } else {
-
-
+            // post방식
         }
         return page;
     }
+
 }
