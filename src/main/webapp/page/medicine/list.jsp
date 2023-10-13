@@ -30,7 +30,6 @@
 <jsp:include page="/fragments/vendor.jsp"/>
 
 <!-- Template JS File -->
-<%-- TODO : anyDir와 anyFile은 직접 수정해야 함--%>
-<script src="/resource/assets/js/anyDir/anyFile.js"></script>
+<script src="/resource/assets/js/medicine/list.js"></script>
 </body>
 </html>
