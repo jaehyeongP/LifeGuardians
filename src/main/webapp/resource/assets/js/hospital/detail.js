@@ -1,4 +1,9 @@
 window.onload = function () {
+
+
+    let spinner = document.getElementById('spinner');
+    spinner.style.visibility = 'visible';
+
     // 함수를 따로 호출해줘야함
     getHospitalDetailByJson();
 
@@ -25,6 +30,9 @@ function getHospitalDetailByJson(){
             var dgidIdName = jsonData.dgidIdName;
             var arrStart = jsonData.startTime;
             var arrEnd = jsonData.endTime;
+
+
+            $("#test").html(dutyName);
 
 
 

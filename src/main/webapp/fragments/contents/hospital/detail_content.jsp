@@ -36,6 +36,12 @@
 
         <div id="detail-content" class="" style="" >
 
+            <div class="d-flex justify-content-center">
+                <div class="spinner spinner-border text-primary" id="spinner" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
         </div>
         hello
     </div>

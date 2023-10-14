@@ -7,6 +7,7 @@
 
 <head>
     <jsp:include page="/fragments/head.jsp"/>
+
 </head>
 
 
@@ -19,9 +20,10 @@
 </header>
 
 <main id="main">
-
-    <div class="container-fluid" style="">
-        <jsp:include page="/fragments/contents/reservation/reserve.jsp"/>
+    <div class="d-flex m-1" style="height: 1400px; background-color: #1977cc; border-radius: 10px;">
+        <div class="container-fluid" style="">
+            <jsp:include page="/fragments/contents/reservation/reserve_detail.jsp"/>
+        </div>
     </div>
 
 </main>
