@@ -32,3 +32,6 @@
 
 <%-- Import Jquery--%>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<%-- Pagination --%>
+<script src="/resource/assets/js/jquery.twbsPagination.min.js" type="text/javascript"></script>
