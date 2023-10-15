@@ -1,5 +1,7 @@
 package lg.sqlsession;
 
+import lg.hospital.Hospital;
+import lg.hospital.HospitalDao;
 import lg.member.MemberDao;
 import lg.review.ReviewDao;
 import org.apache.ibatis.io.Resources;
@@ -25,7 +27,7 @@ public class Factory {
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 
                 //구현할 맵퍼 등록
-                Class[] mapper = { MemberDao.class , ReviewDao.class};
+                Class[] mapper = { MemberDao.class , ReviewDao.class, HospitalDao.class};
                 for (Class m : mapper) {
                     //sqlSessionFactory에 맵퍼를 등록
                     sqlSessionFactory.getConfiguration().addMapper(m);

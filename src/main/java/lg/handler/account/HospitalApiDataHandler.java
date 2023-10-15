@@ -3,7 +3,7 @@ package lg.handler.account;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
-import lg.hospital.Hospital;
+import lg.handler.account.dto.HospitalSignupApiDto;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -16,17 +16,23 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HospitalApiDataController implements Handler {
-
+public class HospitalApiDataHandler implements Handler {
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
         if (request.getMethod().equals("GET")) {
-            List<Hospital> hospitalList = new ArrayList<>();
-            NodeList items = getXML(null, null);    //test
+            String mapx = request.getParameter("mapx");
+            String mapy = request.getParameter("mapy");
+
+            //TODO : distance 값을 조절하여 데이터를 받기
+            List<HospitalSignupApiDto> hospitalList = new ArrayList<>();
+            NodeList items = getXML(mapx, mapy);
 
             /** parse logic */
             for (int i = 0; i < items.getLength(); i++) {
@@ -35,14 +41,10 @@ public class HospitalApiDataController implements Handler {
                 String dutyName = item.getElementsByTagName("dutyName").item(0).getTextContent();
                 String latitude = item.getElementsByTagName("latitude").item(0).getTextContent();
                 String longitude = item.getElementsByTagName("longitude").item(0).getTextContent();
+                String dutyDivName = item.getElementsByTagName("dutyDivName").item(0).getTextContent();
+                String dutyTel1 = item.getElementsByTagName("dutyTel1").item(0).getTextContent();
 
-                //TODO : Change Hospital to HospitalSignupDto
-                hospitalList.add(Hospital.builder().hpid(hpid).dutyName(dutyName).latitude(latitude).longitude(longitude).build());
-            }
-
-            /** print test */
-            for (Hospital hospital : hospitalList) {
-                System.out.println(hospital.getHpid()+ " | " + hospital.getDutyName());
+                hospitalList.add(HospitalSignupApiDto.builder().hpid(hpid).dutyName(dutyName).latitude(latitude).longitude(longitude).dutyDivName(dutyDivName).dutyTel1(dutyTel1).build());
             }
 
             //Jackson을 사용하여 List를 Json 문자열로 변환
@@ -53,10 +55,8 @@ public class HospitalApiDataController implements Handler {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-        } else {    //PostMapping
-
         }
+
         return null;
     }
 
@@ -64,7 +64,7 @@ public class HospitalApiDataController implements Handler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            return objectMapper.writeValueAsString((List) object);
+            return objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -78,8 +78,8 @@ public class HospitalApiDataController implements Handler {
         try {
             StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncLcinfoInqire"); /*URL*/
             urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey);
-            urlBuilder.append("&" + URLEncoder.encode("WGS84_LON", "UTF-8") + "=" + URLEncoder.encode("127.062921", "UTF-8"));
-            urlBuilder.append("&" + URLEncoder.encode("WGS84_LAT", "UTF-8") + "=" + URLEncoder.encode("37.4938132", "UTF-8"));
+            urlBuilder.append("&" + URLEncoder.encode("WGS84_LON", "UTF-8") + "=" + URLEncoder.encode(mapx, "UTF-8"));
+            urlBuilder.append("&" + URLEncoder.encode("WGS84_LAT", "UTF-8") + "=" + URLEncoder.encode(mapy, "UTF-8"));
             urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("3", "UTF-8"));
 
             URL url = new URL(urlBuilder.toString());
@@ -89,7 +89,6 @@ public class HospitalApiDataController implements Handler {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(conn.getInputStream());
             Element root = doc.getDocumentElement();
-
             Element body = (Element) root.getElementsByTagName("body").item(0);
             NodeList items = body.getElementsByTagName("item");
 
@@ -106,10 +105,5 @@ public class HospitalApiDataController implements Handler {
         } catch (SAXException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    //도로명 주소를 좌표로 변환하는 메서드
-    private void convertToAddress() {
-        String test = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc";
     }
 }

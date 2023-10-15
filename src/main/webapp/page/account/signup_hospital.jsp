@@ -6,7 +6,12 @@
 </head>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e2o0bgo5bp&submodules=geocoder"></script>
 <script src="/resource/assets/js/account/signup_hospital.js"></script>
+<script src="/resource/assets/js/idcheck.js"></script>
+<script src="/resource/assets/js/pwdsame.js"></script>
+
 
 <body>
 <main id="main" class="bg-secondary">

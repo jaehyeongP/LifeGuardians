@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface HospitalDao {
     
-    @Insert("insert into Hospital values(#{hpid}, #{username}, #{password}, #{email}, #{address}, #{dutyName}, #{dutyDivName}, #{latitude}, #{longitude}, #{dutyTel1}, #{startTime}, #{endTime}, sysdate, sysdate)")
+    @Insert("insert into Hospital values(#{hpid}, #{username}, #{password}, #{email}, #{address}, #{extraAddress}, #{dutyName}, #{dutyDivName}, #{dutyTel1}, #{latitude}, #{longitude}, sysdate, sysdate)")
     void insert(Hospital hospital);
     @Select("select * from Hospital")
     List<Hospital> selectAll();
