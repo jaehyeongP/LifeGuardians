@@ -13,6 +13,13 @@ public class HospitalService {
         sqlSessionFactory = Factory.getSqlSessionFactory();
     }
 
+    public void addHospitalV2(HospitalV2 hospital) {
+        SqlSession session = sqlSessionFactory.openSession();
+        HospitalDao hospitalDao = session.getMapper(HospitalDao.class);
+        hospitalDao.insertV2(hospital);
+        session.commit();
+        session.close();
+    }
 
     public void addHospital(Hospital hospital){
         SqlSession session = sqlSessionFactory.openSession();
@@ -30,6 +37,14 @@ public class HospitalService {
         session.close();
         return list;
     }
+
+    public List<HospitalV2> getAllV2() {
+        SqlSession session = sqlSessionFactory.openSession();
+        HospitalDao hospitalDao = session.getMapper(HospitalDao.class);
+        List<HospitalV2> list = hospitalDao.selectAllV2();
+        return list;
+    }
+
     // hpid로 검색
     public Hospital getHospitalByHpid(String hpid){
         SqlSession session = sqlSessionFactory.openSession();

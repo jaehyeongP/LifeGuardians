@@ -7,11 +7,14 @@ import java.util.List;
 @Mapper
 public interface MemberDao {
 
-    @Insert("insert into members values (seq_members.nextval, #{username}, #{password}, #{name}, #{idNumber}, #{sex}, #{email}, #{tel}, sysdate, sysdate)")
+    @Insert("insert into members values (seq_members.nextval, #{username}, #{password}, #{email}, #{name}, #{firstRegNum}, #{lastRegNum}, #{gender}, #{tel}, #{address}, #{extraAddress}, sysdate, sysdate)")
     void insert(Member member);
 
     @Select("select * from members")
     List<Member> selectAll();
+
+    @Select("select * from members where member_id = #{memberId}")
+    Member selectById(@Param("memberId") int memberId);
 
     @Select("select * from members where name=#{name}")
     List<Member> selectByName(@Param("name") String name);

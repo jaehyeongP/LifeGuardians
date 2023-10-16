@@ -1,11 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- ======= Top Bar ======= -->
 <div class="container d-flex justify-content-between">
     <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-gear"></i> <a href="#">회원이름?</a>
-        <i class="bi bi-phone"></i> 마이페이지?
-        <i class="bi bi-capsule"></i> 로그인 시 활성화되는 기능들?
+
+        <c:if test="${sessionScope.username == null}">
+            <i class="bi bi-gear"></i> <a href="#">로그인</a>
+        </c:if>
+
+        <c:if test="${sessionScope.username != null}">
+            <i class="bi bi-gear"></i><a href="/mypage.do">${sessionScope.username}님 반갑습니다</a>
+            <i class="bi bi-calendar-check"></i><a href="/mypage.do"> 내 예약 관리</a>
+            <i class="bi bi-capsule"></i><a href="/mypage.do"> 내 약 관리</a>
+        </c:if>
+
     </div>
 
     <div class="d-flex social-links align-items-center">
