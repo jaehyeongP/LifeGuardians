@@ -1,25 +1,26 @@
 package lg.member;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter @Builder
 public class Member {
     private int member_id;
     private String username;
     private String password;
-    private String name;
-    private String idNumber;
-    private String sex;
     private String email;
+
+    private String name;
+    private int firstRegNum;
+    private int lastRegNum;
+    private String gender;
     private String tel;
+
+    private String address;
+    private String extraAddress;
     private Date genDate;
     private Date editDate;
 }

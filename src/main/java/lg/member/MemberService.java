@@ -9,6 +9,8 @@ import java.util.List;
 public class MemberService {
     private SqlSessionFactory sqlSessionFactory;
 
+    //todo : password encoding
+
     public MemberService() {
         sqlSessionFactory = Factory.getSqlSessionFactory();
     }

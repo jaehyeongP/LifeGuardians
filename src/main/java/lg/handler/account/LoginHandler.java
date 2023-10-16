@@ -30,6 +30,7 @@ public class LoginHandler implements Handler {
             if (member != null && passowrd.equals(member.getPassword())){
                 // 로그인 처리
                 HttpSession session = request.getSession();
+                session.setAttribute("member_id", member.getMember_id());
                 session.setAttribute("username", username);
                 msg = "로그인 성공 / "+ username+ "님 환영합니다 ";
 

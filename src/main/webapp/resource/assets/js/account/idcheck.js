@@ -9,7 +9,7 @@ req.onload = () => {
     document.getElementById("res").innerHTML = txt;
     console.log("작동");
 }
-const a = () => {
+const checkDuplicate = () => {
     console.log("작동2");
     let username = document.getElementById("username").value;
     req.open("get", "/signup/idcheck.do?username=" + username);
