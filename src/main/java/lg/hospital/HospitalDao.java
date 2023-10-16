@@ -7,6 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface HospitalDao {
+
+    @Insert("insert into HospitalV2 values(#{hpid}, #{dutyAddr}, #{dutyDiv}, #{dutyDivNam}, #{dutyName}, #{dutyTel1}, #{dutyTel3}, #{wgs84Lon}, #{wgs84Lat}, #{dutyInf})")
+    void insertV2(HospitalV2 hospital);
     
     @Insert("insert into Hospital values(#{hpid}, #{username}, #{password}, #{email}, #{address}, #{extraAddress}, #{dutyName}, #{dutyDivName}, #{dutyTel1}, #{latitude}, #{longitude}, sysdate, sysdate)")
     void insert(Hospital hospital);
@@ -21,4 +24,6 @@ public interface HospitalDao {
     @Delete("delete from Hospital where hpid=#{hpid}")
     void delete(@Param("hpid") String hpid);
 
+    @Select("select * from HospitalV2")
+    List<HospitalV2> selectAllV2();
 }
