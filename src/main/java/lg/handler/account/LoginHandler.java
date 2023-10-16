@@ -4,12 +4,9 @@ import lg.handler.Handler;
 import lg.member.Member;
 import lg.member.MemberService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 public class LoginHandler implements Handler {
 
@@ -25,7 +22,7 @@ public class LoginHandler implements Handler {
             String passowrd = request.getParameter("password");
 
             MemberService service = new MemberService();
-            Member member = service.getMember(username);
+            Member member = service.getMemberByUsername(username);
 
             if (member != null && passowrd.equals(member.getPassword())){
                 // 로그인 처리

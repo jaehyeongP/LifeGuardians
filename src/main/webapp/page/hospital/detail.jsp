@@ -8,6 +8,9 @@
     <jsp:include page="/fragments/head.jsp"/>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e2o0bgo5bp"></script>
     <script type="text/javascript" src="/resource/assets/js/hospital/detail.js"></script>
+
+
+
 </head>
 
 
