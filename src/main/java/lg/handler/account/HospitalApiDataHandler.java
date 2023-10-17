@@ -21,7 +21,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HospitalApiDataHandler implements Handler {
     @Override
@@ -29,6 +31,7 @@ public class HospitalApiDataHandler implements Handler {
         if (request.getMethod().equals("GET")) {
             String mapx = request.getParameter("mapx");
             String mapy = request.getParameter("mapy");
+            System.out.println(mapx+ " | " + mapy);
 
             //TODO : distance 값을 조절하여 데이터를 받기
             List<HospitalSignupApiDto> hospitalList = new ArrayList<>();
@@ -43,12 +46,24 @@ public class HospitalApiDataHandler implements Handler {
                 String longitude = item.getElementsByTagName("longitude").item(0).getTextContent();
                 String dutyDivName = item.getElementsByTagName("dutyDivName").item(0).getTextContent();
                 String dutyTel1 = item.getElementsByTagName("dutyTel1").item(0).getTextContent();
+                String distanceStr = item.getElementsByTagName("distance").item(0).getTextContent();
+                Double distance = Double.valueOf(distanceStr);
 
-                hospitalList.add(HospitalSignupApiDto.builder().hpid(hpid).dutyName(dutyName).latitude(latitude).longitude(longitude).dutyDivName(dutyDivName).dutyTel1(dutyTel1).build());
+                HospitalSignupApiDto dto = HospitalSignupApiDto.builder().hpid(hpid).dutyName(dutyName).latitude(latitude).longitude(longitude).dutyDivName(dutyDivName).dutyTel1(dutyTel1).distance(distance).build();
+
+                hospitalList.add(dto);
             }
 
+            //Distance로 정렬
+            List<HospitalSignupApiDto> sortedList = hospitalList.stream()
+                    .sorted(Comparator.comparingDouble(HospitalSignupApiDto::getDistance)).collect(Collectors.toList());
+
+            //Distance가 0.0인 (해당 건물인) 데이터 추출
+            List<HospitalSignupApiDto> filteredList = sortedList.stream()
+                    .filter(h -> h.getDistance() == 0.0).collect(Collectors.toList());
+
             //Jackson을 사용하여 List를 Json 문자열로 변환
-            String jsonResponse = objectToJson(hospitalList);
+            String jsonResponse = objectToJson(filteredList);
 
             try {
                 response.getWriter().write(jsonResponse);
@@ -80,7 +95,8 @@ public class HospitalApiDataHandler implements Handler {
             urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey);
             urlBuilder.append("&" + URLEncoder.encode("WGS84_LON", "UTF-8") + "=" + URLEncoder.encode(mapx, "UTF-8"));
             urlBuilder.append("&" + URLEncoder.encode("WGS84_LAT", "UTF-8") + "=" + URLEncoder.encode(mapy, "UTF-8"));
-            urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("3", "UTF-8"));
+//            urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("99999", "UTF-8"));
+
 
             URL url = new URL(urlBuilder.toString());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
