@@ -36,16 +36,10 @@
                     </tbody>
                 </table>
 
-                <div class="card col-10 my-2">map</div>
-                <div class="card col-10 my-2">review</div>
+                <div id="map" style="width:100%;height:42%; border-radius:10px; border-width:2px; !important; border-style:solid !important; border-color:black !important;"></div>
+
+                <jsp:include page="review_content.jsp"></jsp:include>
             </div>
         </div>
-
-        <div class="row">
-            <div class="card">
-                <jsp:include page="detail_content.jsp"></jsp:include>
-            </div>
-        </div>
-
     </div>
 </section>
