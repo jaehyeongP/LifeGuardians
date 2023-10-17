@@ -16,4 +16,5 @@ public class HospitalSignupApiDto {
     private String longitude;
     private String dutyDivName;
     private String dutyTel1;
+    private Double distance;
 }
