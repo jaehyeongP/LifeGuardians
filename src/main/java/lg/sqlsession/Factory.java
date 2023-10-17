@@ -1,6 +1,5 @@
 package lg.sqlsession;
 
-import lg.hospital.Hospital;
 import lg.hospital.HospitalDao;
 import lg.member.MemberDao;
 import lg.review.ReviewDao;
