@@ -20,7 +20,6 @@
 
 <header>
     <jsp:include page="/fragments/common/header.jsp"/>
-
 </header>
 
 <main id="main">
