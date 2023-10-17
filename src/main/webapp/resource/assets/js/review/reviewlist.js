@@ -21,10 +21,13 @@ function getReviewAvg(hpid) {
 
 function navermap(x, y) {
 
+    $("#map").children().remove();
+
     var mapOptions = {
         center: new naver.maps.LatLng(x, y),
         zoom: 16
     };
+
 
     var map = new naver.maps.Map('map', mapOptions);
 

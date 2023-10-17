@@ -7,7 +7,7 @@ import lg.review.ReviewService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ReviewHandler implements Handler {
+public class AddReviewHandler implements Handler {
 
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
@@ -15,11 +15,21 @@ public class ReviewHandler implements Handler {
         if (request.getMethod().equals("GET")) {
             page = "/page/hospital/detail.jsp";
         } else {
+
+            String hpid = request.getParameter("hpid");
             int rate = Integer.parseInt(request.getParameter("rate"));
             String content = request.getParameter("content");
+            int member_id= Integer.parseInt((String) request.getSession().getAttribute("member_id"));
 
+            String parameter = request.getParameter("tagContent[]");
+
+//            Object username = request.getSession().getAttribute("username");
+//            String test = (String) username;
+//            Integer.parseInt(test);
+//
             ReviewService service = new ReviewService();
-            //Review review = service.getReviewMember(rate);
+            //service.addReview(new Review(0, rate, content,null,hpid,member_id));
+            service.addReview(Review.builder().rate(rate).hpid(hpid).member_id(member_id).build());
         }
         return page;
     }
