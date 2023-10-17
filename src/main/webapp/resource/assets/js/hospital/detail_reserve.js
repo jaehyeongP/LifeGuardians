@@ -12,6 +12,8 @@ function moveToPage(e){
         },
         error:function (error){
 
+        }, complete: function (){
+            location.href = "/reservation/reserve.do?hpid="+hpid;
         }
     })
 

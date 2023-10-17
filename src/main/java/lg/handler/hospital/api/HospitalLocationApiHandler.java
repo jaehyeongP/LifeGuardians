@@ -72,11 +72,11 @@ public class HospitalLocationApiHandler implements Handler {
                     .filter(hospital -> hospital != null)                       //공공데이터 상 주변의 병원과 병원 회원의 hpid를 비교하여 리스트 생성
                     .collect(Collectors.toList());
 
-            List<HospitalListResponse> result = findHospitalList.stream().map(e -> e.toDto()).collect(Collectors.toList());
-            String jsonResponse = objectToJson(result);                         //필요한 데이터를 ResponseDto에 담아 리스트로 전달
+//            List<HospitalListResponse> result = findHospitalList.stream().map(e -> e.toDto()).collect(Collectors.toList());
+//            String jsonResponse = objectToJson(result);                         //필요한 데이터를 ResponseDto에 담아 리스트로 전달
 
-//            List<HospitalListResponse> testResult =  createTestList(hospitalList.get(0).getHpid(), hospitalList.get(1).getHpid());
-//            String jsonResponse = objectToJson(testResult);
+            List<HospitalListResponse> testResult =  createTestList(hospitalList.get(0).getHpid(), hospitalList.get(1).getHpid());
+            String jsonResponse = objectToJson(testResult);
 
             try {
                 response.getWriter().write(jsonResponse);
