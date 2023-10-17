@@ -38,7 +38,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                <a href="/reservation/reserve.do=?hpid=${hpid}" class="btn btn-primary" target="_self">예약하기</a>
+                <button type="button" class="btn btn-primary" onclick="moveToPage(this)">예약하기</button>
             </div>
         </div>
     </div>

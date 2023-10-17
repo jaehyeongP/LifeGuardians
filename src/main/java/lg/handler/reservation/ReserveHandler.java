@@ -1,6 +1,7 @@
 package lg.handler.reservation;
 
 import lg.handler.Handler;
+import lg.hospital.HospitalService;
 import lg.member.Member;
 import lg.member.MemberService;
 import lg.reservation.Reservation;
@@ -32,10 +33,12 @@ public class ReserveHandler implements Handler {
             String hpid = request.getParameter("hpid");
             System.out.println(hpid);
             //기관명 가져오기
-            String dutyName = request.getParameter("dutyName");
+            HospitalService hospitalservice = new HospitalService();
+            String dutyName = hospitalservice.getHospitalByHpid(hpid).getDutyName();
             System.out.println(dutyName);
             page = "/page/reservation/reserve.jsp";
             return page;
+
         } else { // post방식 : 예약확인 클릭시 -> db에 값을 넘겨줌
 
             Date reserveTime = Date.valueOf(request.getParameter("reserveTime"));
