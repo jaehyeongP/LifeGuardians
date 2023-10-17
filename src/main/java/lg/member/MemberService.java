@@ -37,14 +37,20 @@ public class MemberService {
         session.close();
         return list;
     }
-    public Member getMember(String username){
+    public Member getMemberByUsername(String username){
         SqlSession session = sqlSessionFactory.openSession();
         MemberDao dao = (MemberDao) session.getMapper(MemberDao.class);
         Member member = dao.selectByUsername(username);
         session.close();
         return member;
     }
-
+    public Member getMemberByMemberid(int member_id){
+        SqlSession session = sqlSessionFactory.openSession();
+        MemberDao dao = session.getMapper(MemberDao.class);
+        Member member = dao.selectById(member_id);
+        session.close();
+        return member;
+    }
     public void editMember(Member member){
         SqlSession session = sqlSessionFactory.openSession();
         MemberDao mapper = (MemberDao) session.getMapper(MemberDao.class);

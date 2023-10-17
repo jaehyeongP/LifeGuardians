@@ -12,7 +12,7 @@ public class IdCheck implements Handler {
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response){
         String username = request.getParameter("username");
-        Member member = (new MemberService()).getMember(username);
+        Member member = (new MemberService()).getMemberByUsername(username);
         boolean flag = false;
         if(member==null){
             flag = true;
