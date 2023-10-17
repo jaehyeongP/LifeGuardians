@@ -5,6 +5,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ReviewService {
 
@@ -45,14 +47,36 @@ public class ReviewService {
         session.close();
         return list;
     }
-    public void eidtReviewByContent(Review r){
+
+    public ArrayList<Review> getRate(int rate){
         SqlSession session = sqlSessionFactory.openSession();
         ReviewDao dao = (ReviewDao) session.getMapper(ReviewDao.class);
-        dao.updateByContent(r);
-        session.commit();
+        ArrayList<Review> list = dao.selectByRate(rate);
         session.close();
+        return list;
+     }
 
+
+    public List<Map<String, Object>> getRateCountsAndAverage(String hpid){
+       SqlSession session = sqlSessionFactory.openSession();
+      ReviewDao dao = (ReviewDao) session.getMapper(ReviewDao.class);
+//        Map<String, Object> result = dao.selectRateCountsAndAverage(hpid, 5);
+        List<Map<String, Object>> result = dao.selectRateCountsAndAverage(hpid, 5);
+//        Map<String, Object> result2 = dao.selectRateCountsAndAverage(hpid, 3);
+        List<Map<String, Object>> result2 = dao.selectRateCountsAndAverage(hpid, 3);
+
+       System.out.println("!!!");
+       System.out.println(result);
+       System.out.println(result2);
+
+
+      session.close();
+       return result;
     }
+
+
+
+
     public void eidtReviewByRate(Review r){
         SqlSession session = sqlSessionFactory.openSession();
         ReviewDao dao = (ReviewDao) session.getMapper(ReviewDao.class);
@@ -67,5 +91,14 @@ public class ReviewService {
         dao.delete(memberId);
         session.commit();
         session.close();
+    }
+
+
+    public ArrayList<Review> getReviewHpidAndRate(String hpid, int rate) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ReviewDao reviewDao = sqlSession.getMapper(ReviewDao.class);
+        ArrayList<Review> list = reviewDao.selectByHpidAndRate(hpid, rate);
+        sqlSession.close();
+        return list;
     }
 }

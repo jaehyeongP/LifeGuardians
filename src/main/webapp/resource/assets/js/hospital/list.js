@@ -1,4 +1,5 @@
 window.onload = function () {
+    navermap("127.1093955", "37.3388728");
     createTableTitle();
     callAjax();
 }
@@ -80,6 +81,8 @@ function selectHP(element) {
 
     $('#map_address').text(address);
     getHospitalDetailByJson(hpid);
+    getReviewAvg(hpid);
+    navermap(latitude, longitude);
 
     console.log(hpid);
     console.log(address);
