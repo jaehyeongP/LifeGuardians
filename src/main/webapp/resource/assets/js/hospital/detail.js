@@ -43,7 +43,7 @@ function getHospitalDetailByJson(hpid){
 
             let txt ="";
             txt += "<h3>"+"병원 상세정보" + "</h3>";
-            txt += "기관 ID : "+ jsonData.hpid+"<br/>";
+            // txt += "기관 ID : "+ jsonData.hpid+"<br/>";
             txt += "병원이름 : "+ jsonData.dutyName+"<br/>";
             txt += "진료과목 : "+ jsonData.dgidIdName+"<br/>";
 
