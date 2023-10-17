@@ -1,31 +1,33 @@
-window.onload = function () {
-
-
-    let spinner = document.getElementById('spinner');
-    spinner.style.visibility = 'visible';
-
-    // 함수를 따로 호출해줘야함
-    getHospitalDetailByJson();
-
-
-}
-
+// window.onload = function () {
+//
+//
+//     let spinner = document.getElementById('spinner');
+//     spinner.style.visibility = 'visible';
+//
+//     // 함수를 따로 호출해줘야함
+//     // getHospitalDetailByJson();
+//
+//
+// }
+//
 
 
 
 // 함수를 생성
-function getHospitalDetailByJson(){
+function getHospitalDetailByJson(hpid){
 
     $.ajax({
         type:"GET",
         url:"/api/getHsptlBassInfoInqire.do",
         // contentType: "application/json",
         dataType : 'json',
+        data: {"hpid" :hpid},
+
 
         success: function(jsonData){
             console.log(jsonData);
 
-            var hpid = jsonData.hpid;
+            // var hpid = jsonData.hpid;
             var dutyName = jsonData.dutyName;
             var dgidIdName = jsonData.dgidIdName;
             var arrStart = jsonData.startTime;
@@ -57,11 +59,13 @@ function getHospitalDetailByJson(){
             txt += "</div>";
 
 
-            $("#detail-content").html(txt);
+            $("#detail-modal-body").html(txt);
         },
         error:function (error){
             console.log("error");
 
+        }, complete: function (){
+            $("#reservationModal").modal('show');
         }
     });
 

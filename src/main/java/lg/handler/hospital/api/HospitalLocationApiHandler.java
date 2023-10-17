@@ -55,7 +55,7 @@ public class HospitalLocationApiHandler implements Handler {
 
             } else {
                 MemberService memberService = new MemberService();
-                Member member = memberService.getMember(username);
+                Member member = memberService.getMemberByUsername(username);
                 String address = member.getAddress();                           //로그인 시 현재 주소를 참조하여
 
                 Map<String, String> coordinate = NaverReverseGeoCode(address);  //주소를 좌표로 변환

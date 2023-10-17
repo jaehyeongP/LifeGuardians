@@ -79,6 +79,7 @@ function selectHP(element) {
     let longitude = $(element).find('#'+ hpid + '_longitude').val();
 
     $('#map_address').text(address);
+    getHospitalDetailByJson(hpid);
 
     console.log(hpid);
     console.log(address);

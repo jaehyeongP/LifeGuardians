@@ -4,36 +4,7 @@
 <div class=" detail_elements  p-2 m-2 h-100"
      style='background-color:white ;   border: 2px solid black; border-radius: 10px; height:1000px'>
     <div class=" p-2 w-100 h-100" style='background-color:white;  border-color:black'>
-
-        <%--   병원 제목, 현재상태, 거리, 진료과     --%>
-        <div class="mb-3">
-
-
-
-        </div>
         <hr>
-
-        <%--   병원정보, 진료정보--%>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                    병원정보
-                </div>
-                <div class="col">
-                    진료정보
-                </div>
-            </div>
-        </div>
-
-
-        <%--   진료과목     --%>
-        <div class="">
-
-
-
-        </div>
-
-
         <div id="detail-content" class="" style="" >
 
             <div class="d-flex justify-content-center">
@@ -43,8 +14,27 @@
             </div>
 
         </div>
-        hello
+
     </div>
 </div>
 
+<!-- 모달 창 -->
+<div id="reservationModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">병원 상세페이지</h5>
+<%--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>--%>
+            </div>
+            <div id="detail-modal-body">
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                <a href="/reservation/reserve.do" class="btn btn-primary" target="_self">예약하기</a>
+            </div>
+        </div>
+    </div>
+</div>
 

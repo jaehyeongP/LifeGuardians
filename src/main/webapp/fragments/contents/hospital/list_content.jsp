@@ -43,7 +43,7 @@
 
         <div class="row">
             <div class="card">
-                test
+                <jsp:include page="detail_content.jsp"></jsp:include>
             </div>
         </div>
 

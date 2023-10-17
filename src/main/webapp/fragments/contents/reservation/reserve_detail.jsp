@@ -47,14 +47,12 @@
 
 
 <!-- 모달 창 -->
-<div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+<div id="reservationModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="reservationModalLabel">예약 확인</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <%--                    <span aria-hidden="true">&times;</span>--%>
-                </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- 예약 정보를 모달 내에 표시합니다 -->

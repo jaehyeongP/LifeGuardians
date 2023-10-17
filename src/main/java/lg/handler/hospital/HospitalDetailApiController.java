@@ -28,9 +28,8 @@ public class HospitalDetailApiController implements Handler {
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
         if(request.getMethod().equals("GET")) {
-            String hpid = "A2601246";
+            String hpid = request.getParameter("hpid");
             NodeList items = getXML(hpid);
-
 
             Element item = (Element) items.item(0);
             String hpid1 = item.getElementsByTagName("hpid").item(0).getTextContent();
@@ -73,15 +72,6 @@ public class HospitalDetailApiController implements Handler {
 
             // vo에 담기
             hospitalDetailVO vo = hospitalDetailVO.builder().hpid(hpid1).dutyName(dutyName).dutyAddr(dutyAddr).dutyTel1(dutyTel1).dgidIdName(dgidIdName).startTime(startDutyTimes).endTime(endDutyTimes).build();
-
-
-            /** print vo */
-
-            System.out.println(vo.getHpid()+ " | " + vo.getDutyName() + " | " + vo.getDgidIdName());
-            for(String s : vo.getStartTime()){
-                System.out.println(s);
-                System.out.println(s.toString());
-            }
 
             // 담은 vo를 json으로 변환
             String jsonResponse = objectToJson(vo);

@@ -6,6 +6,7 @@
 </head>
 
 <script src="/resource/assets/js/hospital/list.js"></script>
+<script src="/resource/assets/js/hospital/detail.js"></script>
 
 <div id="topbar" class="d-flex align-items-center">
     <jsp:include page="/fragments/common/topbar.jsp"/>
