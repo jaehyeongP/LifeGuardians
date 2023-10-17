@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <section>
-    <div class="container">
+    <div class="container" style="height:900px;">
 
         <div class="row mb-5 text-center">
             <form id="search_form" class="php-email-form px-5" method="get">
@@ -36,10 +36,13 @@
                     </tbody>
                 </table>
 
-                <div id="map" style="width:100%;height:42%; border-radius:10px; border-width:2px; !important; border-style:solid !important; border-color:black !important;"></div>
+                <div id="map" class="map mb-2"style="width:100%;height:34%; border-radius:10px; border-width:2px; !important; border-style:solid !important; border-color:black !important;"></div>
 
                 <jsp:include page="review_content.jsp"></jsp:include>
             </div>
         </div>
     </div>
+
+
+<jsp:include page="detail_content.jsp"></jsp:include>
 </section>
