@@ -18,7 +18,7 @@
           <option value="medicine_name">약이름</option>
           <option value="symptom">증상</option>
         </select>
-        <input type="text" id="search_keyword" class="form-control" name="search_keyword" placeholder="약 검색" style="width: 50%;">
+        <input type="text" id="search_keyword" class="form-control" name="search_keyword" placeholder="약 검색" style="width: 50%;" onsubmit="return false">
         <input type="button" id="btn_search" class="btn btn-primary" value="검색">
       </div>
 
