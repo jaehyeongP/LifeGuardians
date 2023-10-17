@@ -1,16 +1,12 @@
 package lg.reservation;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter@Builder
 public class Reservation {
     private int reserve_id;
     private int member_id;

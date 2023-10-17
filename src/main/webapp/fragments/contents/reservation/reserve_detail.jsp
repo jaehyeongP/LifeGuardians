@@ -18,6 +18,7 @@
     <h1 class="text-center">병원 방문 예약</h1>
 
     <!-- 예약 양식 -->
+<%--    다 작성시에는 모달창 띄우기--%>
     <form action="" id="reserve" method="POST" novalidate>
         <div class="form-group">
             <label for="name">환자 이름 *</label>
@@ -28,6 +29,7 @@
             <label for="phone">연락 받을 휴대전화 *</label>
             <input type="tel" class="form-control" id="phone" placeholder="전화번호를 입력해주세요">
         </div>
+
         <%--datetimepicker--%>
         <div class="form_group">
             <label for="datetimepicker">예약 일시</label><br/>
