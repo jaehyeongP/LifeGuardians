@@ -19,9 +19,9 @@
 
     <!-- 예약 양식 -->
 <%--    다 작성시에는 모달창 띄우기--%>
-    <form action="" id="reserve" method="POST" novalidate>
+    <form action="/reservation/reserve.do" id="reserve" method="POST" novalidate>
         <div class="form-group">
-            <label for="name">환자 이름 *</label>
+            <label for="name">환자 이름 </label>
             <input type="text" class="form-control" value="${member.username}" id="name" readonly>
         </div>
 
@@ -30,16 +30,22 @@
             <input type="tel" class="form-control" id="phone" placeholder="전화번호를 입력해주세요">
         </div>
 
+        <div class="form-group">
+            <label for="dutyName">기관명</label>
+            <input type="text" class="form-control" id="dutyName" readonly>
+        </div>
+
         <%--datetimepicker--%>
         <div class="form_group">
             <label for="datetimepicker">예약 일시</label><br/>
-            <input type="text" id="datetimepicker" readonly="readonly" />
+            <input type="text" id="datetimepicker" name="datetimepicker" readonly="readonly" />
         </div>
 
         <div class="form-group">
-            <label for="message">증상</label>
-            <textarea class="form-control" id="message" rows="3" placeholder="증상을 입력해주세요"></textarea>
+            <label for="symptoms">증상</label>
+            <textarea class="form-control" id="symptoms" rows="3" placeholder="증상을 입력해주세요"></textarea>
         </div>
+
         <button type="submit" class="btn btn-primary">예약 신청</button>
 
     </form>
