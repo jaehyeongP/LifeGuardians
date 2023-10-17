@@ -1,7 +1,10 @@
 package lg.handler.medicine;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import lg.handler.Handler;
 import lg.medicine.Medicine;
+import lg.medicine.MedicineService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,11 +19,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class DetailHandler implements Handler {
     @Override
-    public String process(HttpServletRequest req, HttpServletResponse res) {
+    public String process(HttpServletRequest req, HttpServletResponse res){
 
         String page = "";
         if(req.getMethod().equals("GET")) {
@@ -37,10 +43,8 @@ public class DetailHandler implements Handler {
                 InputStream in = conn.getInputStream();
                 JSONParser parser = new JSONParser();
                 JSONObject obj = (JSONObject) parser.parse(new InputStreamReader(in));
-                System.out.println(obj);
 
                 JSONObject body = (JSONObject) obj.get("body");
-                System.out.println(body);
                 JSONArray items = (JSONArray) body.get("items");
 
                 JSONObject item = (JSONObject) items.get(0);
@@ -55,7 +59,7 @@ public class DetailHandler implements Handler {
                 String depositMethodQesitm = (String) item.get("depositMethodQesitm");
                 String itemImage = (String) item.get("itemImage");
 
-                Medicine medicine = new Medicine(entpName, itemName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage);
+                Medicine medicine = new Medicine(0, 0, null, itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage);
 
                 req.setAttribute("medicine", medicine);
             } catch (MalformedURLException e){
@@ -68,9 +72,32 @@ public class DetailHandler implements Handler {
 
         } else {
 
+            // 각자 medicineImg 디렉토리 경로로 변경해주세영
+            String path = "/Users/chaewon/Project/LifeGuardians/medicineImg";
+            int size = 100 * 1024;
+            MultipartRequest multi = null;
+            try {
+                multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            int member_id = Integer.parseInt(multi.getParameter("member_id"));
+            String itemName = multi.getParameter("itemName");
+            String entpName = multi.getParameter("entpName");
+            String efcyQesitm = multi.getParameter("efcyQesitm");
+            String useMethodQesitm = multi.getParameter("useMethodQesitm");
+            String atpnWarnQesitm = multi.getParameter("atpnWarnQesitm");
+            String atpnQesitm = multi.getParameter("atpnQesitm");
+            String intrcQesitm = multi.getParameter("intrcQesitm");
+            String seQesitm = multi.getParameter("seQesitm");
+            String depositMethodQesitm = multi.getParameter("depositMethodQesitm");
+            String itemImage = multi.getParameter("itemImage");
 
+            MedicineService medicineService = new MedicineService();
+            medicineService.addMedicine(new Medicine(0, member_id, Date.valueOf(LocalDate.now()) , itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
+
+            page = "redirect:/page/medicine/list.jsp";
         }
-
         return page;
     }
 }
