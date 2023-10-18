@@ -31,5 +31,6 @@
 
 <!-- Template JS File -->
 <script src="/resource/assets/js/board/detail.js"></script>
+<script src="/resource/assets/js/reply/add.js"></script>
 </body>
 </html>
