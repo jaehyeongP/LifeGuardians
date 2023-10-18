@@ -20,7 +20,7 @@
 - `JDK 1.8.0`
 - **IDE** : IntelliJ
 - **Database** : Oracle DB(11xe)
-- **ORM** : Mybatis
+- **SQL Mapper** : Mybatis
 
 ## 📌 주요 기능
 #### 메인페이지
