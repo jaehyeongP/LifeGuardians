@@ -72,11 +72,19 @@ public class HospitalLocationApiHandler implements Handler {
                     .filter(hospital -> hospital != null)                       //공공데이터 상 주변의 병원과 병원 회원의 hpid를 비교하여 리스트 생성
                     .collect(Collectors.toList());
 
-            List<HospitalListResponse> result = findHospitalList.stream().map(e -> e.toDto()).collect(Collectors.toList());
-            String jsonResponse = objectToJson(result);                         //필요한 데이터를 ResponseDto에 담아 리스트로 전달
+            System.out.println("###");
+            for (Hospital hospital : findHospitalList) {
+                System.out.println(hospital.getHpid() + " |  " + hospital.getDutyName());
+            }
 
-//            List<HospitalListResponse> testResult =  createTestList(hospitalList.get(0).getHpid(), hospitalList.get(1).getHpid());
-//            String jsonResponse = objectToJson(testResult);
+            List<HospitalListResponse> result = findHospitalList.stream().map(e -> e.toDto()).collect(Collectors.toList());
+
+            System.out.println("$$$");
+            for (HospitalListResponse hospitalListResponse : result) {
+                System.out.println(hospitalListResponse.getHpid() + " |  " + hospitalListResponse.getDutyName());
+
+            }
+            String jsonResponse = objectToJson(result);                         //필요한 데이터를 ResponseDto에 담아 리스트로 전달
 
             try {
                 response.getWriter().write(jsonResponse);
@@ -85,17 +93,6 @@ public class HospitalLocationApiHandler implements Handler {
             }
         }
         return null;
-    }
-
-    private List<HospitalListResponse> createTestList(String hpid1, String hpid2) {         //Test용 코드
-        HospitalListResponse test1 = HospitalListResponse.builder().hpid(hpid1).dutyName("test1").address("testAddr1").extraAddress("testExtraAddr1").dutyDivName("testDivName1").dutyTel1("testTel1_1").latitude("testLat1").longitude("testLon1").build();
-        HospitalListResponse test2 = HospitalListResponse.builder().hpid(hpid2).dutyName("test2").address("testAddr2").extraAddress("testExtraAddr2").dutyDivName("testDivName2").dutyTel1("testTel1_2").latitude("testLat2").longitude("testLon2").build();
-
-        List<HospitalListResponse> result = new ArrayList<>();
-        result.add(test1);
-        result.add(test2);
-
-        return result;
     }
 
     private List<HospitalListRequest> parseData(NodeList items) {
@@ -116,10 +113,20 @@ public class HospitalLocationApiHandler implements Handler {
         //데이터를 거리로 정렬
         List<HospitalListRequest> sortedList = result.stream()
                 .sorted(Comparator.comparingDouble(HospitalListRequest::getDistance)).collect(Collectors.toList());
+        System.out.println("!!!");
+        for (HospitalListRequest hospitalListRequest : sortedList) {
+            System.out.println(hospitalListRequest.getHpid() + " |  " + hospitalListRequest.getDutyName());
+        }
 
         //거리가 1.0 이하인 데이터만 추출
         List<HospitalListRequest> filteredList = sortedList.stream()
-                .filter(h -> h.getDistance() <= 1.0).collect(Collectors.toList());
+                .filter(h -> h.getDistance() <= 300.0).collect(Collectors.toList());
+
+        System.out.println("@@@");
+        System.out.println("!!!");
+        for (HospitalListRequest hospitalListRequest : filteredList) {
+            System.out.println(hospitalListRequest.getHpid() + " |  " + hospitalListRequest.getDutyName());
+        }
 
         return filteredList;
     }
