@@ -25,6 +25,13 @@ public class ReservationService {
         session.close();
         return list;
     }
+    public Reservation getReservationByReserveId(int reserve_id){
+        SqlSession session = sqlSessionFactory.openSession();
+        ReservationDao dao = session.getMapper(ReservationDao.class);
+        Reservation reservation = dao.select(reserve_id);
+        session.close();
+        return reservation;
+    }
     public List<Reservation> getReservationByHpid(String hpid){
         SqlSession session = sqlSessionFactory.openSession();
         ReservationDao dao = (ReservationDao) session.getMapper(ReservationDao.class);
@@ -44,6 +51,13 @@ public class ReservationService {
         SqlSession session = sqlSessionFactory.openSession();
         ReservationDao mapper = (ReservationDao) session.getMapper(ReservationDao.class);
         mapper.update(reservation);
+        session.commit();
+        session.close();
+    }
+    public void updateReservationStatus(String status, int reserve_id){
+        SqlSession session = sqlSessionFactory.openSession();
+        ReservationDao mapper = (ReservationDao) session.getMapper(ReservationDao.class);
+        mapper.updateStatus(status,reserve_id);
         session.commit();
         session.close();
     }
