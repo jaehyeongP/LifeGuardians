@@ -14,7 +14,9 @@ window.onload = function (){
         // TODO : 현재 로그인한 환자의 이름을 #username에 집어넣기
 
         // localStorage에 저장된 hpid, dutyName, hospital객체 삭제
-
+        localStorage.removeItem("hospital");
+        console.log(hp);
+        console.log(hospitalStr);
     } catch (e) {
         console.log(e);
 
