@@ -13,12 +13,11 @@ public class AddReviewHandler implements Handler {
     public String process(HttpServletRequest request, HttpServletResponse response) {
         String page = "";
         if (request.getMethod().equals("GET")) {
-            page = "/page/hospital/detail.jsp";
+            page = "/page/hospital/review_add.jsp";
         } else {
 
             String hpid = request.getParameter("hpid");
             int rate = Integer.parseInt(request.getParameter("rate"));
-            String content = request.getParameter("content");
             int member_id= Integer.parseInt((String) request.getSession().getAttribute("member_id"));
 
             String parameter = request.getParameter("tagContent[]");
@@ -27,9 +26,9 @@ public class AddReviewHandler implements Handler {
 //            String test = (String) username;
 //            Integer.parseInt(test);
 //
-            ReviewService service = new ReviewService();
+            ReviewService reviewservice = new ReviewService();
             //service.addReview(new Review(0, rate, content,null,hpid,member_id));
-            service.addReview(Review.builder().rate(rate).hpid(hpid).member_id(member_id).build());
+            reviewservice.addReview(Review.builder().rate(rate).hpid(hpid).member_id(member_id).build());
         }
         return page;
     }
