@@ -24,7 +24,13 @@ public class ReserveDetailHandler implements Handler {
             ReservationService reservationService = new ReservationService();
             HospitalService hospitalService = new HospitalService();
 
-            int reserve_id = (int) request.getSession().getAttribute("reserve_id");
+//            hidden_reserveId
+            System.out.println("1");
+//            int reserve_id = (int) request.getAttribute("hidden_reserveId");
+            int reserve_id = Integer.parseInt(request.getParameter("hidden_reserveId"));
+
+            System.out.println("2");
+            System.out.println(reserve_id);
             Reservation reservation = reservationService.getReservationByReserveId(reserve_id);
             Hospital findHospital = hospitalService.getHospitalByHpid(reservation.getHpid());
 

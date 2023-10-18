@@ -1,6 +1,8 @@
 package lg.handler.account;
 
 import lg.handler.Handler;
+import lg.hospital.Hospital;
+import lg.hospital.HospitalService;
 import lg.member.Member;
 import lg.member.MemberService;
 import org.json.simple.JSONObject;
@@ -8,13 +10,13 @@ import org.json.simple.JSONObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IdCheck implements Handler {
+public class HospitalIdCheckHandler implements Handler {
     @Override
-    public String process(HttpServletRequest request, HttpServletResponse response){
+    public String process(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameter("username");
-        Member member = (new MemberService()).getMemberByUsername(username);
+        Hospital hospital = new HospitalService().getHospitalByUsername(username);
         boolean flag = false;
-        if(member==null){
+        if(hospital==null){
             flag = true;
         }
         JSONObject obj = new JSONObject();

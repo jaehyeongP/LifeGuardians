@@ -86,7 +86,7 @@
                     </tbody>
 
                 </table>
-                <input id="hidden_reserveId" type="hidden" value="">
+                <input id="hidden_reserveId" name="hidden_reserveId" type="hidden" value="">
 
 <%--                <div id="reviewModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">--%>
 <%--                    <div class="modal-dialog" role="document">--%>

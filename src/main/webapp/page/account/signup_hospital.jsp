@@ -9,7 +9,7 @@
 
 <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e2o0bgo5bp&submodules=geocoder"></script>
 <script src="/resource/assets/js/account/signup_hospital.js"></script>
-<script src="/resource/assets/js/account/idcheck.js"></script>
+<script src="/resource/assets/js/account/hospital_idcheck.js"></script>
 <script src="/resource/assets/js/account/pwdsame.js"></script>
 
 

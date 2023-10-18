@@ -6,7 +6,7 @@
 </head>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/resource/assets/js/account/idcheck.js"></script>
+<script src="/resource/assets/js/account/user_idcheck.js"></script>
 <script src="/resource/assets/js/account/pwdsame.js"></script>
 <script src="/resource/assets/js/account/signup.js"></script>
 

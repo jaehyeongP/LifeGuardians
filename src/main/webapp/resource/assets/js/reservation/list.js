@@ -91,17 +91,16 @@ function showDetail() {
     $.ajax({
         type:"GET",
         url:"/api/reservation/detail.do",
-        dataType: "JSON",
+        dataType: 'json',
 
         success: function (jsonData){
-
+            console.log("1");
             $('#dutyName_label').text(jsonData.dutyName);
             $('#address_content').html(jsonData.address);
             $('#extraAddress_label').text(jsonData.extraAddress);
             $('#tel_content').html(jsonData.dutyTel1);
             $('#reserve_time_content').html(jsonData.reserveTime);
             $('#symptoms_content').html(jsonData.symptoms);
-
             // jsonData.forEach(function (data) {
             //     console.log(data);
             //     $('#dutyName_label').text(data.dutyName);

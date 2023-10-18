@@ -12,6 +12,6 @@ req.onload = () => {
 const checkDuplicate = () => {
     console.log("작동2");
     let username = document.getElementById("username").value;
-    req.open("get", "/signup/idcheck.do?username=" + username);
+    req.open("get", "/signup/member/idcheck.do?username=" + username);
     req.send();
 }
