@@ -9,8 +9,6 @@ function getHospitalDetailByJson(hpid){
         data: {"hpid" :hpid},
 
         success: function(jsonData){
-            var dutyName = jsonData.dutyName;
-            var dgidIdName = jsonData.dgidIdName;
             var arrStart = jsonData.startTime;
             var arrEnd = jsonData.endTime;
 

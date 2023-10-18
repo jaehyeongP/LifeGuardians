@@ -21,6 +21,7 @@ public class ReservationListResponse {
     private String reserveTime;
     private String symptoms;
     private String status;
+    private String reserveId;
 
 //    List<HospitalListResponse> hpInfo = new ArrayList<>();
 }

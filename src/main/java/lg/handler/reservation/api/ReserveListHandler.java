@@ -51,7 +51,8 @@ public class ReserveListHandler implements Handler {
                         .extraAddress(findHospital.getExtraAddress())
                         .reserveTime(reservation.getReserveTime())
                         .symptoms(reservation.getSymptoms())
-                        .status(reservation.getStatus()).build());
+                        .status(reservation.getStatus())
+                        .reserveId(String.valueOf(reservation.getReserve_id())).build());
             }
             String jsonStr = JsonMapper.objectToJson(resultHp);
 

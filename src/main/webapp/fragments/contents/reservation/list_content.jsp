@@ -4,6 +4,7 @@
 <section>
   <div class="container" style="height:900px;">
 
+<%--    검색창--%>
     <div class="row mb-5 text-center">
       <form id="search_form" class="php-email-form px-5" method="get">
 
@@ -19,25 +20,32 @@
 
       </form>
     </div>
-
     <div class="row">
 
+<%--      예약 list main--%>
       <div class="col-md-6">
         <table class="table table-hover align-items-center">
           <tbody id="hospital-select-tbody">
+
           </tbody>
         </table>
       </div>
-
-      <div id="map_div" class="row col-md-6 align-items-center">
+<%--      예약 detail Title--%>
+      <div id="reserve_div" class="row col-md-6 align-items-center">
         <table class="table table-hover">
           <tbody>
-          <tr><th id="map_address">병원을 선택해 주세요</th></tr>
+          <tr><th id="reserve_detail_title">예약 상세</th></tr>
           </tbody>
         </table>
-
-        <div id="map" class="map mb-2"style="width:100%;height:34%; border-radius:10px; border-width:2px; !important; border-style:solid !important; border-color:black !important;">
-
+<%--          예약 detail--%>
+        <div id="reserve_detail" class="map mb-2"style="width:100%;height:34%; border-radius:10px; border-width:2px; !important; border-style:solid !important; border-color:black !important;">
+            <input id="hidden_reserveId" type="hidden" value="">
+            <h3>예약 상세정보</h3>
+            예약 상태 : <input type="text" id="status" value="" readonly><br/>
+            증상 : <input type="text" id="symptoms" value="" readonly><br/>
+            예약 시간 : <input type="text" id="reserveTime" value="" readonly><br/>
+            수정일 : <input type="text" id="editDate" value="" readonly><br/>
+            <button type=""></button>
         </div>
 
         <div>test</div>
