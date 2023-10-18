@@ -25,7 +25,7 @@
                                     <!--아이디-->
                                     <div class="input-group mb-1">
                                         <input id="username" class="form-control" name="username" type="text" placeholder="아이디" aria-describedby="check_duplicate_username_btn">
-                                        <button id="check_duplicate_username_btn"  class="btn btn-outline-secondary" type="button" onclick="a()">중복확인</button>
+                                        <button id="check_duplicate_username_btn"  class="btn btn-outline-secondary" type="button" onclick="checkDuplicate()">중복확인</button>
                                     </div>
                                     <div id="res" class="ms-1 mb-1"></div>
 
