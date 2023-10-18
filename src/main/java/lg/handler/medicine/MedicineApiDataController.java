@@ -74,7 +74,7 @@ public class MedicineApiDataController implements Handler {
                     String depositMethodQesitm = (String) item.get("depositMethodQesitm");
                     String itemImage = (String) item.get("itemImage");
 
-                    list.add(new Medicine(0, 0, null, itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
+                    list.add(new Medicine(0, 0, "", itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
                 }
                 Map<String, Object> map = new HashMap<>();
                 map.put("list", list);

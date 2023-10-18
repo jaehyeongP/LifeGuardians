@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -59,7 +60,7 @@ public class DetailHandler implements Handler {
                 String depositMethodQesitm = (String) item.get("depositMethodQesitm");
                 String itemImage = (String) item.get("itemImage");
 
-                Medicine medicine = new Medicine(0, 0, null, itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage);
+                Medicine medicine = new Medicine(0, 0, "", itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage);
 
                 req.setAttribute("medicine", medicine);
             } catch (MalformedURLException e){
@@ -72,7 +73,6 @@ public class DetailHandler implements Handler {
 
         } else {
 
-            // 각자 medicineImg 디렉토리 경로로 변경해주세영
             String path = "/Users/chaewon/Project/LifeGuardians/medicineImg";
             int size = 100 * 1024;
             MultipartRequest multi = null;
@@ -94,7 +94,7 @@ public class DetailHandler implements Handler {
             String itemImage = multi.getParameter("itemImage");
 
             MedicineService medicineService = new MedicineService();
-            medicineService.addMedicine(new Medicine(0, member_id, Date.valueOf(LocalDate.now()) , itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
+            medicineService.addMedicine(new Medicine(0, member_id, "", itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage));
 
             page = "redirect:/page/medicine/list.jsp";
         }
