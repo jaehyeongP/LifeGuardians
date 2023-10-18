@@ -26,4 +26,7 @@ public interface HospitalDao {
 
     @Select("select * from HospitalV2")
     List<HospitalV2> selectAllV2();
+
+    @Select("select * from hospital where username = #{username}")
+    Hospital selectByUsername(@Param("username") String username);
 }
