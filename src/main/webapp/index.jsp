@@ -19,11 +19,8 @@
 <main id="main">
     <section id="services" class="services">
         <div class="container">
-
-            <div class="section-title">
-                <h2>기능</h2>
-                <p>웹의 주요 기능</p>
-            </div>
+            <div class="section-title mb-5"></div>
+            <div class="section-title mb-2"></div>
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 align-items-stretch">
@@ -202,7 +199,7 @@
 
 </main><!-- End #main -->
 
-<footer id="footer" class="fixed-bottom">
+<footer id="footer" class="">
     <jsp:include page="/fragments/common/footer.jsp"/>
 </footer>
 
