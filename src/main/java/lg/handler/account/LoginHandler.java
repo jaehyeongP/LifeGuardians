@@ -49,7 +49,7 @@ public class LoginHandler implements Handler {
             } else if (findHospital != null) {
 
                 if(findHospital.getPassword().equals(password)) {
-                    session.setAttribute("member_id", findHospital.getHpid());
+                    session.setAttribute("hp_id", findHospital.getHpid());
                     session.setAttribute("username", findHospital.getDutyName());
                     System.out.println("Success Hosptial Login!");
                 } else {
