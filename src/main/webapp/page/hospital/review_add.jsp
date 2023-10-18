@@ -6,10 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <head>
     <jsp:include page="/fragments/head.jsp"/>
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e2o0bgo5bp"></script>
+
     <script type="text/javascript" src="/resource/assets/js/hospital/detail.js"></script>
-
-
+    <script src="/resource/assets/js/review/add.js"></script>
 
 </head>
 
@@ -24,14 +23,12 @@
 
 <main id="main">
 
-    <div class="d-flex m-1" style="height: 1400px; background-color: #1977cc; border-radius: 10px;">
-        <section id="detail" class=" detail_section_bg" style="width:50%">
-            <jsp:include page="/fragments/contents/hospital/detail_content.jsp" />
-        </section>
+    <div class="d-flex m-1" style="border-radius: 10px;">
+<%--    <div class="d-flex m-1">--%>
 
 
-        <   section id="review" class="review_section_bg" style="width:50% ; border-color:black;">
-            <jsp:include page="/fragments/contents/hospital/review_content.jsp" />
+        <section id="add_review" class="add_review_section_bg w-50" style="border-width:5px !important; border-style: solid !important ; border-color:black !important;">
+            <jsp:include page="/fragments/contents/hospital/review_add_content.jsp" />
         </section>
 
     </div>
