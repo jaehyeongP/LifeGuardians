@@ -77,7 +77,7 @@
                     </tr>
                     <tr>
                         <td id="btn1" class="text-center col-md-6" style="border: none">
-                            <div class="btn btn-outline-danger">예약 취소</div>
+                            <div class="btn btn-outline-danger" onclick="editStatus()">예약 취소</div>
                         </td>
                         <td id="btn2" class="text-center col-md-auto" style="border: none">
                             <div class="btn btn-outline-success">방문 완료</div>
@@ -86,7 +86,7 @@
                     </tbody>
 
                 </table>
-                <input id="hidden_reserveId" name="hidden_reserveId" type="hidden" value="">
+
 
 <%--                <div id="reviewModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">--%>
 <%--                    <div class="modal-dialog" role="document">--%>
