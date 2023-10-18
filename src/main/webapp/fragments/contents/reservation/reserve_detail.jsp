@@ -21,7 +21,7 @@
     <form action="/reservation/reserve.do" id="reserve" method="POST" novalidate>
         <div class="form-group">
             <label for="name">환자 이름 </label>
-            <input type="text" class="form-control" value="${member.username}" id="name" readonly>
+            <input type="text" class="form-control" value="" id="name" readonly>
         </div>
 
         <div class="form-group">

@@ -22,7 +22,6 @@ public class ReserveHandler implements Handler {
     public String process(HttpServletRequest request, HttpServletResponse response) {
         String page = "";
         // 병원 상세페이지에서 예약하기 누르면 환자이름을 받아서 reserve_detail에 보내줌
-//        int member_id = Integer.parseInt(request.getParameter("member_id"));
 //        MemberService memberservice = new MemberService();
 //        Member member = memberservice.getMemberByMemberid(member_id);
 //        request.setAttribute("member", member);
@@ -30,8 +29,27 @@ public class ReserveHandler implements Handler {
 
         if(request.getMethod().equals("GET")){ // 병원예약버튼 클릭시
 
-//            page = "/page/reservation/reserve.jsp";
-            // TODO : 로그인 체크
+            // TODO : name 보내기
+//            int member_id = (int) request.getSession().getAttribute("member_id");
+//            System.out.println(member_id);
+//
+//            MemberService memberservice = new MemberService();
+//            Member member = memberservice.getMemberByMemberid(member_id);
+//            System.out.println(member.getName());
+//            String resultmember = objectToJson(member);
+//            try {
+//                response.getWriter().write(resultmember);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            String name = member.getName();
+//
+//            request.setAttribute("name",name);
+//            System.out.println(name);
+//            request.setAttribute("member",member);
+
+            /* hpid -> hospitalDto를 json으로 보냄 */
             String hpid = request.getParameter("hpid");
             HospitalService hospitalservice = new HospitalService();
             Hospital hospital = hospitalservice.getHospitalByHpid(hpid);
@@ -45,12 +63,10 @@ public class ReserveHandler implements Handler {
             return null;
         } else { // post방식 : 예약확인 클릭시 -> db에 값을 넘겨줌
             System.out.println("1");
-//            Date reserveTime = Date.valueOf(request.getParameter("reserveTime"));
-            String reserveTime = request.getParameter("reserveTime");
-            System.out.println("2");
-            System.out.println(reserveTime);
+            String reserveTime = request.getParameter("datetimepicker");
+//            System.out.println(reserveTime);
             String symptoms = request.getParameter("symptoms");
-            String status = "승인대기";
+            String status = "예약완료"; // default status : 예약완료
 //
 //            Reservation reservation = Reservation.builder().member_id(member_id).hpid(hpid).reserveTime(reserveTime).symptoms(symptoms).status(status).build();
 //            ReservationService reservationservice = new ReservationService();

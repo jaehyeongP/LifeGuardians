@@ -11,7 +11,13 @@ window.onload = function (){
         // console.log(hpidid);
         // console.log(hp.dutyName);
         $('#dutyName').attr('value', hpdutyName);
+
+
         // TODO : 현재 로그인한 환자의 이름을 #username에 집어넣기
+        // const memberStr = localStorage.getItem("resultmember");
+        // const mb = JSON.parse(memberStr);
+        // let memberName = mb.name;
+        // $('#name').attr('value', memberName);
 
         // localStorage에 저장된 hpid, dutyName, hospital객체 삭제
         localStorage.removeItem("hospital");

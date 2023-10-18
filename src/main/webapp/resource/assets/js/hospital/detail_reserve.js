@@ -1,5 +1,6 @@
 function moveToPage(e){
     let hpid = $(e).parent().parent().find('#modal_hpid').val();
+    // js에서 session 으로 member_id받아오기?
 
     $.ajax({
         type:"GET",
@@ -10,6 +11,9 @@ function moveToPage(e){
         success: function (jsonData){
             localStorage.setItem("hospital", JSON.stringify(jsonData));
             console.log(hpid);
+            console.log("1");
+            // localStorage.setItem("resultmember", JSON.stringify(jsonData));
+            // console.log("2");
             window.location.href = "/reservation/reservepage.do";
 
         },
