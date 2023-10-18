@@ -1,12 +1,9 @@
 package lg.handler.reservation.api;
 
 import lg.handler.Handler;
-import lg.handler.hospital.dto.HospitalListResponse;
 import lg.handler.reservation.dto.ReservationListResponse;
 import lg.hospital.Hospital;
 import lg.hospital.HospitalService;
-import lg.member.Member;
-import lg.member.MemberService;
 import lg.reservation.Reservation;
 import lg.reservation.ReservationService;
 import lg.util.JsonMapper;
@@ -14,8 +11,6 @@ import lg.util.JsonMapper;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReserveDetailHandler implements Handler {
     @Override
@@ -23,17 +18,9 @@ public class ReserveDetailHandler implements Handler {
         if(request.getMethod().equals("GET")) {
             ReservationService reservationService = new ReservationService();
             HospitalService hospitalService = new HospitalService();
-
-//            hidden_reserveId
-            System.out.println("1");
-//            int reserve_id = (int) request.getAttribute("hidden_reserveId");
-            int reserve_id = Integer.parseInt(request.getParameter("hidden_reserveId"));
-
-            System.out.println("2");
-            System.out.println(reserve_id);
+            int reserve_id = Integer.parseInt(request.getParameter("reserveId"));
             Reservation reservation = reservationService.getReservationByReserveId(reserve_id);
             Hospital findHospital = hospitalService.getHospitalByHpid(reservation.getHpid());
-
 
             ReservationListResponse resultHp =ReservationListResponse.builder()
                     .hpid(reservation.getHpid())

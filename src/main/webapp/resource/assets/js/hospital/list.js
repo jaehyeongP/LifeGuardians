@@ -13,10 +13,7 @@ function callAjax() {
         success: function (jsonData) {
             console.log(jsonData);
             $('#hospital-select-tbody').children().remove();
-
             createTbody(jsonData);
-
-
         },
         error: function (error) {
 

@@ -49,22 +49,27 @@ function createTableTitle() {
 function createTableData(data) {
     let hpid = data.hpid;
 
-    let tr = $('<tr>').prop({id: hpid}).on('click', function () {selectHP(this)});
+    let tr = $('<tr>').prop({id: hpid}).on('click', function () {
+        selectHP(this)
+    });
     let dutyNameTd = $('<td>').prop({id: hpid + "_dutyName", innerHTML: data.dutyName});
-    let dutyDivNameTd = $('<td>').prop({id:"extra", innerHTML:data.dutyDivName});
+    let dutyDivNameTd = $('<td>').prop({id: "extra", innerHTML: data.dutyDivName});
     let dutyTel1Td = $('<td>').prop({id: hpid + "_dutyTel1", innerHTML: data.dutyTel1});
 
-    let reserveTimeTd = $('<input>').prop({id: hpid + "_reserveTime", type: 'hidden', value: data.reserveId})
+    let reserveIdTd = $('<input>').prop({id: hpid + "_reserveId", type: 'hidden', value: data.reserveId});
+    let reserveTimeTd = $('<input>').prop({id: hpid + "_reserveTime", type: 'hidden', value: data.reserveId});
     let address = $('<input>').prop({id: hpid + "_address", type: 'hidden', value: data.address});
     let detailBtn = $('<div>')
-        .prop({id:hpid+ "_detail_btn", innerHTML: data.status})
+        .prop({id: hpid + "_detail_btn", innerHTML: data.status})
         .on('click', function () {showDetail(this)});
 
+    tr.append(reserveIdTd);
     tr.append(dutyNameTd);
     tr.append(dutyTel1Td);
     tr.append(dutyDivNameTd);
     tr.append(reserveTimeTd);
     tr.append(address);
+    tr.append()
     tr.append(detailBtn);
 
     return tr;
@@ -73,46 +78,32 @@ function createTableData(data) {
 // table에서 숨겨진 reserveid를 가져와야함
 function selectHP(element) {
     let hpid = $(element).attr('id');
-
-    let address = $(element).find('#'+ hpid + '_address').val();
-    let reserveId = $(element).find('#'+ hpid + '_reserveTime').val();
+    let address = $(element).find('#' + hpid + '_address').val();
+    let reserveId = $(element).find('#' + hpid + '_reserveTime').val();
     $('#map_address').text(address);
 
-    document.getElementById('hidden_reserveId').value = reserveId;
-
-    console.log(hpid);
-    console.log(address);
+    document.getElementById(hpid+'_reserveId').value = reserveId;
 }
-
 // 예약 상세페이지
-
-function showDetail() {
+function showDetail(element) {
+    let hpid = $(element).parent().attr('id');
+    let reserveId = $('#'+hpid+'_reserveId').val();
 
     $.ajax({
-        type:"GET",
-        url:"/api/reservation/detail.do",
+        type: "GET",
+        url: "/api/reservation/detail.do",
         dataType: 'json',
+        data: {"reserveId" : reserveId},
 
-        success: function (jsonData){
-            console.log("1");
+        success: function (jsonData) {
             $('#dutyName_label').text(jsonData.dutyName);
             $('#address_content').html(jsonData.address);
             $('#extraAddress_label').text(jsonData.extraAddress);
             $('#tel_content').html(jsonData.dutyTel1);
             $('#reserve_time_content').html(jsonData.reserveTime);
             $('#symptoms_content').html(jsonData.symptoms);
-            // jsonData.forEach(function (data) {
-            //     console.log(data);
-            //     $('#dutyName_label').text(data.dutyName);
-            //     $('#address_content').html(data.address);
-            //     $('#extraAddress_label').text(data.extraAddress);
-            //     $('#tel_content').html(data.dutyTel1);
-            //     $('#reserve_time_content').html(data.reserveTime);
-            //     $('#symptoms_content').html(data.symptoms);
-            // });
-
         },
-        error:function (error){
+        error: function (error) {
             console.log("error");
         }
     })
