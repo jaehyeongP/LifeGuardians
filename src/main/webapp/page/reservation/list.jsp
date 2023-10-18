@@ -5,10 +5,6 @@
   <jsp:include page="/fragments/head.jsp"/>
 </head>
 
-<%--<script src="/resource/assets/js/hospital/list.js"></script>--%>
-<%--<script src="/resource/assets/js/hospital/detail.js"></script>--%>
-<%--<script src="/resource/assets/js/hospital/detail_reserve.js"></script>--%>
-<%--<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=e2o0bgo5bp"></script>--%>
 <script src="/resource/assets/js/reservation/list.js"></script>
 
 <div id="topbar" class="d-flex align-items-center">
