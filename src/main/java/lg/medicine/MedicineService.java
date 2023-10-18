@@ -43,7 +43,7 @@ public class MedicineService {
         return medicine;
     }
 
-    public void updateMedicine(Medicine medicine){
+    public void editMedicine(Medicine medicine){
         SqlSession session = sqlSessionFactory.openSession();
         MedicineDao dao = session.getMapper(MedicineDao.class);
 
