@@ -41,11 +41,11 @@ function calReviewAddHandler(hpid) {
         contentType: false,
         data: formData,
         success: function (jsonData) {
-            $('#worst_progress').val(jsonData.avg1);
-            $('#bad_progress').val(jsonData.avg2);
-            $('#normal_progress').val(jsonData.avg3);
-            $('#good_progress').val(jsonData.avg4);
-            $('#best_progress').val(jsonData.avg5);
+            // $('#worst_progress').val(jsonData.avg1);
+            // $('#bad_progress').val(jsonData.avg2);
+            // $('#normal_progress').val(jsonData.avg3);
+            // $('#good_progress').val(jsonData.avg4);
+            // $('#best_progress').val(jsonData.avg5);
 
         },
         error: function (error) {
@@ -130,7 +130,7 @@ function changeImageWorst() {
 var defaultImages = {
     best: "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/48205/smiling-face-with-smiling-eyes-emoji-clipart-md.png",
     good: "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/47713/smiling-face-emoji-clipart-md.png",
-    normal: "https://i.namu.wiki/i/yJApduHcc407AABSeNmsLm1-EPta1FESJvt3ScKPqXedSCGbpkoHTicJ3FIFXNUKg89hR2QIIH4BqvrvCYK3FQ.svg",
+    normal: "/resource/assets/img/emoji/aZHCfuhGuOOYwW2qVXWHexwrRIyJANgCLjN7lWOdmbO21vE_d90xpVXz3SyMYtehQnyruxenEMnVAeigcZf6cQ.svg",
     bad: "https://w7.pngwing.com/pngs/699/293/png-transparent-emoji-emoticon-expression-annoyed-emoji-icon-thumbnail.png",
     worst: "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/55893/angry-face-emoji-clipart-md.png"
 };
