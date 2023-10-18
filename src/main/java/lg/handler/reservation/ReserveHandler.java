@@ -28,7 +28,7 @@ public class ReserveHandler implements Handler {
 //        String hpid = request.getParameter("hpid");
 
         if(request.getMethod().equals("GET")){ // 병원예약버튼 클릭시
-
+            //ing
             // TODO : name 보내기
 //            int member_id = (int) request.getSession().getAttribute("member_id");
 //            System.out.println(member_id);
