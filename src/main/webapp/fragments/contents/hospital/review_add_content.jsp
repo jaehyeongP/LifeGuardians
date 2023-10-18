@@ -17,11 +17,11 @@
     <div class="m-2 p-2" id="hospital_name_review" style="font-weight:bold"> 은(는) 어떠셨나요?  </div>
 </div>
 
-    <form action="/review/add.do" method="post">
+    <form id="review_submit_form">
         <input type="hidden" name="hpid" value="your_hospital_id">
 
         <div id="add_best" class="add_best d-flex m-4 " style="height: 15%;">
-            <input type="radio" id="best" name="rate" value="5" style="display: none;">
+            <input type="radio" id="best" name="rate" value=5 style="display: none;">
             <label for="best" >
                 <img id='bestImage'  onclick='changeImageBest()'  src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/48205/smiling-face-with-smiling-eyes-emoji-clipart-md.png"
                      class = "smile"
