@@ -6,7 +6,7 @@ import java.util.List;
 
 @Mapper
 public interface ReservationDao {
-    @Insert("insert into reservations values (seq_reservation.nextval, #{member_id}, #{hpid}, #{reserveTime}, #{symptoms}, #{status}, sysdate, sysdate)")
+    @Insert("insert into reservations values (seq_reservations.nextval, #{member_id}, #{hpid}, #{reserveTime}, #{symptoms}, #{status}, sysdate, sysdate)")
     void insert(Reservation reservation);
     @Select("select * from reservations")
     List<Reservation> selectAll();

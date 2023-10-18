@@ -3,26 +3,23 @@
 window.onload = function (){
 
     try {
-        const hospitalStr = localStorage.getItem("hospital");
-        const hp = JSON.parse(hospitalStr);
-        let hpidid = hp.hpid;
-        let hpdutyName = hp.dutyName;
+        const responseStr = localStorage.getItem("responseJSON");
+        const rs = JSON.parse(responseStr);
+        let hpidid = rs.hpid;
+        let hpdutyName = rs.dutyName;
         // console.log(hp);
         // console.log(hpidid);
         // console.log(hp.dutyName);
         $('#dutyName').attr('value', hpdutyName);
 
+        let rsName = rs.name;
+        $('#name').attr('value', rsName);
 
-        // TODO : 현재 로그인한 환자의 이름을 #username에 집어넣기
-        // const memberStr = localStorage.getItem("resultmember");
-        // const mb = JSON.parse(memberStr);
-        // let memberName = mb.name;
-        // $('#name').attr('value', memberName);
-
-        // localStorage에 저장된 hpid, dutyName, hospital객체 삭제
-        localStorage.removeItem("hospital");
-        console.log(hp);
-        console.log(hospitalStr);
+        $('#hpid_for_reserve').attr('value', hpidid);
+        // localStorage에 저장된 객체 삭제
+        localStorage.removeItem("responseJSON");
+        console.log(rs);
+        console.log(responseStr);
     } catch (e) {
         console.log(e);
 

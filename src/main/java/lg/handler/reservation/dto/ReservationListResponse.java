@@ -18,7 +18,7 @@ public class ReservationListResponse {
     private String dutyTel1;
     private String address;
     private String extraAddress;
-    private Date reserveTime;
+    private String reserveTime;
     private String symptoms;
     private String status;
 

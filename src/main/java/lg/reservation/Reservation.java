@@ -11,7 +11,7 @@ public class Reservation {
     private int reserve_id;
     private int member_id;
     private String hpid;
-    private Date reserveTime;
+    private String reserveTime;
     private String symptoms;
     private String status;
     private Date genDate;

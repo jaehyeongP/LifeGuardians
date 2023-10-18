@@ -9,9 +9,8 @@ function moveToPage(e){
         data: {"hpid": hpid},
 
         success: function (jsonData){
-            localStorage.setItem("hospital", JSON.stringify(jsonData));
+            localStorage.setItem("responseJSON", JSON.stringify(jsonData));
             console.log(hpid);
-            console.log("1");
             // localStorage.setItem("resultmember", JSON.stringify(jsonData));
             // console.log("2");
             window.location.href = "/reservation/reservepage.do";
