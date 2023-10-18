@@ -26,7 +26,7 @@
 
     <div id="normal" class="normal d-flex m-4" style="height: 15%; width:90%;">
         <div class="m-1 align-self-center " style="font-size:13px; width:35% ; height:60%;">
-            <img src="https://i.namu.wiki/i/yJApduHcc407AABSeNmsLm1-EPta1FESJvt3ScKPqXedSCGbpkoHTicJ3FIFXNUKg89hR2QIIH4BqvrvCYK3FQ.svg" class="smile" alt width="44" height="44">
+            <img src="/resource/assets/img/emoji/aZHCfuhGuOOYwW2qVXWHexwrRIyJANgCLjN7lWOdmbO21vE_d90xpVXz3SyMYtehQnyruxenEMnVAeigcZf6cQ.svg" class="smile" alt width="44" height="44">
             <b>" 그냥 그래요 "</b>
         </div>
         <progress id="normal_progress" value="20" max="100" style="height:20%; width:60%; margin:8px;padding-top:60px;"></progress>

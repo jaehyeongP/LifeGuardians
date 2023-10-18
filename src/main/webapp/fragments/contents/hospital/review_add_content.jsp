@@ -59,7 +59,7 @@
         <div id="add_normal" class="add_normal d-flex m-4 " style="height: 15%;">
             <input type="radio" id="normal" name="rate" value="3" style="display: none;">
             <label for="normal" >
-                <img id='normalImage'  onclick='changeImageNormal()'  src="https://i.namu.wiki/i/yJApduHcc407AABSeNmsLm1-EPta1FESJvt3ScKPqXedSCGbpkoHTicJ3FIFXNUKg89hR2QIIH4BqvrvCYK3FQ.svg"
+                <img id='normalImage'  onclick='changeImageNormal()'  src="/resource/assets/img/emoji/aZHCfuhGuOOYwW2qVXWHexwrRIyJANgCLjN7lWOdmbO21vE_d90xpVXz3SyMYtehQnyruxenEMnVAeigcZf6cQ.svg"
                      class = "smile"
                      alt width = "44"
                      height = "44">
