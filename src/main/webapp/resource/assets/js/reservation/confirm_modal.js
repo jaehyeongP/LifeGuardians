@@ -1,3 +1,0 @@
-$(function() {
-    $("#reservationModal").modal("show");
-});

@@ -17,8 +17,7 @@
 <div class="container mt-5">
     <h1 class="text-center">병원 방문 예약</h1>
 
-    <!-- 예약 양식 -->
-<%--    다 작성시에는 모달창 띄우기--%>
+    <!-- 예약 양식 폼 제출-->
     <form action="/reservation/reserve.do" id="reserve" method="POST" novalidate>
         <div class="form-group">
             <label for="name">환자 이름 </label>
@@ -32,7 +31,7 @@
 
         <div class="form-group">
             <label for="dutyName">기관명</label>
-            <input type="text" class="form-control" id="dutyName" readonly>
+            <input type="text" class="form-control" id="dutyName" value="" readonly>
         </div>
 
         <%--datetimepicker--%>
@@ -50,31 +49,4 @@
 
     </form>
 </div>
-
-
-<!-- 모달 창 -->
-<div id="reservationModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="reservationModalLabel">예약 확인</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- 예약 정보를 모달 내에 표시합니다 -->
-                <h2>예약 정보</h2>
-                <p><strong>이름:</strong> John Doe</p>
-                <p><strong>전화번호:</strong> 123-456-7890</p>
-                <p><strong>예약 일자:</strong> 2023-10-15</p>
-                <p><strong>예약 일시:</strong> 0930</p>
-                <p><strong>추가 메시지:</strong> 추가 메시지를 입력하세요</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                <a href="" class="btn btn-primary">예약 상태 확인</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 

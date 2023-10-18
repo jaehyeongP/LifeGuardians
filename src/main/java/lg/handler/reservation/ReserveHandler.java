@@ -1,6 +1,9 @@
 package lg.handler.reservation;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
+import lg.hospital.Hospital;
 import lg.hospital.HospitalService;
 import lg.member.Member;
 import lg.member.MemberService;
@@ -10,6 +13,7 @@ import lg.reservation.ReservationService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Date;
 
 public class ReserveHandler implements Handler {
@@ -28,20 +32,23 @@ public class ReserveHandler implements Handler {
 
 //            page = "/page/reservation/reserve.jsp";
             // TODO : 로그인 체크
-            //
-            // TODO : getParameter로 hpid 가져오기
             String hpid = request.getParameter("hpid");
-            System.out.println(hpid);
-            //기관명 가져오기
             HospitalService hospitalservice = new HospitalService();
-            String dutyName = hospitalservice.getHospitalByHpid(hpid).getDutyName();
-            System.out.println(dutyName);
-            page = "/page/reservation/reserve.jsp";
-            return page;
+            Hospital hospital = hospitalservice.getHospitalByHpid(hpid);
+            String result = objectToJson(hospital);
+            try {
+                response.getWriter().write(result);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
+            return null;
         } else { // post방식 : 예약확인 클릭시 -> db에 값을 넘겨줌
-
-            Date reserveTime = Date.valueOf(request.getParameter("reserveTime"));
+            System.out.println("1");
+//            Date reserveTime = Date.valueOf(request.getParameter("reserveTime"));
+            String reserveTime = request.getParameter("reserveTime");
+            System.out.println("2");
+            System.out.println(reserveTime);
             String symptoms = request.getParameter("symptoms");
             String status = "승인대기";
 //
@@ -49,9 +56,22 @@ public class ReserveHandler implements Handler {
 //            ReservationService reservationservice = new ReservationService();
 //            reservationservice.addReservation(reservation);
 //            page = "/page/reservation/reserve.jsp"; //? 홈페이지로? 아님 다시 병원 상세페이지로?
-            page = "redirect:/index.jsp";
+            page = "redirect:/";
+
+            return page;
         }
 
-        return page;
+    }
+
+    private String objectToJson(Object object) {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            return objectMapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

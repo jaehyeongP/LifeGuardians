@@ -10,7 +10,8 @@
     <jsp:include page="/fragments/head.jsp"/>
     <link rel="stylesheet" href="/resource/assets/css/jquery.datetimepicker.min.css">
     <script src="/resource/assets/js/reservation/jquery.datetimepicker.full.min.js"></script>
-
+    <script src="/resource/assets/js/reservation/confirm_reservation.js"></script>
+    <script src="/resource/assets/js/hospital/detail_reserve.js"></script>
 </head>
 
 
