@@ -10,9 +10,9 @@
         </c:if>
 
         <c:if test="${sessionScope.username != null}">
-            <i class="bi bi-gear"></i><a href="/mypage.do">${sessionScope.username}님 반갑습니다</a>
-            <i class="bi bi-calendar-check"></i><a href="/mypage.do"> 내 예약 관리</a>
-            <i class="bi bi-capsule"></i><a href="/mypage.do"> 내 약 관리</a>
+            <i class="bi bi-gear"></i><a href="/member/mypage.do">${sessionScope.username}님 반갑습니다</a>
+            <i class="bi bi-calendar-check"></i><a href="/hospital/reservation/list.do"> 내 예약 관리</a>
+            <i class="bi bi-capsule"></i><a href="/medicine/mypage.do"> 내 약 관리</a>
         </c:if>
 
     </div>
