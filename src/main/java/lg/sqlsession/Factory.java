@@ -1,5 +1,6 @@
 package lg.sqlsession;
 
+import lg.board.BoardDao;
 import lg.hospital.HospitalDao;
 import lg.medicine.MedicineDao;
 import lg.member.MemberDao;
@@ -28,7 +29,7 @@ public class Factory {
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 
                 //구현할 맵퍼 등록
-                Class[] mapper = { MemberDao.class , ReviewDao.class, HospitalDao.class, MedicineDao.class, ReservationDao.class};
+                Class[] mapper = { MemberDao.class , ReviewDao.class, HospitalDao.class, MedicineDao.class, ReservationDao.class, BoardDao.class};
                 for (Class m : mapper) {
                     //sqlSessionFactory에 맵퍼를 등록
                     sqlSessionFactory.getConfiguration().addMapper(m);

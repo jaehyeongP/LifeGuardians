@@ -76,4 +76,14 @@ public class HospitalService {
         session.commit();
         session.close();
     }
+
+    public Hospital getHospitalByUsername(String username) {
+        SqlSession session = sqlSessionFactory.openSession();
+        HospitalDao hospitalDao = session.getMapper(HospitalDao.class);
+        Hospital hospital = hospitalDao.selectByUsername(username);
+        session.commit();
+        session.close();
+
+        return hospital;
+    }
 }
