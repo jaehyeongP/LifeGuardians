@@ -92,8 +92,11 @@ function selectHP(element) {
 }
 
 // 예약 상세페이지
-function showDetail() {
+function showDetail(e) {
     // $("#reservationModal").modal('show');
+    // console.log(e);
+    // console.log("1");
+    // console.log(jsonData);
 
     $.ajax({
         type:"GET",
@@ -104,7 +107,6 @@ function showDetail() {
             // TODO 예약 상세페이지 + 리뷰할 수 있게 버튼
             console.log(jsonData);
             var hgenDate = jsonData.genDate;
-            console.log(hgenDate);
             console.log(jsonData.status);
 
             // let txt ="";
