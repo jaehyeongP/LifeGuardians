@@ -5,10 +5,11 @@ import lombok.*;
 import java.sql.Date;
 
 @Getter
+@Builder
 public class Medicine {
     private int medicine_id;
     private int member_id;
-    private Date take_time;
+    private String take_time;
     private String itemName;
     private String entpName;
     private String efcyQesitm;
@@ -22,7 +23,7 @@ public class Medicine {
 
     public Medicine() {}
 
-    public Medicine(int medicine_id, int member_id, Date take_time, String itemName, String entpName, String efcyQesitm, String useMethodQesitm, String atpnWarnQesitm, String atpnQesitm, String intrcQesitm, String seQesitm, String depositMethodQesitm, String itemImage) {
+    public Medicine(int medicine_id, int member_id, String take_time, String itemName, String entpName, String efcyQesitm, String useMethodQesitm, String atpnWarnQesitm, String atpnQesitm, String intrcQesitm, String seQesitm, String depositMethodQesitm, String itemImage) {
         this.medicine_id = medicine_id;
         this.member_id = member_id;
         this.take_time = take_time;

@@ -21,7 +21,6 @@ btn_add.addEventListener("click", () => {
     formData.append("itemImage", document.getElementById("itemImage").value);
 
     btn_add.disabled=true;
-    console.log(member_id.value);
 
     $.ajax({
         type: "POST",
