@@ -13,10 +13,8 @@ function callAjax() {
             console.log(jsonData);
             $('#hospital-select-tbody').children().remove();
             createTbody(jsonData);
-
         },
         error: function (error) {
-
         }
     });
 }
@@ -31,7 +29,6 @@ function createTbody(jsonData) {
         tbody.append(tr);
     });
 }
-
 
 function createTableTitle() {
     let tbody = $('#hospital-select-tbody');
@@ -63,7 +60,6 @@ function createTableData(data) {
         .prop({id:hpid+ "_detail_btn", innerHTML: data.status})
         .on('click', function () {showDetail(this)});
 
-
     tr.append(dutyNameTd);
     tr.append(dutyTel1Td);
     tr.append(dutyDivNameTd);
@@ -82,54 +78,43 @@ function selectHP(element) {
     let reserveId = $(element).find('#'+ hpid + '_reserveTime').val();
     $('#map_address').text(address);
 
-    // $('#hpid_dutyName').attr('value',dutyName);
-    // $('#hidden_reserveId').attr('value',reserveId);
     document.getElementById('hidden_reserveId').value = reserveId;
-
 
     console.log(hpid);
     console.log(address);
 }
 
 // 예약 상세페이지
-function showDetail(e) {
-    // $("#reservationModal").modal('show');
-    // console.log(e);
-    // console.log("1");
-    // console.log(jsonData);
+
+function showDetail() {
 
     $.ajax({
         type:"GET",
-        url:"/api/reservation/list.do",
+        url:"/api/reservation/detail.do",
         dataType: "JSON",
 
         success: function (jsonData){
-            // TODO 예약 상세페이지 + 리뷰할 수 있게 버튼
-            console.log(jsonData);
-            var hgenDate = jsonData.genDate;
-            console.log(jsonData.status);
 
-            // let txt ="";
-            // txt += "<h3>" + "예약 상세정보" + "</h3>";
-            // txt += "<input id='hidden_reserveId' type='hidden' value='"+jsonData.reserveId+"'>";
-            // console.log("10");
-            // txt += "예약상태 : "+ jsonData.dutyName+"<br/>";
-            // txt += "증상 : "+ jsonData.symptoms+"<br/>";
-            // txt += "예약시간 : " + jsonData.reserveTime+ "<br/>";
-            // txt += "수정일: "+ jsonData.editDate + "<br/>";
-            // txt += "<div style='border:2px solid blue'>";
-            // txt += "</div>";
-            //
-            //
-            // $("#reserve_detail").html(txt);
+            $('#dutyName_label').text(jsonData.dutyName);
+            $('#address_content').html(jsonData.address);
+            $('#extraAddress_label').text(jsonData.extraAddress);
+            $('#tel_content').html(jsonData.dutyTel1);
+            $('#reserve_time_content').html(jsonData.reserveTime);
+            $('#symptoms_content').html(jsonData.symptoms);
+
+            // jsonData.forEach(function (data) {
+            //     console.log(data);
+            //     $('#dutyName_label').text(data.dutyName);
+            //     $('#address_content').html(data.address);
+            //     $('#extraAddress_label').text(data.extraAddress);
+            //     $('#tel_content').html(data.dutyTel1);
+            //     $('#reserve_time_content').html(data.reserveTime);
+            //     $('#symptoms_content').html(data.symptoms);
+            // });
+
         },
         error:function (error){
             console.log("error");
         }
-
-
     })
-
-
 }
-
