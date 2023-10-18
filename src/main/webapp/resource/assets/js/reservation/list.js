@@ -85,7 +85,9 @@ function selectHP(element) {
 }
 
 // 예약 상세페이지
+
 function showDetail() {
+
     $.ajax({
         type:"GET",
         url:"/api/reservation/detail.do",
@@ -109,6 +111,7 @@ function showDetail() {
             //     $('#reserve_time_content').html(data.reserveTime);
             //     $('#symptoms_content').html(data.symptoms);
             // });
+
         },
         error:function (error){
             console.log("error");

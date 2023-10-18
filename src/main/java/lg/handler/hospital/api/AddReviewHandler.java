@@ -16,14 +16,14 @@ public class AddReviewHandler implements Handler {
     public String process(HttpServletRequest request, HttpServletResponse response) {
         if (request.getMethod().equals("POST")) {
 
-            String path = "/fragments/contents/hospital/review_add_content.jsp";
+            String path = "/";
             int size = 100 * 1024;
             try {
-                //멀티파트 => 야러타입의 객체를 받아서 사용하게 해줍니다.
+                //멀티파트 => 여러타입의 객체를 받아서 사용하게 해줍니다.
                 MultipartRequest multipartRequest = new MultipartRequest(request, path, size, "utf-8", new DefaultFileRenamePolicy());
                 String hpid = multipartRequest.getParameter("hpid");
                 int rate = Integer.parseInt(multipartRequest.getParameter("rate"));
-                int member_id= Integer.parseInt((String) request.getSession().getAttribute("member_id"));
+                int member_id=  (int) request.getSession().getAttribute("member_id");
 
                 //          String parameter = request.getParameter("tagContent[]");
 

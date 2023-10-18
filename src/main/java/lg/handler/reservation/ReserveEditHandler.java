@@ -1,6 +1,8 @@
 package lg.handler.reservation;
 
 import lg.handler.Handler;
+import lg.reservation.Reservation;
+import lg.reservation.ReservationService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 public class ReserveEditHandler implements Handler {
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
-        return null;
+        String page = "";
+        if(request.getMethod().equals("GET")){
+            int reserve_id = Integer.parseInt(request.getParameter("reserve_id"));
+
+            ReservationService reservationservice = new ReservationService();
+            String status = request.getParameter("status");
+            reservationservice.updateReservationStatus(status,reserve_id);
+            page = "redirect:/";
+        }
+
+        return page;
     }
 }

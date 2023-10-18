@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Mapper
 public interface ReviewDao {
-    @Insert("insert into review values(seq_review_id_nextval, #{rate}  , sysdate, #{hpid},#{member_id} )")
+    @Insert("insert into review values(seq_review.nextval,  #{hpid}, #{member_id}, #{rate} ,  sysdate)")
 
     void insert(Review r);
 

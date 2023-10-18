@@ -16,8 +16,10 @@ public interface ReservationDao {
     List<Reservation> selectByMember(@Param("member_id") int member_id);
     @Select("select * from reservations where hpid=#{hpid}")
     List<Reservation> selectByHpid(@Param("hpid") String hpid);
-    @Update("update reservations set reserveTime=#{reserveTime}, symptoms=#{symptoms} where reserve_id=#{reserve_id}")
+    @Update("update reservations set status=#{status}, reserveTime=#{reserveTime}, symptoms=#{symptoms} where reserve_id=#{reserve_id}")
     void update(Reservation reservation);
+    @Update("update reservations set status=#{status} where reserve_id=#{reserve_id}")
+    void updateStatus(@Param("status") String status, @Param("reserve_id") int reserve_id);
     @Delete("delete from reservations where reserve_id=#{reserve_id}")
     void delete(@Param("reserve_id") int reserve_id);
 }
