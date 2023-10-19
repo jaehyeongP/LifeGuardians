@@ -20,7 +20,6 @@ function getReviewAvg(hpid) {
 }
 
 function navermap(x, y) {
-
     $("#map").children().remove();
 
     var mapOptions = {

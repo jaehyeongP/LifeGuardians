@@ -22,26 +22,14 @@ public class ReserveListHandler implements Handler {
     public String process(HttpServletRequest request, HttpServletResponse response) {
         if(request.getMethod().equals("GET")) {
             ReservationService reservationService = new ReservationService();
-            MemberService memberService = new MemberService();
             HospitalService hospitalService = new HospitalService();
             List<ReservationListResponse> resultHp = new ArrayList<>();
 
             int memberId = (int) request.getSession().getAttribute("member_id");
             List<Reservation> findReservation = reservationService.getReservationByMember(memberId);
-            Member findMember = memberService.getMemberByMemberid(memberId);
 
             for (Reservation reservation : findReservation) {
                 Hospital findHospital = hospitalService.getHospitalByHpid(reservation.getHpid());
-
-//                resultHp.add(HospitalListResponse.builder()
-//                                .hpid(findHospital.getHpid())
-//                                .dutyName(findHospital.getDutyName())
-//                                .dutyDivName(findHospital.getDutyDivName())
-//                                .dutyTel1(findHospital.getDutyTel1())
-//                                .address(findHospital.getAddress())
-//                                .extraAddress(findHospital.getExtraAddress())
-//                                .build());
-
                 resultHp.add(ReservationListResponse.builder()
                         .hpid(findHospital.getHpid())
                         .dutyName(findHospital.getDutyName())
@@ -61,7 +49,6 @@ public class ReserveListHandler implements Handler {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
         return null;
     }

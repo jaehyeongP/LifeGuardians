@@ -1,51 +1,20 @@
+function calReviewAddHandler() {
+    $('#A2113337_detail_btn').c
+    $("#reviewModal").modal('hide');
 
+    var formData = new FormData($('#review_submit_form')[0]);
 
-window.onload = function () {
-    document.getElementById('bestImage').addEventListener('click', changeImageBest);
-    document.getElementById('goodImage').addEventListener('click', changeImageGood);
-    document.getElementById('normalImage').addEventListener('click', changeImageNormal);
-    document.getElementById("badImage").addEventListener("click", changeImageBad);
-    document.getElementById("worstImage").addEventListener("click",changeImageWorst);
-    document.getElementById('add_best').addEventListener('change', changeImageBest);
-    document.getElementById('add_good').addEventListener('change', changeImageGood);
-    document.getElementById('add_normal').addEventListener('change', changeImageNormal);
-    document.getElementById('add_bad').addEventListener("change", changeImageBad);
-    document.getElementById("add_worst").addEventListener("change", changeImageWorst);
-
-    $('#review_submit_form').on("submit", function (e) {
-        e.preventDefault(); //공부
-        calReviewAddHandler("A2114469");
-        // calReviewAddHandler(hpid);
+    var data = {};
+    formData.forEach(function(value, key){
+        data[key] = value;
     });
-
-
-
-    console.log("Hello");
-    test();
-
-}
-
-
-function calReviewAddHandler(hpid) {
-    console.log(hpid);
-
-    let formData = new FormData($('#review_submit_form')[0]);
-    formData.append("hpid", hpid);
-
 
     $.ajax({
         url: "/hospital/review/add.do",
         type: "post",
-        enctype: "multipart/form-data",
-        processData: false,
-        contentType: false,
         data: formData,
         success: function (jsonData) {
-            // $('#worst_progress').val(jsonData.avg1);
-            // $('#bad_progress').val(jsonData.avg2);
-            // $('#normal_progress').val(jsonData.avg3);
-            // $('#good_progress').val(jsonData.avg4);
-            // $('#best_progress').val(jsonData.avg5);
+            console.log(jsonData);
 
         },
         error: function (error) {
@@ -55,17 +24,7 @@ function calReviewAddHandler(hpid) {
 }
 
 
-
-function test() {
-    console.log("test");
-
-}
-
-
-
 // 여기서부터 이미지 변경되는 함수
-
-
 function resetImages() {
     document.getElementById('bestImage').src = defaultImages.best;
     document.getElementById('goodImage').src = defaultImages.good;
@@ -81,7 +40,6 @@ function changeImageBest() {
 
     radio.checked=true;
         image.src="/resource/assets/img/emoji/image_processing20200510-10310-2x47zj.png";
-
 }
 
 function changeImageGood() {

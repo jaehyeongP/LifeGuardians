@@ -6,6 +6,7 @@
 </head>
 
 <script src="/resource/assets/js/reservation/list.js"></script>
+<script src="/resource/assets/js/review/add.js"></script>
 
 <div id="topbar" class="d-flex align-items-center">
   <jsp:include page="/fragments/common/topbar.jsp"/>
@@ -31,5 +32,3 @@
 
 <!-- Template JS File -->
 <script src="/resource/assets/js/main.js"></script>
-
-<%--<script src="/resource/assets/js/anyDir/anyFile.js"></script>--%>
