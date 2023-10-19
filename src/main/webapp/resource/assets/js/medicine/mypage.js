@@ -34,7 +34,7 @@ function del(medicine_id){
         },
         success: function(){
             alert("삭제가 완료되었습니다.");
-            window.location.reload;
+            location.reload();
         },
         error: function(error){
             alert("삭제 실패" + JSON.stringify(error.responseJSON));
