@@ -1,6 +1,5 @@
 function edit(medicine_id){
-    let take_time = prompt("복용시간을 입력해주세요");
-    console.log(take_time);
+    let take_time = prompt("메모할 내용을 입력해주세요");
 
     $.ajax({
         type: "POST",
@@ -11,7 +10,7 @@ function edit(medicine_id){
             "take_time": take_time
         },
         success: function(jsonData) {
-            alert("복용시간이 변경되었습니다.");
+            alert("메모가 수정되었습니다.");
             window.location.href = "/medicine/mypage.do";
 
         },
