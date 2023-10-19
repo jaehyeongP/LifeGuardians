@@ -20,7 +20,7 @@
   <jsp:include page="/fragments/contents/reservation/list_content.jsp" />
 </main>
 
-<footer id="footer" class="fixed-bottom">
+<footer id="footer" class="">
   <jsp:include page="/fragments/common/footer.jsp"/>
 </footer>
 

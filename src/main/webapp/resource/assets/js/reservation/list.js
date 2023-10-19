@@ -18,7 +18,6 @@ window.onload = function () {
         let hpid = $('#review_hpid').val();
         calReviewAddHandler(hpid);
     });
-
 }
 
 function callAjax() {
@@ -36,7 +35,6 @@ function callAjax() {
         }
     });
 }
-
 
 function createTbody(jsonData) {
     let tbody = $('#hospital-select-tbody');
