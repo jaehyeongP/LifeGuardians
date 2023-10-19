@@ -20,7 +20,6 @@
 
     </c:if>
     <div class="row form-control">
-        <div class="col-3">${board.board_id}</div>
         <div class="col-9">${board.title}</div>
     </div>
     <div class="row form-control">
@@ -50,7 +49,7 @@
       <div class="row">
         <c:forEach var="r" items="${reply}">
           <div class="col-3">
-            병원이름
+            <input class="form-control" type="text" value="${r.dutyName}" readonly>
           </div>
           <div class="col-9">
             <input class="form-control" type="text" value="${r.reply_content}" readonly>
