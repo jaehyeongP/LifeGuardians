@@ -59,10 +59,9 @@ function createTableData(data) {
     let address = $('<input>').prop({id: hpid + "_address", type: 'hidden', value: data.address});
     let latitudeTd = $('<input>').prop({id: hpid + "_latitude", type: 'hidden', value: data.latitude});
     let longitudeTd = $('<input>').prop({id: hpid + "_longitude", type: 'hidden', value: data.longitude});
-    let detailBtn = $('<div>')
-        .prop({id:hpid+ "_detail_btn", class: "btn btn-outline-primary", innerHTML: "자세히 보기"})
-        .on('click', function () {showModal(this)});
+    let detailBtn = $('<td>').prop({id:hpid+ "_detail_btn", class: "", innerHTML: "자세히 보기"});
 
+    $('#page_title').text(data.dutyName);
     tr.append(dutyNameTd);
     tr.append(dutyTel1Td);
     tr.append(dutyDivNameTd);
@@ -81,6 +80,7 @@ function selectHP(element) {
     let longitude = $(element).find('#'+ hpid + '_longitude').val();
 
     $('#map_address').text(address);
+    showModal(element);
     getHospitalDetailByJson(hpid);
     getReviewAvg(hpid);
     navermap(latitude, longitude);

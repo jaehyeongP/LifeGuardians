@@ -15,8 +15,7 @@ public class ReserveEditHandler implements Handler {
             int reserve_id = Integer.parseInt(request.getParameter("reserve_id"));
 
             ReservationService reservationservice = new ReservationService();
-            String status = request.getParameter("status");
-            reservationservice.updateReservationStatus(status,reserve_id);
+            reservationservice.delReservation(reserve_id);
             page = "redirect:/";
         }
 

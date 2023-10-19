@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
 <head>
-
     <jsp:include page="/fragments/head.jsp"/>
     <link rel="stylesheet" href="/resource/assets/css/jquery.datetimepicker.min.css">
     <script src="/resource/assets/js/reservation/jquery.datetimepicker.full.min.js"></script>
@@ -15,11 +14,11 @@
 </head>
 
 
-<div id="topbar" class="d-flex align-items-center fixed-top">
+<div id="topbar" class="d-flex align-items-center">
     <jsp:include page="/fragments/common/topbar.jsp"/>
 </div>
 
-<header>
+<header id="header" class="fix">
     <jsp:include page="/fragments/common/header.jsp"/>
 </header>
 
@@ -35,7 +34,7 @@
 
 </main>
 
-<footer id="footer">
+<footer id="footer" class="fixed-bottom">
     <jsp:include page="/fragments/common/footer.jsp"/>
 </footer>
 

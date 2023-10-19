@@ -3,8 +3,10 @@
 
 <section>
     <div class="container" style="height:900px;">
-        <div class="row mb-5 text-center">
+        <div class="row col-6 mb-5 text-center">
+            <h3 id="page_title">병원 찾기</h3>
         </div>
+
         <div class="row">
             <div class="col-md-6">
                 <table class="table table-hover align-items-center">

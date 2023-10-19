@@ -111,7 +111,6 @@ function selectHP(element) {
     $('#review_hpid').val(hpid);
 
     setModal();
-
 }
 // 예약 상세페이지
 function showDetail(element) {
@@ -139,8 +138,6 @@ function showDetail(element) {
 }
 
 function showModal(element) {
-    let test = $(element);
-
     $("#reviewModal").modal('show');
 }
 
@@ -155,5 +152,4 @@ function setModal() {
 function editStatus() {
 
     //todo : $('#status').setAttribute 예약 취소 and deleteHandler
-
 }
