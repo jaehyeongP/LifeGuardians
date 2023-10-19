@@ -22,7 +22,7 @@
     <jsp:include page="/fragments/contents/hospital/list_content.jsp" />
 </main>
 
-<footer id="footer" class="fixed-bottom">
+<footer id="footer" class="s">
     <jsp:include page="/fragments/common/footer.jsp"/>
 </footer>
 

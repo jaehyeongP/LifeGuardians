@@ -27,7 +27,6 @@ public class AddReviewHandler implements Handler {
             System.out.println(member_id);
             ReviewService reviewservice = new ReviewService();
 
-
             reviewservice.addReview(Review.builder().rate(rate).hpid(hpid).member_id(member_id).build());
 
             Map<String, Object> map = new HashMap<>();

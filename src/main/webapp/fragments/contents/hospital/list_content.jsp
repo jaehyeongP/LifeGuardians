@@ -3,12 +3,9 @@
 
 <section>
     <div class="container" style="height:900px;">
-
         <div class="row mb-5 text-center">
         </div>
-
         <div class="row">
-
             <div class="col-md-6">
                 <table class="table table-hover align-items-center">
                     <tbody id="hospital-select-tbody">

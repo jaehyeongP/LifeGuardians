@@ -1,7 +1,4 @@
 function calReviewAddHandler() {
-    $('#A2113337_detail_btn').c
-    $("#reviewModal").modal('hide');
-
     var formData = new FormData($('#review_submit_form')[0]);
 
     var data = {};
@@ -12,17 +9,18 @@ function calReviewAddHandler() {
     $.ajax({
         url: "/hospital/review/add.do",
         type: "post",
-        data: formData,
+        data: data,
         success: function (jsonData) {
-            console.log(jsonData);
-
+            alert("리뷰가 작성되었습니다.")
+            let hpid = $('#review_hpid').val();
+            $("#reviewModal").modal('hide');
+            $('#' +hpid+ '_detail_btn').attr('class', 'text-success').text("방문 완료");
         },
         error: function (error) {
             console.error("Error occurred while fetching data", error);
         }
     });
 }
-
 
 // 여기서부터 이미지 변경되는 함수
 function resetImages() {
