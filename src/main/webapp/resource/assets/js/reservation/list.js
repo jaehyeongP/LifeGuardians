@@ -1,6 +1,24 @@
 window.onload = function () {
     createTableTitle();
     callAjax();
+
+    document.getElementById('bestImage').addEventListener('click', changeImageBest);
+    document.getElementById('goodImage').addEventListener('click', changeImageGood);
+    document.getElementById('normalImage').addEventListener('click', changeImageNormal);
+    document.getElementById("badImage").addEventListener("click", changeImageBad);
+    document.getElementById("worstImage").addEventListener("click",changeImageWorst);
+    document.getElementById('add_best').addEventListener('change', changeImageBest);
+    document.getElementById('add_good').addEventListener('change', changeImageGood);
+    document.getElementById('add_normal').addEventListener('change', changeImageNormal);
+    document.getElementById('add_bad').addEventListener("change", changeImageBad);
+    document.getElementById("add_worst").addEventListener("change", changeImageWorst);
+
+    $('#review_submit_form').on("submit", function (e) {
+        e.preventDefault(); //공부
+        let hpid = $('#review_hpid').val();
+        calReviewAddHandler(hpid);
+    });
+
 }
 
 function callAjax() {
@@ -57,7 +75,7 @@ function createTableData(data) {
     let dutyTel1Td = $('<td>').prop({id: hpid + "_dutyTel1", innerHTML: data.dutyTel1});
 
     let reserveIdTd = $('<input>').prop({id: hpid + "_reserveId", type: 'hidden', value: data.reserveId});
-    let reserveTimeTd = $('<input>').prop({id: hpid + "_reserveTime", type: 'hidden', value: data.reserveId});
+    let reserveTimeTd = $('<input>').prop({id: hpid + "_reserveTime", type: 'hidden', value: data.reserveTime});
     let address = $('<input>').prop({id: hpid + "_address", type: 'hidden', value: data.address});
     let detailBtn = $('<div>')
         .prop({id: hpid + "_detail_btn", innerHTML: data.status})
@@ -78,11 +96,24 @@ function createTableData(data) {
 // table에서 숨겨진 reserveid를 가져와야함
 function selectHP(element) {
     let hpid = $(element).attr('id');
+
     let address = $(element).find('#' + hpid + '_address').val();
     let reserveId = $(element).find('#' + hpid + '_reserveTime').val();
+    let dutyName = $(element).find('#' + hpid + '_dutyName').text();
     $('#map_address').text(address);
 
+    console.log("@@@")
+    console.log(dutyName);
+
     document.getElementById(hpid+'_reserveId').value = reserveId;
+    document.getElementById('review_dutyName').value = dutyName;
+    document.getElementById('review_hpid').value = hpid;
+
+    $('#review_dutyName').val(dutyName);
+    $('#review_hpid').val(hpid);
+
+    setModal();
+
 }
 // 예약 상세페이지
 function showDetail(element) {
@@ -107,4 +138,24 @@ function showDetail(element) {
             console.log("error");
         }
     })
+}
+
+function showModal(element) {
+    let test = $(element);
+
+    $("#reviewModal").modal('show');
+}
+
+function setModal() {
+    let dutyName = $('#review_dutyName').val();
+    let hpid = $('#review_hpid').val();
+
+    $('#review_hospital_name').text(dutyName + "은(는) 어떠셨나요 ? 이모티콘을 클릭해주세요");
+    $('#review_submit_hpid').val(hpid);
+}
+
+function editStatus() {
+
+    //todo : $('#status').setAttribute 예약 취소 and deleteHandler
+
 }

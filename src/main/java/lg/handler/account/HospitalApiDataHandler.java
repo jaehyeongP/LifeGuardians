@@ -33,7 +33,6 @@ public class HospitalApiDataHandler implements Handler {
             String mapy = request.getParameter("mapy");
             System.out.println(mapx+ " | " + mapy);
 
-            //TODO : distance 값을 조절하여 데이터를 받기
             List<HospitalSignupApiDto> hospitalList = new ArrayList<>();
             NodeList items = getXML(mapx, mapy);
 

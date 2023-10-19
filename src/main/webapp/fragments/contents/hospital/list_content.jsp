@@ -5,19 +5,6 @@
     <div class="container" style="height:900px;">
 
         <div class="row mb-5 text-center">
-            <form id="search_form" class="php-email-form px-5" method="get">
-
-                <div class="input-group">
-                    <select class="form-select" id="search_type" name="search_type">
-                        <option value="medicine_name">병원이름</option>
-                        <option value="symptom">진료과목</option>
-                        <option value="symptom">주소</option>
-                    </select>
-                    <input type="text" id="search_medicine" class="form-control" placeholder="병원 검색" style="width: 50%;">
-                    <input type="submit" id="search_btn" class="btn btn-primary" value="검색">
-                </div>
-
-            </form>
         </div>
 
         <div class="row">

@@ -4,23 +4,6 @@
 <section>
     <div class="container" style="height:900px;">
 
-        <%--    검색창--%>
-        <div class="row mb-5 text-center">
-            <form id="search_form" class="php-email-form px-5" method="get">
-
-                <div class="input-group">
-                    <select class="form-select" id="search_type" name="search_type">
-                        <option value="medicine_name">병원이름</option>
-                        <option value="symptom">진료과목</option>
-                        <option value="symptom">주소</option>
-                    </select>
-                    <input type="text" id="search_medicine" class="form-control" placeholder="병원 검색"
-                           style="width: 50%;">
-                    <input type="submit" id="search_btn" class="btn btn-primary" value="검색">
-                </div>
-
-            </form>
-        </div>
         <div class="row">
 
             <%--      예약 list main--%>
@@ -75,47 +58,35 @@
                         <td id="symptoms_title" class="text-center col-md-6" style="border: none">증상</td>
                         <td id="symptoms_content" class="text-center col-md-auto" style="border: none"></td>
                     </tr>
-                    <tr>
-                        <td id="btn1" class="text-center col-md-6" style="border: none">
+                    <tr id="status_btn_tr">
+                        <input id="review_dutyName" type="hidden" value="">
+                        <input id="review_hpid" type="hidden" value="">
+
+                        <td id="reservation_cancel_btn" class="text-center col-md-6" style="border: none">
                             <div class="btn btn-outline-danger" onclick="editStatus()">예약 취소</div>
                         </td>
-                        <td id="btn2" class="text-center col-md-auto" style="border: none">
-                            <div class="btn btn-outline-success">방문 완료</div>
+                        <td id="reservation_review_btn" class="text-center col-md-auto" style="border: none">
+                            <div class="btn btn-outline-success" onclick="showModal(this)">방문 완료</div>
                         </td>
                     </tr>
                     </tbody>
 
                 </table>
 
+                <div id="reviewModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reservationModalLabel">리뷰 작성</h5>
+                            </div>
 
-<%--                <div id="reviewModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">--%>
-<%--                    <div class="modal-dialog" role="document">--%>
-<%--                        <div class="modal-content">--%>
-<%--                            <div class="modal-header">--%>
-<%--                                <h5 class="modal-title" id="reservationModalLabel">병원 상세페이지</h5>--%>
-<%--                                &lt;%&ndash;                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>&ndash;%&gt;--%>
-<%--                            </div>--%>
-<%--                            <div id="detail-modal-body">--%>
-<%--                                <jsp:include page="/fragments/contents/hospital/review_add_content.jsp"></jsp:include>--%>
-<%--&lt;%&ndash;&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <div class="spinner spinner-border text-primary" id="spinner" role="status">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                    <span class="visually-hidden">Loading...</span>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                </div>&ndash;%&gt;--%>
-<%--                            </div>--%>
-<%--&lt;%&ndash;&ndash;%&gt;--%>
-<%--                            <div class="modal-footer">--%>
-<%--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>--%>
-<%--                                <button type="button" class="btn btn-primary" onclick="moveToPage(this)">예약하기</button>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-
-
-
+                            <div id="detail-modal-body">
+                                <jsp:include page="/fragments/contents/hospital/review_add_content.jsp"></jsp:include>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <%--  <jsp:include page="detail_content.jsp"></jsp:include>--%>
 </section>
