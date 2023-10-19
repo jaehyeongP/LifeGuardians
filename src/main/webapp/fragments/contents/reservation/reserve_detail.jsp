@@ -18,14 +18,14 @@
     <h1 class="text-center">병원 방문 예약</h1>
 
     <!-- 예약 양식 폼 제출-->
-    <form action="/reservation/reserve.do" id="reserve" method="POST" novalidate>
+    <form action="/reservation/reserve.do" id="reserve" method="POST">
         <input id="hpid_for_reserve" value="" name="hpid" type="hidden">
         <div class="form-group">
-            <label for="name">환자 이름 </label>
+            <label class="" for="name">환자 이름 </label>
             <input type="text" class="form-control" value="" id="name" readonly>
         </div>
 
-        <div class="form-group">
+        <div  class="form-group">
             <label for="phone">연락 받을 휴대전화 *</label>
             <input type="tel" class="form-control" id="phone" placeholder="전화번호를 입력해주세요">
         </div>
@@ -45,9 +45,6 @@
             <label for="symptoms">증상</label>
             <textarea class="form-control" id="symptoms" name="symptoms" rows="3" placeholder="증상을 입력해주세요"></textarea>
         </div>
-
         <button type="submit" class="btn btn-primary">예약 신청</button>
-
     </form>
 </div>
-
