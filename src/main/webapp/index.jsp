@@ -164,11 +164,11 @@
                             <div class="testimonial-item">
                                 <img src="/resource/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
                                      alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>팀원, 역할</h4>
+                                <h3>오세훈</h3>
+                                <h4>팀원, 역할: 병원 상세, 예약, gitHub 관리</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    반갑습니다.
+                                    불태웠다.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
