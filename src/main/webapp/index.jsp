@@ -168,7 +168,7 @@
                                 <h4>팀원 역할: 약 검색, 복용약 관리, 게시판, 댓글</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    해냈다.
+                                    해냈다
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
