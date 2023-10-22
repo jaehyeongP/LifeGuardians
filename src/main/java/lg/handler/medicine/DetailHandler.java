@@ -73,7 +73,9 @@ public class DetailHandler implements Handler {
 
         } else {
 
-            String path = "/Users/chaewon/Project/LifeGuardians/medicineImg";
+            String path = "/Users/Administrator/IdeaProjects/LifeGuardians/medicineImg/";
+//            "C:\\Users\\Administrator\\IdeaProjects\\LifeGuardians"
+//            "/Users/KOSTA/IdeaProjects/TomcatPractice/src/main/webapp/downs/"
             int size = 100 * 1024;
             MultipartRequest multi = null;
             try {
