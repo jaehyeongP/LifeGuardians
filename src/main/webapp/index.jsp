@@ -75,11 +75,11 @@
                     <li data-aos="fade-up" data-aos-delay="100">
                         <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
                                                                        data-bs-target="#faq-list-2" class="collapsed">
-                        자주 묻는 질문2 <i class="bx bx-chevron-down icon-show"></i><i
+                        약은 꼭 식후에 먹어야되나요? <i class="bx bx-chevron-down icon-show"></i><i
                             class="bx bx-chevron-up icon-close"></i></a>
                         <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                답변2
+                                네.
                             </p>
                         </div>
                     </li>
@@ -87,21 +87,21 @@
                     <li data-aos="fade-up" data-aos-delay="200">
                         <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
                                                                        data-bs-target="#faq-list-3" class="collapsed">
-                        자주 묻는 질문3 <i class="bx bx-chevron-down icon-show"></i><i
+                        속이 안좋을땐 어떤 병원을 가야하나요 <i class="bx bx-chevron-down icon-show"></i><i
                             class="bx bx-chevron-up icon-close"></i></a>
                         <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                답변3
+                                내과 가시면 됩니다.
                             </p>
                         </div>
                     </li>
 
-                    <li data-aos="fade-up" data-aos-delay="300">
+                    <li data-aos="fade-up" data-aos-delay="200">
                         <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-4" class="collapsed">자주
-                        묻는 질문4<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                                                                       data-bs-target="#faq-list-3" class="collapsed">
+                        자주 묻는 질문4 <i class="bx bx-chevron-down icon-show"></i><i
+                            class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                             <p>
                                 답변4
                             </p>
@@ -134,11 +134,11 @@
                             <div class="testimonial-item">
                                 <img src="/resource/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
                                      alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>팀장 &amp; 역할</h4>
+                                <h3>박재형</h3>
+                                <h4>팀장: 발표, 리뷰작성, 리뷰의 시각화, 통합 및 프론트관리</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    각자 프로젝트 후기를 남길까요?
+                                    안녕하세요 프론트 마스타 입니다.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -149,11 +149,11 @@
                             <div class="testimonial-item">
                                 <img src="/resource/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
                                      alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>팀원 역할</h4>
+                                <h3>오세훈</h3>
+                                <h4>팀원 역할: 병원 상세, 예약, gitHub 관리</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    안녕하세요
+                                    불태웠다.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -164,11 +164,11 @@
                             <div class="testimonial-item">
                                 <img src="/resource/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
                                      alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>팀원, 역할</h4>
+                                <h3>김채원</h3>
+                                <h4>팀원 역할: 약 검색, 복용약 관리, 게시판, 댓글</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    반갑습니다.
+                                    해냈다.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -179,11 +179,11 @@
                             <div class="testimonial-item">
                                 <img src="/resource/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
                                      alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>팀원, 역할1</h4>
+                                <h3>구민규</h3>
+                                <h4>로그인, 회원가입, 메인 페이지, 병원검색, 통합 및 형상관리</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    잘부탁드립니다.
+                                    마무리가 잘 되어서 기분이 좋고 즐겁게 작업했던 것 같습니다
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>

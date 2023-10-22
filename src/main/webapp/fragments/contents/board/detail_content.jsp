@@ -34,14 +34,19 @@
   <div class="container">
     <input id="board_id" type="hidden" value="${board.board_id}">
     <%-- 댓글 작성 --%>
-    <div class="row">
-      <div class="col-9">
-        <input id="reply_content" type="text" class="form-control" placeholder="댓글 작성">
+    <c:if test="${sessionScope.hp_id != null}">
+      <div class="row">
+        <div class="col-9">
+          <input id="reply_content" type="text" class="form-control" placeholder="댓글 작성">
+        </div>
+        <div class="col-3">
+          <input id="btn_reply" class="btn btn-outline-primary" type="button" value="댓글쓰기">
+        </div>
       </div>
-      <div class="col-3">
-        <input id="btn_reply" class="btn btn-outline-primary" type="button" value="댓글쓰기">
-      </div>
-    </div>
+    </c:if>
+    <c:if test="${sessionScope.hp_id == null}">
+      
+    </c:if>
     
     <%-- 달린 댓글 출력 부분 --%>
     <div id="replyList"></div>
