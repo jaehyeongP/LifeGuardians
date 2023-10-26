@@ -1,6 +1,5 @@
 package lg.handler.board.dto;
 
-import lg.reply.Reply;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

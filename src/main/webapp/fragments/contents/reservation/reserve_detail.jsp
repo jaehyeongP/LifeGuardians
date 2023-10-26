@@ -18,7 +18,7 @@
     <h1 class="text-center">병원 방문 예약</h1>
 
     <!-- 예약 양식 폼 제출-->
-    <form action="/reservation/reserve.do" id="reserve" method="POST">
+    <form action="/hospital/reservation/reserve.do" id="reserve" method="POST">
         <input id="hpid_for_reserve" value="" name="hpid" type="hidden">
         <div class="form-group">
             <label class="" for="name">환자 이름 </label>

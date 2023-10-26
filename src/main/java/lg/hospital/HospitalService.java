@@ -13,7 +13,7 @@ public class HospitalService {
         sqlSessionFactory = Factory.getSqlSessionFactory();
     }
 
-    public void addHospitalV2(HospitalV2 hospital) {
+    public void addHospitalV2(HospitalFullData hospital) {
         SqlSession session = sqlSessionFactory.openSession();
         HospitalDao hospitalDao = session.getMapper(HospitalDao.class);
         hospitalDao.insertV2(hospital);
@@ -38,10 +38,10 @@ public class HospitalService {
         return list;
     }
 
-    public List<HospitalV2> getAllV2() {
+    public List<HospitalFullData> getAllV2() {
         SqlSession session = sqlSessionFactory.openSession();
         HospitalDao hospitalDao = session.getMapper(HospitalDao.class);
-        List<HospitalV2> list = hospitalDao.selectAllV2();
+        List<HospitalFullData> list = hospitalDao.selectAllV2();
         return list;
     }
 

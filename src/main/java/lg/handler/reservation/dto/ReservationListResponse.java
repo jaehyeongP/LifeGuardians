@@ -5,14 +5,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Builder
 public class ReservationListResponse {
     private String hpid;
-//    private String username;
     private String dutyName;
     private String dutyDivName;
     private String dutyTel1;
@@ -23,5 +20,4 @@ public class ReservationListResponse {
     private String status;
     private String reserveId;
 
-//    List<HospitalListResponse> hpInfo = new ArrayList<>();
 }

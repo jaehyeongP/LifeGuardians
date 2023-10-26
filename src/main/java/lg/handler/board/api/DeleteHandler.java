@@ -1,4 +1,4 @@
-package lg.handler.board;
+package lg.handler.board.api;
 
 import lg.board.BoardService;
 import lg.handler.Handler;

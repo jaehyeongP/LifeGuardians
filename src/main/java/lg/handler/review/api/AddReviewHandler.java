@@ -1,7 +1,5 @@
-package lg.handler.hospital.api;
+package lg.handler.review.api;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import lg.handler.Handler;
 import lg.review.Review;
 import lg.review.ReviewService;
@@ -9,7 +7,6 @@ import lg.util.JsonMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +20,6 @@ public class AddReviewHandler implements Handler {
             int rate = Integer.parseInt(request.getParameter("rate"));
             int member_id = Integer.parseInt(request.getSession().getAttribute("member_id").toString());
 
-            System.out.println(hpid + " | " + rate);
-            System.out.println(member_id);
             ReviewService reviewservice = new ReviewService();
 
             reviewservice.addReview(Review.builder().rate(rate).hpid(hpid).member_id(member_id).build());
@@ -39,8 +34,6 @@ public class AddReviewHandler implements Handler {
                 e.printStackTrace();
             }
         }
-
-
         return null;
     }
 

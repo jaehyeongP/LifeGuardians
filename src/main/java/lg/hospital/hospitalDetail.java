@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class hospitalDetailVO {
+public class hospitalDetail {
     private String hpid;
     private String dutyName;
     private String dutyAddr;

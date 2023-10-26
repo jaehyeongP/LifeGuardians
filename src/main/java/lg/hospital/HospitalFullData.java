@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Builder
-public class HospitalV2 {
+public class HospitalFullData {
     private String hpid;
     private String dutyAddr;
     private String dutyDiv;

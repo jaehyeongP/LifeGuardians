@@ -1,7 +1,5 @@
 package lg.handler.hospital.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
 import lg.handler.hospital.dto.HospitalListRequest;
 import lg.handler.hospital.dto.HospitalListResponse;
@@ -9,6 +7,7 @@ import lg.hospital.Hospital;
 import lg.hospital.HospitalService;
 import lg.member.Member;
 import lg.member.MemberService;
+import lg.util.JsonMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -72,19 +71,10 @@ public class HospitalLocationApiHandler implements Handler {
                     .filter(hospital -> hospital != null)                       //공공데이터 상 주변의 병원과 병원 회원의 hpid를 비교하여 리스트 생성
                     .collect(Collectors.toList());
 
-            System.out.println("###");
-            for (Hospital hospital : findHospitalList) {
-                System.out.println(hospital.getHpid() + " |  " + hospital.getDutyName());
-            }
 
             List<HospitalListResponse> result = findHospitalList.stream().map(e -> e.toDto()).collect(Collectors.toList());
 
-            System.out.println("$$$");
-            for (HospitalListResponse hospitalListResponse : result) {
-                System.out.println(hospitalListResponse.getHpid() + " |  " + hospitalListResponse.getDutyName());
-
-            }
-            String jsonResponse = objectToJson(result);                         //필요한 데이터를 ResponseDto에 담아 리스트로 전달
+            String jsonResponse = JsonMapper.objectToJson(result);                         //필요한 데이터를 ResponseDto에 담아 리스트로 전달
 
             try {
                 response.getWriter().write(jsonResponse);
@@ -113,34 +103,12 @@ public class HospitalLocationApiHandler implements Handler {
         //데이터를 거리로 정렬
         List<HospitalListRequest> sortedList = result.stream()
                 .sorted(Comparator.comparingDouble(HospitalListRequest::getDistance)).collect(Collectors.toList());
-        System.out.println("!!!");
-        for (HospitalListRequest hospitalListRequest : sortedList) {
-            System.out.println(hospitalListRequest.getHpid() + " |  " + hospitalListRequest.getDutyName());
-        }
 
         //거리가 1.0 이하인 데이터만 추출
         List<HospitalListRequest> filteredList = sortedList.stream()
                 .filter(h -> h.getDistance() <= 300.0).collect(Collectors.toList());
 
-        System.out.println("@@@");
-        System.out.println("!!!");
-        for (HospitalListRequest hospitalListRequest : filteredList) {
-            System.out.println(hospitalListRequest.getHpid() + " |  " + hospitalListRequest.getDutyName());
-        }
-
         return filteredList;
-    }
-
-    private String objectToJson(Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private NodeList getXML(String mapx, String mapy) {
@@ -212,9 +180,7 @@ public class HospitalLocationApiHandler implements Handler {
 
             JSONParser parser = new JSONParser();
             JSONObject jsonObject = (JSONObject) parser.parse(response.toString());
-            System.out.println(jsonObject);
             JSONArray jsonArray = (JSONArray) jsonObject.get("addresses");
-            System.out.println(jsonArray);
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject item = (JSONObject) jsonArray.get(i);

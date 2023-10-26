@@ -1,8 +1,7 @@
 function getReviewAvg(hpid) {
-    console.log(hpid);
 
     $.ajax({
-        url: "/review/rate.do",
+        url: "/api/hospital/review/rate.do",
         dataType: "json",
         data: {"hpid": hpid},
         success: function (jsonData) {

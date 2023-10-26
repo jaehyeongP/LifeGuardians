@@ -1,18 +1,15 @@
-package lg.handler.hospital;
+package lg.handler.review.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
 import lg.review.Review;
 import lg.review.ReviewService;
+import lg.util.JsonMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class RateHandler implements Handler {
     @Override
@@ -33,35 +30,24 @@ public class RateHandler implements Handler {
                 sumMap.put(rate, sumMap.getOrDefault(rate, 0) + rate);
             }
 
-            System.out.println(sumMap);
-
             for (int rate : sumMap.keySet()) {
                 double ratio = (double) sumMap.get(rate) / totalSum * 100;
                 avgMap.put("avg"+rate, ratio);
-                System.out.println("Rate " + rate + " Ratio: " + ratio + "%");
             }
 
-            System.out.println(avgMap);
-
-            String json = objectToJson(avgMap);  //받아온 list 객체를 JSON 형식의 문자열로 변환해서  String json에 담음.
-
+            String json = JsonMapper.objectToJson(avgMap);
 
             try {
                 response.getWriter().write(json);
 
-
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-        } else {
-
         }
         return null;
     }
 
     private void caclAvg(String hpid) {
-
         ReviewService reviewService = new ReviewService();
         ArrayList<Review> reviewList = reviewService.getAll();
 
@@ -71,24 +57,8 @@ public class RateHandler implements Handler {
             if (rate == 1) {
 
             }
-
-        }
-
-
-    }
-
-    private String objectToJson(Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
-
 }
 
 

@@ -65,11 +65,6 @@ public class ReviewService {
 //        Map<String, Object> result2 = dao.selectRateCountsAndAverage(hpid, 3);
         List<Map<String, Object>> result2 = dao.selectRateCountsAndAverage(hpid, 3);
 
-       System.out.println("!!!");
-       System.out.println(result);
-       System.out.println(result2);
-
-
       session.close();
        return result;
     }

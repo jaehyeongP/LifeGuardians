@@ -1,9 +1,8 @@
-package lg.handler.account;
+package lg.handler.account.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
 import lg.handler.account.dto.HospitalSignupApiDto;
+import lg.util.JsonMapper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -31,7 +30,6 @@ public class HospitalApiDataHandler implements Handler {
         if (request.getMethod().equals("GET")) {
             String mapx = request.getParameter("mapx");
             String mapy = request.getParameter("mapy");
-            System.out.println(mapx+ " | " + mapy);
 
             List<HospitalSignupApiDto> hospitalList = new ArrayList<>();
             NodeList items = getXML(mapx, mapy);
@@ -62,7 +60,7 @@ public class HospitalApiDataHandler implements Handler {
                     .filter(h -> h.getDistance() == 0.0).collect(Collectors.toList());
 
             //Jackson을 사용하여 List를 Json 문자열로 변환
-            String jsonResponse = objectToJson(filteredList);
+            String jsonResponse = JsonMapper.objectToJson(filteredList);
 
             try {
                 response.getWriter().write(jsonResponse);
@@ -72,18 +70,6 @@ public class HospitalApiDataHandler implements Handler {
         }
 
         return null;
-    }
-
-    private String objectToJson(Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     //API를 호출하여 NodeList를 호출 재사용 어려움

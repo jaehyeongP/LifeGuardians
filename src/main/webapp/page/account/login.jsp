@@ -32,24 +32,18 @@
                             <hr>
 
                             <div class="d-flex justify-content-around">
-<%--                                <button class="btn btn-lg btn-secondary btn-block" onclick="location='/signup'">회원가입</button>--%>
-<%--                                <button class="btn btn-lg btn-block" type="submit" style="background: #1977cc; color: white;">로그인</button>--%>
-
                                 <button class="btn appointment-btn appointment-btn-lg btn-lg btn-secondary btn-block" onclick="location='/signup'" style="background: #6c757d">회원가입</button>
                                 <input class="btn appointment-btn btn-lg btn-block" type="submit" value="로그인" style="background: #1977cc; color: white;">
                             </div>
                             <hr class="my-4">
-                            <div class="text-center">
-                                계정을 잊어버리셨나요?<br/>
+                            <div class="text-center">계정을 잊어버리셨나요?<br/>
                                 <a href="#">아이디 찾기</a> or <a href="#">비밀번호 찾기</a>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
     </div>
-
 </main><!-- End #main -->
 
 <footer id="footer" class="fixed-bottom">
@@ -65,7 +59,5 @@
 
 <!-- Template Main JS File -->
 <script src="/resource/assets/js/main.js"></script>
-
 </body>
-
 </html>

@@ -1,9 +1,8 @@
-package lg.handler.hospital;
+package lg.handler.hospital.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
-import lg.hospital.hospitalDetailVO;
+import lg.hospital.hospitalDetail;
+import lg.util.JsonMapper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -24,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HospitalDetailApiController implements Handler {
+public class HospitalDetailApiHandler implements Handler {
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
         if(request.getMethod().equals("GET")) {
@@ -71,10 +69,10 @@ public class HospitalDetailApiController implements Handler {
             endDutyTimes.add(dutyTime6c);
 
             // vo에 담기
-            hospitalDetailVO vo = hospitalDetailVO.builder().hpid(hpid1).dutyName(dutyName).dutyAddr(dutyAddr).dutyTel1(dutyTel1).dgidIdName(dgidIdName).startTime(startDutyTimes).endTime(endDutyTimes).build();
+            hospitalDetail vo = hospitalDetail.builder().hpid(hpid1).dutyName(dutyName).dutyAddr(dutyAddr).dutyTel1(dutyTel1).dgidIdName(dgidIdName).startTime(startDutyTimes).endTime(endDutyTimes).build();
 
             // 담은 vo를 json으로 변환
-            String jsonResponse = objectToJson(vo);
+            String jsonResponse = JsonMapper.objectToJson(vo);
 
             try {
                 // response 객체에 지정
@@ -87,18 +85,6 @@ public class HospitalDetailApiController implements Handler {
         } else {
 
             return null;
-        }
-    }
-
-    private String objectToJson(Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 

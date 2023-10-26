@@ -15,15 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class DetailHandler implements Handler {
     @Override
@@ -74,8 +69,6 @@ public class DetailHandler implements Handler {
         } else {
 
             String path = "/Users/Administrator/IdeaProjects/LifeGuardians/medicineImg/";
-//            "C:\\Users\\Administrator\\IdeaProjects\\LifeGuardians"
-//            "/Users/KOSTA/IdeaProjects/TomcatPractice/src/main/webapp/downs/"
             int size = 100 * 1024;
             MultipartRequest multi = null;
             try {

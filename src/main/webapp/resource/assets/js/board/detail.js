@@ -8,10 +8,9 @@ btn_delete.addEventListener("click", () => {
 
     else {
         const board_id = document.getElementById("board_id").value;
-        console.log(board_id);
         $.ajax({
             type: "POST",
-            url: "/board/delete.do",
+            url: "/api/board/delete.do",
             dataType: 'json',
             data: {
                 "board_id": board_id

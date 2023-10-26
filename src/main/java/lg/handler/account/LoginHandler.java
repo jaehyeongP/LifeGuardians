@@ -1,6 +1,5 @@
 package lg.handler.account;
 
-import com.oreilly.servlet.MultipartRequest;
 import lg.handler.Handler;
 import lg.hospital.Hospital;
 import lg.hospital.HospitalService;
@@ -21,10 +20,8 @@ public class LoginHandler implements Handler {
             page = "/page/account/login.jsp";
         } else {
             String msg = "로그인 실패";
-
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-
             MemberService memberService = new MemberService();
             HospitalService hospitalService = new HospitalService();
 
@@ -32,12 +29,7 @@ public class LoginHandler implements Handler {
             Hospital findHospital = Optional.ofNullable(hospitalService.getHospitalByUsername(username)).orElse(null);
             HttpSession session = request.getSession();
 
-            System.out.println(findMember);
-            System.out.println(findHospital);
-
-
             if (findMember != null) {
-
                 if(findMember.getPassword().equals(password)) {
                     session.setAttribute("member_id", findMember.getMember_id());
                     session.setAttribute("username", findMember.getUsername());
@@ -45,18 +37,14 @@ public class LoginHandler implements Handler {
                 } else {
                     System.out.println("Error Member Login");
                 }
-
             } else if (findHospital != null) {
-
                 if(findHospital.getPassword().equals(password)) {
                     session.setAttribute("hp_id", findHospital.getHpid());
                     session.setAttribute("username", findHospital.getDutyName());
                     System.out.println("Success Hosptial Login!");
                 } else {
                     System.out.println("Error Hospital Login");
-
                 }
-
             } else {
                 System.out.println("NotFoundUsers");
             }
@@ -66,5 +54,4 @@ public class LoginHandler implements Handler {
         }
         return page;
     }
-
 }
