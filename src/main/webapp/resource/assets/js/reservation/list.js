@@ -23,11 +23,10 @@ window.onload = function () {
 function callAjax() {
     $.ajax({
         type: "GET",
-        url: "/api/reservation/list.do",
+        url: "/api/hospital/reservation/list.do",
         dataType: "json",
 
         success: function (jsonData) {
-            console.log(jsonData);
             $('#hospital-select-tbody').children().remove();
             createTbody(jsonData);
         },
@@ -100,9 +99,6 @@ function selectHP(element) {
     let dutyName = $(element).find('#' + hpid + '_dutyName').text();
     $('#map_address').text(address);
 
-    console.log("@@@")
-    console.log(dutyName);
-
     document.getElementById(hpid+'_reserveId').value = reserveId;
     document.getElementById('review_dutyName').value = dutyName;
     document.getElementById('review_hpid').value = hpid;
@@ -119,7 +115,7 @@ function showDetail(element) {
 
     $.ajax({
         type: "GET",
-        url: "/api/reservation/detail.do",
+        url: "/api/hospital/reservation/detail.do",
         dataType: 'json',
         data: {"reserveId" : reserveId},
 
@@ -132,7 +128,6 @@ function showDetail(element) {
             $('#symptoms_content').html(jsonData.symptoms);
         },
         error: function (error) {
-            console.log("error");
         }
     })
 }

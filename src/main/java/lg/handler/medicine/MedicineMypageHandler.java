@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static javax.servlet.http.HttpServletResponse.SC_OK;
-
 public class MedicineMypageHandler implements Handler {
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
@@ -30,7 +28,6 @@ public class MedicineMypageHandler implements Handler {
             int member_id = (int) req.getSession().getAttribute("member_id");
             int  medicine_id = Integer.parseInt(req.getParameter("medicine_id"));
             String take_time = req.getParameter("take_time");
-            System.out.println(take_time);
 
             MedicineService medicineService = new MedicineService();
             medicineService.editMedicine(Medicine.builder().medicine_id(medicine_id).member_id(member_id).take_time(take_time).build());

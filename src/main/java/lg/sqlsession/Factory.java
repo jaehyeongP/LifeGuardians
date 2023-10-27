@@ -1,10 +1,10 @@
 package lg.sqlsession;
 
 import lg.board.BoardDao;
-import lg.reply.ReplyDao;
 import lg.hospital.HospitalDao;
 import lg.medicine.MedicineDao;
 import lg.member.MemberDao;
+import lg.reply.ReplyDao;
 import lg.reservation.ReservationDao;
 import lg.review.ReviewDao;
 import org.apache.ibatis.io.Resources;

@@ -1,4 +1,4 @@
-package lg.handler.account;
+package lg.handler.account.api;
 
 import lg.handler.Handler;
 import lg.member.Member;
@@ -20,7 +20,6 @@ public class UserIdCheckHandler implements Handler {
         JSONObject obj = new JSONObject();
         obj.put("flag",flag);
         String txt = obj.toJSONString();
-        System.out.println(username);
         return "responsebody/"+txt;
     }
 }

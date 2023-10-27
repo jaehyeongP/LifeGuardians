@@ -7,7 +7,7 @@ function calReviewAddHandler() {
     });
 
     $.ajax({
-        url: "/hospital/review/add.do",
+        url: "/api/hospital/review/add.do",
         type: "post",
         data: data,
         success: function (jsonData) {

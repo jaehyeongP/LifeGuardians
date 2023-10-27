@@ -1,9 +1,8 @@
-package lg.handler.medicine;
+package lg.handler.medicine.api;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
 import lg.medicine.Medicine;
+import lg.util.JsonMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,7 +10,6 @@ import org.json.simple.parser.ParseException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.beans.Encoder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -21,10 +19,9 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class MedicineApiDataController implements Handler {
+public class MedicineApiDataHandler implements Handler {
     @Override
     public String process(HttpServletRequest request, HttpServletResponse response) {
         String service_key = "%2FSUYfwzsdwBIFFtVsIomdyk8cXWUZ7CYhDti4oMnbPwiD2bOnlot%2Fysx8v2SmilVyyUY4BNmSyR3r0d9viGo5w%3D%3D";
@@ -80,7 +77,7 @@ public class MedicineApiDataController implements Handler {
                 map.put("list", list);
                 map.put("totalCount", totalCount);
 
-                String jsonMap = objectToJson(map);
+                String jsonMap = JsonMapper.objectToJson(map);
 
                 try{
                     response.getWriter().write(jsonMap);
@@ -96,18 +93,5 @@ public class MedicineApiDataController implements Handler {
             }
         }
         return null;
-    }
-
-    private String objectToJson(Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

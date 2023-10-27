@@ -11,7 +11,6 @@ function callAjax() {
         dataType: "json",
 
         success: function (jsonData) {
-            console.log(jsonData);
             $('#hospital-select-tbody').children().remove();
             createTbody(jsonData);
         },
@@ -84,11 +83,6 @@ function selectHP(element) {
     getHospitalDetailByJson(hpid);
     getReviewAvg(hpid);
     navermap(latitude, longitude);
-
-    console.log(hpid);
-    console.log(address);
-    console.log(latitude);
-    console.log(longitude);
 }
 
 function showModal(e) {

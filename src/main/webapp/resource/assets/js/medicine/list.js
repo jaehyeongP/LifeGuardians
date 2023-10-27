@@ -10,7 +10,7 @@ window.onload = function() {
     callPagination();
     $.ajax({
         type: "GET",
-        url: "/api/DrbEasyDrugInfoService.do",
+        url: "/api/medicine/DrbEasyDrugInfoService.do",
         contentType: "application/json",
         dataType: "json",
 
@@ -56,7 +56,6 @@ window.onload = function() {
             medicineList.innerHTML = tag;
         },
         error: function(error){
-            console.log(error);
         }
     });
 }
@@ -66,7 +65,7 @@ btn_search.addEventListener("click", () => {
     search_type = document.getElementById("search_type").value;
     $.ajax({
         type: "GET",
-        url: "/api/DrbEasyDrugInfoService.do",
+        url: "/api/medicine/DrbEasyDrugInfoService.do",
         dataType: "json",
         data: {
             "search_keyword": search_keyword,
@@ -148,7 +147,7 @@ function callPagination() {
 
             $.ajax({
               type: "GET",
-              url: "/api/DrbEasyDrugInfoService.do",
+              url: "/api/medicine/DrbEasyDrugInfoService.do",
               dataType: "json",
               data: {
                   "search_keyword": search_keyword,

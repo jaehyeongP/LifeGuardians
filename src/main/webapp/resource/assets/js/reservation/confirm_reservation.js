@@ -7,9 +7,6 @@ window.onload = function (){
         const rs = JSON.parse(responseStr);
         let hpidid = rs.hpid;
         let hpdutyName = rs.dutyName;
-        // console.log(hp);
-        // console.log(hpidid);
-        // console.log(hp.dutyName);
         $('#dutyName').attr('value', hpdutyName);
 
         let rsName = rs.name;
@@ -18,12 +15,7 @@ window.onload = function (){
         $('#hpid_for_reserve').attr('value', hpidid);
         // localStorage에 저장된 객체 삭제
         localStorage.removeItem("responseJSON");
-        console.log(rs);
-        console.log(responseStr);
     } catch (e) {
-        console.log(e);
-
-
     }
 
 }

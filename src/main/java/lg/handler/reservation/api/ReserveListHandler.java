@@ -1,12 +1,9 @@
 package lg.handler.reservation.api;
 
 import lg.handler.Handler;
-import lg.handler.hospital.dto.HospitalListResponse;
 import lg.handler.reservation.dto.ReservationListResponse;
 import lg.hospital.Hospital;
 import lg.hospital.HospitalService;
-import lg.member.Member;
-import lg.member.MemberService;
 import lg.reservation.Reservation;
 import lg.reservation.ReservationService;
 import lg.util.JsonMapper;

@@ -9,7 +9,7 @@ import java.util.List;
 public interface HospitalDao {
 
     @Insert("insert into HospitalV2 values(#{hpid}, #{dutyAddr}, #{dutyDiv}, #{dutyDivNam}, #{dutyName}, #{dutyTel1}, #{dutyTel3}, #{wgs84Lon}, #{wgs84Lat}, #{dutyInf})")
-    void insertV2(HospitalV2 hospital);
+    void insertV2(HospitalFullData hospital);
     
     @Insert("insert into Hospital values(#{hpid}, #{username}, #{password}, #{email}, #{address}, #{extraAddress}, #{dutyName}, #{dutyDivName}, #{dutyTel1}, #{latitude}, #{longitude}, sysdate, sysdate)")
     void insert(Hospital hospital);
@@ -25,7 +25,7 @@ public interface HospitalDao {
     void delete(@Param("hpid") String hpid);
 
     @Select("select * from HospitalV2")
-    List<HospitalV2> selectAllV2();
+    List<HospitalFullData> selectAllV2();
 
     @Select("select * from hospital where username = #{username}")
     Hospital selectByUsername(@Param("username") String username);

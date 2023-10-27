@@ -1,7 +1,5 @@
 package lg.handler.reservation;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lg.handler.Handler;
 import lg.handler.reservation.dto.ReservationDetailResponse;
 import lg.hospital.Hospital;
@@ -10,12 +8,11 @@ import lg.member.Member;
 import lg.member.MemberService;
 import lg.reservation.Reservation;
 import lg.reservation.ReservationService;
-
+import lg.util.JsonMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 
 public class ReserveHandler implements Handler {
 
@@ -36,8 +33,8 @@ public class ReserveHandler implements Handler {
             ReservationDetailResponse responseDto = ReservationDetailResponse.builder().hpid(hospital.getHpid()).dutyName(hospital.getDutyName())
                     .member_id(String.valueOf(member.getMember_id())).username(member.getUsername()).name(member.getName()).build();
 
+            String result = JsonMapper.objectToJson(responseDto);
 
-            String result = objectToJson(responseDto);
             try {
                 response.getWriter().write(result);
             } catch (IOException e) {
@@ -67,15 +64,4 @@ public class ReserveHandler implements Handler {
 
     }
 
-    private String objectToJson(Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

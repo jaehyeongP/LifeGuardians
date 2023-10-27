@@ -1,4 +1,4 @@
-package lg.handler.reply;
+package lg.handler.reply.api;
 
 import lg.handler.Handler;
 import lg.handler.board.dto.ReplyAddResponse;

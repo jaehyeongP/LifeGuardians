@@ -1,7 +1,7 @@
 package lg.handler;
 
+import lg.hospital.HospitalFullData;
 import lg.hospital.HospitalService;
-import lg.hospital.HospitalV2;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -58,7 +58,7 @@ public class InitHandler extends HttpServlet {
                 String wg84Lat = Optional.ofNullable(item.getElementsByTagName("wg84Lat").item(0)).map(Node::getTextContent).orElse("");
                 String dutyInf = Optional.ofNullable(item.getElementsByTagName("dutyInf").item(0)).map(Node::getTextContent).orElse("");
 
-                HospitalV2 hospital = HospitalV2.builder().hpid(hpid).dutyAddr(dutyAddr).dutyDiv(dutyDiv).dutyDivNam(dutyDivNam).dutyName(dutyName)
+                HospitalFullData hospital = HospitalFullData.builder().hpid(hpid).dutyAddr(dutyAddr).dutyDiv(dutyDiv).dutyDivNam(dutyDivNam).dutyName(dutyName)
                         .dutyTel1(dutyTel1).dutyTel3(dutyTel3).wgs84Lon(wgs84Lon).wgs84Lat(wg84Lat).dutyInf(dutyInf).build();
 
                 HospitalService hospitalService = new HospitalService();

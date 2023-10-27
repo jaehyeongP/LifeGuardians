@@ -87,7 +87,7 @@ function openKakaoModal() {
 function getHospitalByJson(mapx, mapy) {
     $.ajax({
         type:"GET",
-        url:"/api/getHsptlMdcncLcinfoInqire.do",
+        url:"/api/hospital/getHsptlMdcncLcinfoInqire.do",
         dataType: 'json',
         data: {"mapx" : mapx, "mapy" : mapy},
 

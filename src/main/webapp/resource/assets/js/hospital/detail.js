@@ -3,7 +3,7 @@ function getHospitalDetailByJson(hpid){
 
     $.ajax({
         type:"GET",
-        url:"/api/getHsptlBassInfoInqire.do",
+        url:"/api/hospital/getHsptlBassInfoInqire.do",
         // contentType: "application/json",
         dataType : 'json',
         data: {"hpid" :hpid},
@@ -30,7 +30,6 @@ function getHospitalDetailByJson(hpid){
             $("#detail-modal-body").html(txt);
         },
         error:function (error){
-            console.log("error");
 
         }, complete: function (){
             $("#reservationModal").modal('show');

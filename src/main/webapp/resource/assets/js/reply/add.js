@@ -9,7 +9,7 @@ btn_reply.addEventListener("click", () => {
 
     $.ajax({
         type: "POST",
-        url: "/reply/add.do",
+        url: "/api/reply/add.do",
         dataType: 'json',
         data: {
             "board_id": board_id,

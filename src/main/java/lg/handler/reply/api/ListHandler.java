@@ -1,10 +1,7 @@
-package lg.handler.reply;
+package lg.handler.reply.api;
 
-import lg.board.Board;
-import lg.board.BoardService;
 import lg.handler.Handler;
 import lg.handler.board.dto.ReplyListResponse;
-import lg.hospital.HospitalService;
 import lg.reply.Reply;
 import lg.reply.ReplyService;
 import lg.util.JsonMapper;
@@ -14,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ListHander implements Handler {
+public class ListHandler implements Handler {
     @Override
     public String process(HttpServletRequest req, HttpServletResponse res) {
 

@@ -1,8 +1,7 @@
 package lg.medicine;
 
-import lombok.*;
-
-import java.sql.Date;
+import lombok.Builder;
+import lombok.Getter;
 
 @Getter
 @Builder

@@ -3,17 +3,16 @@ function moveToPage(e){
 
     $.ajax({
         type:"GET",
-        url:"/reservation/reserve.do",
+        url:"/hospital/reservation/reserve.do",
         dataType: "JSON",
         data: {"hpid": hpid},
 
         success: function (jsonData){
             localStorage.setItem("responseJSON", JSON.stringify(jsonData));
-            window.location.href = "/reservation/reservepage.do";
+            window.location.href = "/hospital/reservation/reservepage.do";
 
         },
         error:function (error){
-            console.log("error");
         }
     })
 
