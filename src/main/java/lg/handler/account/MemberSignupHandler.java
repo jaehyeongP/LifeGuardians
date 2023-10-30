@@ -3,6 +3,7 @@ package lg.handler.account;
 import lg.handler.Handler;
 import lg.member.Member;
 import lg.member.MemberService;
+import lg.util.PasswordEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,12 +20,12 @@ public class MemberSignupHandler implements Handler {
             MemberService memberService = new MemberService();
 
             String username = request.getParameter("username");
-            String password = request.getParameter("password");
+            String password = PasswordEncoder.encodePassword(request.getParameter("password"));
             String email = request.getParameter("email");
 
             String name = request.getParameter("name");
-            int firstRegNum = Integer.parseInt(request.getParameter("firstRegNum"));
-            int lastRegNum = Integer.parseInt(request.getParameter("lastRegNum"));
+            String firstRegNum = request.getParameter("firstRegNum");
+            String lastRegNum = PasswordEncoder.encodePassword(request.getParameter("lastRegNum"));
             String gender = request.getParameter("gender");
             String tel = request.getParameter("tel");
             String address = request.getParameter("address");
@@ -38,7 +39,6 @@ public class MemberSignupHandler implements Handler {
 
             page = "redirect:/login.do";
         }
-
         return page;
     }
 }
