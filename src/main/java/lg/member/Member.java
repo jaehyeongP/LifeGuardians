@@ -17,8 +17,8 @@ public class Member {
     private String email;
 
     private String name;
-    private int firstRegNum;
-    private int lastRegNum;
+    private String firstRegNum;
+    private String lastRegNum;
     private String gender;
     private String tel;
 

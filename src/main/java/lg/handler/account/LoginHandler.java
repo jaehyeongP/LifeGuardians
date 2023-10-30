@@ -5,6 +5,7 @@ import lg.hospital.Hospital;
 import lg.hospital.HospitalService;
 import lg.member.Member;
 import lg.member.MemberService;
+import lg.util.PasswordEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,15 +31,16 @@ public class LoginHandler implements Handler {
             HttpSession session = request.getSession();
 
             if (findMember != null) {
-                if(findMember.getPassword().equals(password)) {
+                if(PasswordEncoder.verifyPassword(password, findMember.getPassword())) {
                     session.setAttribute("member_id", findMember.getMember_id());
                     session.setAttribute("username", findMember.getUsername());
                     System.out.println("Success Member Login!");
                 } else {
                     System.out.println("Error Member Login");
                 }
+
             } else if (findHospital != null) {
-                if(findHospital.getPassword().equals(password)) {
+                if(PasswordEncoder.verifyPassword(password, findHospital.getPassword())) {
                     session.setAttribute("hp_id", findHospital.getHpid());
                     session.setAttribute("username", findHospital.getDutyName());
                     System.out.println("Success Hosptial Login!");
