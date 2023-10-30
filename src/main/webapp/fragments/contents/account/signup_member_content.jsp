@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
@@ -78,10 +79,15 @@
                             </div>
                             <hr>
 
+                            <div class="text-danger">
+                                <c:if test="${formError != null }">
+                                    <div class="mb-2">${formError }</div>
+                                </c:if>
+                            </div>
+
                             <div class="form-control btn btn-outline-primary">
                                 <button type="submit" style="opacity: 90%; font-size: 16px; margin-top: -5px;" class="btn btn-red btn-md btn-block">회원가입</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
